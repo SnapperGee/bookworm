@@ -23,7 +23,6 @@
   "homepage": "https://github.com/SnapperGee/the-weather#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.15",
-    "bootstrap": "^5.3.1",
     "css-loader": "^6.8.1",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
