@@ -2,7 +2,7 @@ import { resolve as resolvePath, join as joinPath } from "node:path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import tailwindcss from "tailwindcss";
-import autoprefixer from "autoprefixer"
+import autoprefixer from "autoprefixer";
 
 export default function(env, argv) {
     return {
