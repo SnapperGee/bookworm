@@ -15,7 +15,12 @@
   "keywords": [
     "weather"
   ],
-  "contributors": ["Angelica Strong", "Camila Carrasco", "Colin Douglas", "Graham Auger"],
+  "contributors": [
+    "Angelica Strong",
+    "Camila Carrasco",
+    "Colin Douglas",
+    "Graham Auger"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SnapperGee/the-weather/issues"
