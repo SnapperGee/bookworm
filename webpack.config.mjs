@@ -1,7 +1,8 @@
 import { resolve as resolvePath, join as joinPath } from "node:path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import autoprefixer from "autoprefixer"
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
 
 export default function(env, argv) {
     return {
@@ -21,7 +22,7 @@ export default function(env, argv) {
                     exclude: /node_modules/,
                 },
                 {
-                    test: /\.s[a|c]ss$/,
+                    test: /\.s[ac]ss$/,
                     use: [
                         env.production ? MiniCssExtractPlugin.loader : 'style-loader',
                         'css-loader',
@@ -30,7 +31,9 @@ export default function(env, argv) {
                             options: {
                                 postcssOptions: {
                                     plugins: [
-                                        autoprefixer
+                                        autoprefixer,
+                                        tailwindcss
+
                                     ]
                                 }
                             }
