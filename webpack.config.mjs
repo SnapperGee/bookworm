@@ -64,6 +64,7 @@ export default function(env, argv) {
             client: {
                 overlay: false
             },
+            open: true,
             compress: true,
             port: 9908,
             hot: true
