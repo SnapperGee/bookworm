@@ -4,19 +4,29 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 
+const chunkNames = Object.freeze(["genres", "index", "readinglist", "recommendations"]);
+
+const htmlWebpackPluginConfigs = Object.freeze(chunkNames.map(chunkName => new HtmlWebpackPlugin({
+    filename: `${chunkName}.html`,
+    template: resolvePath(".", "src", "main", "html", `${chunkName}.html`),
+    scriptLoading: "module",
+    chunks: [chunkName],
+    excludeChunks: chunkNames.filter(otherChunkName => chunkName !== otherChunkName)
+})));
+
 export default function(env, argv) {
     return {
-        entry: [resolvePath('.', 'src', 'main', 'ts', 'index.ts'), resolvePath('.', 'src', 'main', 'scss', 'index.scss')],
-        mode: env.production ? 'production' : 'development',
-        devtool: env.production ? 'source-map' : 'eval-source-map',
+        entry: Object.fromEntries(chunkNames.map(chunkName => [ chunkName, [resolvePath(".", "src", "main", "ts", `${chunkName}.ts`), resolvePath(".", "src", "main", "scss", `${chunkName}.scss`)] ])),
+        mode: env.production ? "production" : "development",
+        devtool: env.production ? "source-map" : "eval-source-map",
         module: {
             rules: [
                 {
                     test: /\.ts?$/,
                     use: [
                         {
-                            loader: 'ts-loader',
-                            options: { configFile: resolvePath('.', 'config', env.production ? 'tsconfig.dist.json' : 'tsconfig.dev.json') }
+                            loader: "ts-loader",
+                            options: { configFile: resolvePath(".", "config", env.production ? "tsconfig.dist.json" : "tsconfig.dev.json") }
                         }
                     ],
                     exclude: /node_modules/,
@@ -24,56 +34,53 @@ export default function(env, argv) {
                 {
                     test: /\.s[ac]ss$/,
                     use: [
-                        env.production ? MiniCssExtractPlugin.loader : 'style-loader',
-                        'css-loader',
+                        env.production ? MiniCssExtractPlugin.loader : "style-loader",
+                        "css-loader",
                         {
-                            loader: 'postcss-loader',
+                            loader: "postcss-loader",
                             options: {
                                 postcssOptions: {
                                     plugins: [
                                         autoprefixer,
                                         tailwindcss
-
                                     ]
                                 }
                             }
                         },
-                        'sass-loader'
+                        "sass-loader"
                     ]
                 },
                 {
                     test: /\.html$/,
-                    loader: 'html-loader'
+                    loader: "html-loader"
                 },
                 {
                     test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                    type: 'asset/resource'
+                    type: "asset/resource"
                 }
             ],
         },
         devServer: {
             static: {
-                directory: resolvePath('.', 'build')
+                directory: resolvePath(".", "build")
             },
             client: {
                 overlay: false
             },
+            open: true,
             compress: true,
             port: 9908,
             hot: true
         },
-        resolve: { extensions: ['.tsx', '.ts', '.js'], },
+        resolve: { extensions: [".ts", ".js"], },
         output: {
-            filename: env.production ? 'index.bundle.min.mjs' : 'index.bundle.mjs',
-            path: resolvePath('.', 'build'),
+            filename: env.production ? "[name].bundle.min.mjs" : "[name].bundle.mjs",
+            path: resolvePath(".", "build"),
             clean: true
         },
         plugins: [
             new MiniCssExtractPlugin({ filename: "index.min.css" }),
-            new HtmlWebpackPlugin({
-                template: resolvePath('.', 'src', 'main', 'html', 'index.html'),
-                scriptLoading: 'module'
-            })
+            ...htmlWebpackPluginConfigs
         ]
     }
 };
