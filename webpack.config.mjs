@@ -4,15 +4,19 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 
+const chunkNames = Object.freeze(["genres", "index", "readinglist", "recommendations"]);
+
+const htmlWebpackPluginConfigs = Object.freeze(chunkNames.map(chunkName => new HtmlWebpackPlugin({
+    filename: `${chunkName}.html`,
+    template: resolvePath(".", "src", "main", "html", `${chunkName}.html`),
+    scriptLoading: "module",
+    chunks: [chunkName],
+    excludeChunks: chunkNames.filter(chunk => chunkName !== chunk)
+})));
+
 export default function(env, argv) {
     return {
-        entry:
-        {
-            genres: [resolvePath(".", "src", "main", "ts", "genres.ts"), resolvePath(".", "src", "main", "scss", "genres.scss")],
-            index: [resolvePath(".", "src", "main", "ts", "index.ts"), resolvePath(".", "src", "main", "scss", "index.scss")],
-            readinglist: [resolvePath(".", "src", "main", "ts", "readinglist.ts"), resolvePath(".", "src", "main", "scss", "readinglist.scss")],
-            recommendations: [resolvePath(".", "src", "main", "ts", "recommendations.ts"), resolvePath(".", "src", "main", "scss", "recommendations.scss")]
-        },
+        entry: Object.fromEntries(chunkNames.map(chunkName => [ chunkName, [resolvePath(".", "src", "main", "ts", `${chunkName}.ts`), resolvePath(".", "src", "main", "scss", `${chunkName}.scss`)] ])),
         mode: env.production ? "production" : "development",
         devtool: env.production ? "source-map" : "eval-source-map",
         module: {
@@ -77,34 +81,7 @@ export default function(env, argv) {
         },
         plugins: [
             new MiniCssExtractPlugin({ filename: "index.min.css" }),
-            new HtmlWebpackPlugin({
-                filename: "genres.html",
-                template: resolvePath(".", "src", "main", "html", "genres.html"),
-                scriptLoading: "module",
-                chunks: ["genres"],
-                excludeChunks: ["index", "readinglist", "recommendations"]
-            }),
-            new HtmlWebpackPlugin({
-                filename: "index.html",
-                template: resolvePath(".", "src", "main", "html", "index.html"),
-                scriptLoading: "module",
-                chunks: ["index"],
-                excludeChunks: ["genres", "readinglist", "recommendations"]
-            }),
-            new HtmlWebpackPlugin({
-                filename: "readinglist.html",
-                template: resolvePath(".", "src", "main", "html", "readinglist.html"),
-                scriptLoading: "module",
-                chunks: ["readinglist"],
-                excludeChunks: ["index", "genres", "recommendations"]
-            }),
-            new HtmlWebpackPlugin({
-                filename: "recommendations.html",
-                template: resolvePath(".", "src", "main", "html", "recommendations.html"),
-                scriptLoading: "module",
-                chunks: ["recommendations"],
-                excludeChunks: ["index", "genres", "readinglist"]
-            })
+            ...htmlWebpackPluginConfigs
         ]
     }
 };
