@@ -4,30 +4,28 @@
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; // This will push the logo-container and nav to opposite ends
     align-items: center;
     padding: 20px 40px;
     background-color: #1E3431;
-    h1 {
-        color: #E8CDB5;
-        margin: 0;
+
+    .logo-container {
         display: flex;
         align-items: center;
 
-        .logo-container {
+        img {
+            position: relative; 
+            width: 5%; 
+            height: 5%;
             margin-right: 10px; // Add some spacing between the logo and the text
+        }
 
-            img {
-                content: ""; 
-                justify-content: flex-start;
-                position: relative; // Changed from absolute to relative
-                width: 20px; 
-                height: 20px;
-            }
+        h1 {
+            color: #E8CDB5;
+            margin: 0;
         }
     }
 }
-
 
 nav {
     ul {
