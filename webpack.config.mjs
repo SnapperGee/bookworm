@@ -11,7 +11,7 @@ const htmlWebpackPluginConfigs = Object.freeze(chunkNames.map(chunkName => new H
     template: resolvePath(".", "src", "main", "html", `${chunkName}.html`),
     scriptLoading: "module",
     chunks: [chunkName],
-    excludeChunks: chunkNames.filter(chunk => chunkName !== chunk)
+    excludeChunks: chunkNames.filter(otherChunkName => chunkName !== otherChunkName)
 })));
 
 export default function(env, argv) {
