@@ -43,7 +43,6 @@ export default function(env, argv) {
                                     plugins: [
                                         autoprefixer,
                                         tailwindcss
-
                                     ]
                                 }
                             }
