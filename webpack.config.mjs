@@ -79,7 +79,7 @@ export default function(env, argv) {
             clean: true
         },
         plugins: [
-            new MiniCssExtractPlugin({ filename: "index.min.css" }),
+            new MiniCssExtractPlugin({ filename: "[name].min.css" }),
             ...htmlWebpackPluginConfigs
         ]
     }
