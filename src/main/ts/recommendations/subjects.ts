@@ -4,19 +4,19 @@
 
 /** The different book subjects organized into their various topics. */
 export const subjects: Readonly<{
-    arts: readonly string[],
     animals: readonly string[],
-    fiction: readonly string[],
-    scienceAndMathematics: readonly string[],
+    arts: readonly string[],
+    biography: readonly string[],
+    booksByLanguage: readonly string[]
     businessAndFinances: readonly string[],
     childrens: readonly string[],
-    history: readonly string[],
+    fiction: readonly string[],
     healthAndWellness: readonly string[],
-    biography: readonly string[],
-    socialSciences: readonly string[],
+    history: readonly string[],
     places: readonly string[],
+    scienceAndMathematics: readonly string[],
+    socialSciences: readonly string[],
     textbooks: readonly string[],
-    booksByLanguage: readonly string[]
 }> = {
     arts: Object.freeze(["architecture", "art instruction", "art history", "dance",
         "design", "fashion", "film", "graphic design", "music", "music theory",
