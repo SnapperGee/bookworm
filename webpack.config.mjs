@@ -9,6 +9,7 @@ const chunkNames = Object.freeze(["index", "preferences", "readinglist", "recomm
 const htmlWebpackPluginConfigs = Object.freeze(chunkNames.map(chunkName => new HtmlWebpackPlugin({
     filename: `${chunkName}.html`,
     template: resolvePath(".", "src", "main", "html", `${chunkName}.html`),
+    favicon: resolvePath(".", "src", "main", "resource", "img", "bookworm-transparent.png"),
     scriptLoading: "module",
     chunks: [chunkName],
     excludeChunks: chunkNames.filter(otherChunkName => chunkName !== otherChunkName)
