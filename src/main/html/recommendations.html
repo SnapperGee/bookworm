@@ -7,9 +7,58 @@
     <title>Recommendations</title>
 </head>
 <body>
-    <a href="./index.html">Home</a>
-    <a href="./genres.html">Genres</a>
-    <a href="./readinglist.html">Readinglist</a>
-    <img src="../resource/img/exclamation-triangle.svg" alt="exclamation triangle" width="300" />
+        <!--Nav-->
+        <nav id="header" class="w-full z-30 top-0 py-1 lg:py-6 bg-green">
+            <div
+            class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6">
+            <div class="pl-4 flex items-center">
+                <a
+                class="text-pink no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+                href="#">
+                <img
+                    class="h-10 w-10 inline-block"
+                    src="..\resource\img\bookworm-transparent.png"
+                    viewBox="0 0 20 20">
+                </img>
+                Book</a>
+                <a
+                class="text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+                href="#">
+                Worm</a>
+            </div>
+            <div class="block lg:hidden pr-4"></div>
+    
+            <div
+                class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 text-black p-4 lg:p-0 z-20"
+                id="nav-content">
+                <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                <li class="mr-3">
+                    <a
+                    class="inline-block text-white"
+                    href=".\index.html"
+                    >Home</a>
+                </li>
+                <li class="mr-3">
+                    <a
+                    class="inline-block text-white"
+                    href=".\genres.html"
+                    >Preferences</a>
+                </li>
+                <li class="mr-3">
+                    <a
+                    class="inline-block text-white font-bold"
+                    href=".\recommendations.html"
+                    >Your Recommendations</a>
+                </li>
+                <li class="mr-3">
+                    <a
+                        class="inline-block py-2 px-4 text-white"
+                        href=".\readinglist.html"
+                        >Reading Lists</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav>
 </body>
 </html>
