@@ -17,33 +17,33 @@ export const subjects: Readonly<{
     scienceAndMathematics: readonly string[],
     socialSciences: readonly string[],
     textbooks: readonly string[],
-}> = {
+}> = Object.freeze({
+    animals: Object.freeze(["bears", "cats", "kittens", "dogs", "puppies"]),
+
     arts: Object.freeze(["architecture", "art instruction", "art history", "dance",
         "design", "fashion", "film", "graphic design", "music", "music theory",
         "painting", "photography"]),
 
-    animals: Object.freeze(["bears", "cats", "kittens", "dogs", "puppies"]),
-
-    fiction: Object.freeze(["fantasy", "historical fiction", "horror", "humor",
-        "literature", "magic", "mystery and detective stories", "plays", "poetry",
-        "romance", "science fiction", "short stories", "thriller", "young adult"]),
-
-    scienceAndMathematics: Object.freeze(["biology", "chemistry", "mathematics", "physics", "programming"]),
+    biography: Object.freeze(["autobiographies", "history", "politics and government",
+        "world war ii", "women", "kings and rulers", "composers", "artists"]),
 
     businessAndFinances: Object.freeze(["management", "entrepreneurship", "business economics", "business success", "finance"]),
 
     childrens: Object.freeze(["kids books", "stories in rhyme", "baby books", "bedtime books", "picture books"]),
 
-    history: Object.freeze(["ancient civilization", "archaeology", "anthropology", "world war ii", "social life and customs"]),
+    fiction: Object.freeze(["fantasy", "historical fiction", "horror", "humor",
+        "literature", "magic", "mystery and detective stories", "plays", "poetry",
+        "romance", "science fiction", "short stories", "thriller", "young adult"]),
 
     healthAndWellness: Object.freeze(["cooking", "cookbooks", "mental health", "exercise", "nutrition", "self-help"]),
 
-    biography: Object.freeze(["autobiographies", "history", "politics and government",
-        "world war ii", "women", "kings and rulers", "composers", "artists"]),
-
-    socialSciences: Object.freeze(["anthropology", "religion", "political science", "psychology"]),
+    history: Object.freeze(["ancient civilization", "archaeology", "anthropology", "world war ii", "social life and customs"]),
 
     places: Object.freeze(["brazil", "india", "indonesia", "united states"]),
+
+    scienceAndMathematics: Object.freeze(["biology", "chemistry", "mathematics", "physics", "programming"]),
+
+    socialSciences: Object.freeze(["anthropology", "religion", "political science", "psychology"]),
 
     textbooks: Object.freeze(["history", "mathematics", "geography", "psychology",
         "algebra", "education", "business & economics", "science", "chemistry",
@@ -102,7 +102,7 @@ export const subjects: Readonly<{
         "hiri motu", "inupiaq", "lamba (zambia and congo)", "luba-lulua", "tiv", "wolayta", "upper sorbian", "kimbundu",
         "sidamo", "sogdian", "sukuma", "terena", "wakashan languages", "ekajuk", "gbaya", "gullah", "nauruan", "osage",
         "tuvaluan", "yapese"])
-}
+});
 
 /** Array of the topics derrived from the {@link subjects} keys, */
 const topics: ReadonlyArray<keyof typeof subjects> = Object.freeze(Object.keys(subjects)) as ReadonlyArray<keyof typeof subjects>;
