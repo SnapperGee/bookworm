@@ -5,182 +5,174 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preferences</title>
-    <link rel="stylesheet" href="../scss/genres.scss">
 </head>
 <body>
-        <!--Nav-->
-        <nav id="header" class="w-full z-30 top-0 py-1 lg:py-6 bg-green">
-            <div
-            class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6">
-            <div class="pl-4 flex items-center">
-                <a
-                class="text-pink no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-                href="#">
-                <img
-                    class="h-10 w-10 inline-block"
-                    src="..\resource\img\bookworm-transparent.png"
-                    viewBox="0 0 20 20">
-                </img>
-                Book</a>
-                <a
-                class="text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-                href="#">
-                Worm</a>
-            </div>
-            <div class="block lg:hidden pr-4"></div>
-    
-            <div
-                class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 text-black p-4 lg:p-0 z-20"
-                id="nav-content">
-                <ul class="list-reset lg:flex justify-end flex-1 items-center">
-                <li class="mr-3">
-                    <a
-                    class="inline-block text-white"
-                    href=".\index.html"
-                    >Home</a>
-                </li>
-                <li class="mr-3">
-                    <a
-                    class="inline-block py-2 px-4 text-white font-bold"
-                    href=".\genres.html"
-                    >Preferences</a>
-                </li>
-                <li class="mr-3">
-                    <a
-                    class="inline-block text-white"
-                    href=".\recommendations.html"
-                    >Your Recommendations</a>
-                </li>
-                <li class="mr-3">
-                    <a
-                        class="inline-block text-white"
-                        href=".\readinglist.html"
-                        >Reading Lists</a>
-                </li>
-            </ul>
-            </div>
+    <!-- <nav id="header" class="w-full z-30 top-0 py-1 lg:py-6 bg-green">
+        <div
+        class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 p-2 lg:py-6">
+        <div class="pl-4 flex items-center">
+            <img
+            class="h-10 w-10 inline-block"
+            src="..\resource\img\bookworm-transparent.png">
+            </img>
+            <a
+            class="text-pink font-bold text-2xl lg:text-4xl">
+            Book</a>
+            <a
+            class="text-white font-bold text-2xl lg:text-4xl">
+            Worm</a>
         </div>
-        </nav>
-        <!--Genre Selection-->
-        <div 
-        class = genreContainer>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Non-Fiction</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Fiction</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Historical</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Fantasy</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Sci-Fi</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Dystopian</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Action & Adventure</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Mystery</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Horror</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Thriller</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Romance</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                LGBTQ+</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                </button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Young Adult</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Childrens'</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Memoir</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Autobiography</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Biography</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Food & Drink</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Art & Photography</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Self Help</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                History</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Travel</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                True Crime</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Guide/How To</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Religion</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Spirituality</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Humanities & Social Sciences</button>
-            <button
-                id="genreSelect"
-                class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
-                Parenting & Families</button>
+
+        <div
+            class="w-full lg:flex lg:w-auto mt-2 lg:mt-0 p-4 lg:p-0"
+            id="nav-content">
+            <ul class="list-reset lg:flex justify-end flex-1 items-center">
+            <li class="mr-3">
+                <a
+                class="inline-block text-white"
+                href=".\index.html"
+                >Home</a>
+            </li>
+            <li class="mr-3">
+                <a
+                class="inline-block text-white font-bold"
+                href=".\preferences.html"
+                >Preferences</a>
+            </li>
+            <li class="mr-3">
+                <a
+                class="inline-block text-white"
+                href=".\recommendations.html"
+                >Your Recommendations</a>
+            </li>
+            <li class="mr-3">
+                <a
+                    class="inline-block py-2 px-4 text-white"
+                    href=".\readinglist.html"
+                    >Reading Lists</a>
+            </li>
+        </ul>
         </div>
-    <script src="../ts/genres.ts"></script>
+    </div>
+    </nav>
+    <div 
+    class = genreContainer>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Non-Fiction</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Fiction</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Historical</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Fantasy</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Sci-Fi</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Dystopian</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Action & Adventure</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Mystery</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Horror</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Thriller</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Romance</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            LGBTQ+</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            </button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Young Adult</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Childrens'</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Memoir</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Autobiography</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Biography</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Food & Drink</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Art & Photography</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Self Help</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            History</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Travel</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            True Crime</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Guide/How To</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Religion</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Spirituality</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Humanities & Social Sciences</button>
+        <button
+            id="genreSelect"
+            class="mx-auto lg:mx-0 hover:underline active:bg-orange text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 ">
+            Parenting & Families</button>
+    </div> -->
 </body>
 </html>
