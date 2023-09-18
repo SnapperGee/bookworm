@@ -2,50 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-header {
-    display: flex;
-    justify-content: space-between; // This will push the logo-container and nav to opposite ends
-    align-items: center;
-    padding: 20px 40px;
-    background-color: #1E3431;
 
-    .logo-container {
-        display: flex;
-        align-items: center;
 
-        img {
-            position: relative; 
-            width: 5%; 
-            height: 5%;
-            margin-right: 10px; // Add some spacing between the logo and the text
-        }
-
-        h1 {
-            color: #E8CDB5;
-            margin: 0;
-        }
-    }
-}
-
-nav {
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-
-        li {
-            margin-left: 20px;
-
-            a {
-                text-decoration: none;
-                color: #fff;
-                transition: color 0.3s;
-
-                &:hover {
-                    color: green;
-                }
-            }
-        }
-    }
-}
