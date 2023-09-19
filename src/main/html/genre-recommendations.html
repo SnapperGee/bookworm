@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recommendations</title>
+    <title>Genre Recommendations</title>
 </head>
 <body>
  <div class="container mt-3 mx-auto">
@@ -93,19 +93,19 @@
                     <hr>
 
                     <label for="bears">Bears:</label>
-                    <input type="checkbox" id="bears" name="bears" data-query="bears" />
+                    <input type="checkbox" id="bears" name="bears" data-query="subject=bears" />
 
                     <label for="cats">Cats:</label>
-                    <input type="checkbox" id="cats" name="cats" data-query="cats" />
+                    <input type="checkbox" id="cats" name="cats" data-query="subject=cats" />
 
                     <label for="kittens">Kittens:</label>
-                    <input type="checkbox" id="kittens" name="kittens" data-query="kittens" />
+                    <input type="checkbox" id="kittens" name="kittens" data-query="subject=kittens" />
 
                     <label for="dogs">Dogs:</label>
-                    <input type="checkbox" id="dogs" name="dogs" data-query="dogs" />
+                    <input type="checkbox" id="dogs" name="dogs" data-query="subject=dogs" />
 
                     <label for="puppies">Puppies:</label>
-                    <input type="checkbox" id="puppies" name="puppies" data-query="puppies" />
+                    <input type="checkbox" id="puppies" name="puppies" data-query="subject=puppies" />
 
                 </fieldset>
 
@@ -115,13 +115,13 @@
                     <hr>
 
                     <label for="architecture">Architecture:</label>
-                    <input type="checkbox" id="architecture" name="architecture" data-query="search.json?subject=architecture" />
+                    <input type="checkbox" id="architecture" name="architecture" data-query="subject=architecture" />
 
                     <label for="artInstruction">Art instruction:</label>
-                    <input type="checkbox" id="artInstruction" name="artInstruction" data-query="search.json?subject=art+instruction" />
+                    <input type="checkbox" id="artInstruction" name="artInstruction" data-query="subject=art+instruction" />
 
                     <label for="artHistory">Art history:</label>
-                    <input type="checkbox" id="artHistory" name="artHistory" data-query="search.json?subject=history_of_art__art__design_styles" />
+                    <input type="checkbox" id="artHistory" name="artHistory" data-query="subject=history_of_art__art__design_styles" />
 
                     <label for="dance">Dance:</label>
                     <input type="checkbox" id="dance" name="dance" data-query="subject=dance" />
@@ -182,11 +182,6 @@
                     <input type="checkbox" id="artists" name="artists" data-query="q=subject%3ABiography&subject_facet=Biography&subject_facet=Artists" />
 
                 </fieldset>
-
-                <!-- <fieldset>
-                    <legend>Choose the <span class="italic underline">book language</span> subject(s) you're interested in:</legend>
-                    <hr>
-                </fieldset> -->
 
                 <fieldset class="border border-solid border-gray-300 p-3">
 
