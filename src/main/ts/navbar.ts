@@ -43,7 +43,7 @@ export const createNavbar = (): HTMLDivElement => {
     const preferences: HTMLAnchorElement = document.createElement('a');
         preferences.classList.add('inline-block', 'text-white', 'p-4');
         preferences.href = './preferences.html';
-        preferences.textContent = 'Bestseller Recommendations';
+        preferences.textContent = 'Bestsellers';
 
     const recommendations: HTMLAnchorElement = document.createElement('a');
         recommendations.classList.add('inline-block', 'text-white', 'p-4');
