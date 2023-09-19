@@ -85,7 +85,7 @@
                 <button class="block mx-auto px-6 py-3.5 text-base mt-3 font-bold text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" id="searchButton">Search</button>
             </aside>
 
-            <main class="col-span-10 grid grid-rows-4 grid-cols-3 gap-x-2" id="subjects">
+            <main class="col-span-10 grid grid-rows-4 grid-cols-3 gap-x-2" id="topicFieldsets">
 
                 <fieldset class="border border-solid border-gray-300 p-3" name="animalsTopic">
 
@@ -218,6 +218,44 @@
                         <li>
                             <label for="artists">Artists:</label>
                             <input class="subjectCheckbox" type="checkbox" id="artists" name="artists" data-query="q=subject%3ABiography&subject_facet=Biography&subject_facet=Artists" />
+                        </li>
+                    </ul>
+
+                </fieldset>
+
+                <fieldset class="border border-solid border-gray-300 p-3" name="businessAndFinancesTopic">
+
+                    <legend>Choose the <span class="italic underline">business & finances</span> subject(s) you're interested in:</legend>
+                    <hr>
+
+                    <ul>
+                        <li>
+                            <label for="management">Management:</label>
+                            <input class="subjectCheckbox" type="checkbox" id="management" name="management" data-query="subject=management" />
+                        </li>
+
+
+                        <li>
+                            <label for="entrepreneurship">Entrepreneurship:</label>
+                            <input class="subjectCheckbox" type="checkbox" id="entrepreneurship" name="entrepreneurship" data-query="subject=entrepreneurship" />
+                        </li>
+
+
+                        <li>
+                            <label for="businessEconomics">Business economics:</label>
+                            <input class="subjectCheckbox" type="checkbox" id="businessEconomics" name="businessEconomics" data-query="subject=business__economics" />
+                        </li>
+
+
+                        <li>
+                            <label for="businessSuccess">Business success:</label>
+                            <input class="subjectCheckbox" type="checkbox" id="businessSuccess" name="businessSuccess" data-query="subject=success_in_business" />
+                        </li>
+
+
+                        <li>
+                            <label for="finance">Finance:</label>
+                            <input class="subjectCheckbox" type="checkbox" id="finance" name="finance" data-query="subject=finance" />
                         </li>
                     </ul>
 
