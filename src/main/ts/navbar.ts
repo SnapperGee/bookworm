@@ -42,12 +42,12 @@ export const createNavbar = (): HTMLDivElement => {
 
     const preferences: HTMLAnchorElement = document.createElement('a');
         preferences.classList.add('inline-block', 'text-white', 'p-4');
-        preferences.href = './preferences.html';
+        preferences.href = './bestsellers.html';
         preferences.textContent = 'Bestsellers';
 
     const recommendations: HTMLAnchorElement = document.createElement('a');
         recommendations.classList.add('inline-block', 'text-white', 'p-4');
-        recommendations.href = './recommendations.html';
+        recommendations.href = './genre-recommendations.html';
         recommendations.textContent = 'Genre Recommendations';
 
     const readingList: HTMLAnchorElement = document.createElement('a');
