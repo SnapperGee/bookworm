@@ -5,6 +5,25 @@
 const NUM_OF_TOPICS: number = 12;
 const NUM_OF_SUBJECTS: number = 85;
 
+let _visibilityDropdown: HTMLSelectElement;
+
+/**
+ * Retrieves a reference to the `HTMLSelectElement` dropdown.
+ *
+ * @returns The `HTMLSelectElement` dropdown.
+ */
+export function geVisibilityDropdown(): HTMLSelectElement
+{
+    _visibilityDropdown = document.getElementById("visibilityDropdown") as HTMLSelectElement;
+
+    if ( ! (_visibilityDropdown instanceof HTMLSelectElement))
+    {
+        throw new TypeError(`${geVisibilityDropdown.name}: ${_visibilityDropdown === null ? "null" : "non " + HTMLSelectElement.name} of visibility dropdown.`);
+    }
+
+    return _visibilityDropdown;
+}
+
 let _topicCheckboxes: HTMLCollectionOf<HTMLInputElement>;
 
 /**
@@ -86,9 +105,9 @@ export function getSubjectCheckboxes(): HTMLCollectionOf<HTMLInputElement>
 let _topicFieldsets: HTMLCollectionOf<HTMLFieldSetElement>;
 
 /**
- * Retrieves a reference to the `HTMLInputElement` subject checkboxes.
+ * Retrieves a reference to the topic `HTMLFieldsetElement`s.
  *
- * @returns The `HTMLInputElement` subject checkboxes.
+ * @returns The topic `HTMLFieldsetElement`s.
  */
 export function getTopicFieldsets(): HTMLCollectionOf<HTMLFieldSetElement>
 {
