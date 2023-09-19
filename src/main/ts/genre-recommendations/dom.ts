@@ -2,6 +2,9 @@
  * @module genre-recommendations-dom
  */
 
+const NUM_OF_TOPICS: number = 12;
+const NUM_OF_SUBJECTS: number = 85;
+
 let _topicCheckboxes: HTMLCollectionOf<HTMLInputElement>;
 
 /**
@@ -18,7 +21,7 @@ export function getTopicCheckboxes(): HTMLCollectionOf<HTMLInputElement>
         throw new TypeError(`${getTopicCheckboxes.name}: ${_topicCheckboxes === null ? "null" : "non " + HTMLCollection.name} of subject checkboxes.`);
     }
 
-    if (_topicCheckboxes.length !== 12)
+    if (_topicCheckboxes.length !== NUM_OF_TOPICS)
     {
         throw new RangeError(`${getTopicCheckboxes.name}: expected 12 elements, but instead got ${_topicCheckboxes.length}`);
     }
@@ -57,7 +60,7 @@ export function getSubjectCheckboxes(): HTMLCollectionOf<HTMLInputElement>
         throw new TypeError(`${getSubjectCheckboxes.name}: ${_subjectCheckboxes === null ? "null" : "non " + HTMLCollection.name} of subject checkboxes.`);
     }
 
-    if (_subjectCheckboxes.length !== 80)
+    if (_subjectCheckboxes.length !== NUM_OF_SUBJECTS)
     {
         throw new RangeError(`${getSubjectCheckboxes.name}: expected 80 elements, but instead got ${_subjectCheckboxes.length}`);
     }
@@ -78,4 +81,38 @@ export function getSubjectCheckboxes(): HTMLCollectionOf<HTMLInputElement>
     }
 
     return _subjectCheckboxes;
+}
+
+let _topicFieldsets: HTMLCollectionOf<HTMLFieldSetElement>;
+
+/**
+ * Retrieves a reference to the `HTMLInputElement` subject checkboxes.
+ *
+ * @returns The `HTMLInputElement` subject checkboxes.
+ */
+export function getTopicFieldsets(): HTMLCollectionOf<HTMLFieldSetElement>
+{
+    _topicFieldsets = document.getElementById("topicFieldsets")?.getElementsByTagName("fieldset") as HTMLCollectionOf<HTMLFieldSetElement>;
+
+    if ( ! (_topicFieldsets instanceof HTMLCollection))
+    {
+        throw new TypeError(`${getTopicFieldsets.name}: ${_topicFieldsets === null ? "null" : "non " + HTMLCollection.name} of subject checkboxes.`);
+    }
+
+    if (_topicFieldsets.length !== NUM_OF_TOPICS)
+    {
+        throw new RangeError(`${getTopicFieldsets.name}: expected 12 elements, but instead got ${_topicFieldsets.length}`);
+    }
+
+    for (let index = 0; index < _topicFieldsets.length; ++index)
+    {
+        const htmlEl = _topicFieldsets.item(index);
+
+        if ( ! (htmlEl instanceof HTMLFieldSetElement))
+        {
+            throw new TypeError(`${getTopicFieldsets.name}: ${htmlEl === null ? "null" : "non " + HTMLFieldSetElement.name} fieldset.`);
+        }
+    }
+
+    return _topicFieldsets;
 }
