@@ -1,7 +1,7 @@
 import { createNavbar } from "./navbar";
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
-bodyHTML.appendChild(createNavbar());
+bodyHTML.prepend(createNavbar());
 
 const NY_TIMES_API_KEY = "JrHXn4ufVldkRPHOEsBzG3wUMFHtGn1M";
 

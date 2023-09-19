@@ -25,9 +25,9 @@ export const createNavbar = (): HTMLDivElement => {
         logoWormAnchor.classList.add('text-white', 'font-bold', 'text-2x1', 'lg:text-4x1');
         logoWormAnchor.textContent = 'Worm';
 
-    const invisbleBlock: HTMLDivElement = document.createElement('div');
-        invisbleBlock.classList.add('w-full', 'lg:flex', 'lg:w-auto', 'mt-2', 'lg:mt-0', 'p-4', 'lg:p-0');
-        invisbleBlock.id = 'nav-content';
+    const invisibleBlock: HTMLDivElement = document.createElement('div');
+        invisibleBlock.classList.add('w-full', 'lg:flex', 'lg:w-auto', 'mt-2', 'lg:mt-0', 'p-4', 'lg:p-0');
+        invisibleBlock.id = 'nav-content';
 
     const navList: HTMLUListElement = document.createElement('ul');
         navList.classList.add('list-reset', 'lg:flex', 'justify-end', 'flex-1', 'items-center');
@@ -60,7 +60,7 @@ export const createNavbar = (): HTMLDivElement => {
     brandContainer.appendChild(logoImage);
     brandContainer.appendChild(logoBookAnchor);
     brandContainer.appendChild(logoWormAnchor);
-    navBlock.appendChild(invisbleBlock);
+    navBlock.appendChild(invisibleBlock);
     navBlock.appendChild(navList);
     navList.appendChild(navLinks);
     navLinks.appendChild(home);
