@@ -1,3 +1,8 @@
+import { createNavbar } from "./navbar";
+
+const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
+bodyHTML.appendChild(createNavbar());
+
 const NY_TIMES_API_KEY = "JrHXn4ufVldkRPHOEsBzG3wUMFHtGn1M";
 
 fetch("https://openlibrary.org/search.json?title=the+lord+of+the+rings")
