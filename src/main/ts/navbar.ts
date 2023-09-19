@@ -1,3 +1,5 @@
+import logoImgPath from "../resource/img/bookworm-transparent.png";
+
 export const createNavbar = (): HTMLDivElement => {
 
     const headerContainer: HTMLDivElement = document.createElement('nav') as HTMLDivElement;
@@ -12,7 +14,8 @@ export const createNavbar = (): HTMLDivElement => {
 
     const logoImage: HTMLImageElement = document.createElement('img');
         logoImage.classList.add('h-10', 'w-10', 'inline-block');
-        logoImage.src = "./resource/img/bookworm-transparent.png"
+        logoImage.src = logoImgPath;
+        logoImage.alt = "Bookworm Logo";
 
     const logoBookAnchor: HTMLAnchorElement = document.createElement('a');
     logoBookAnchor.classList.add('text-pink', 'font-bold', 'text-2x1', 'lg:text-4x1');
@@ -55,7 +58,7 @@ export const createNavbar = (): HTMLDivElement => {
     headerContainer.appendChild(navBlock);
     navBlock.appendChild(brandContainer);
     brandContainer.appendChild(logoImage);
-    brandContainer.appendChild(logoBookAnchor); 
+    brandContainer.appendChild(logoBookAnchor);
     brandContainer.appendChild(logoWormAnchor);
     navBlock.appendChild(invisbleBlock);
     navBlock.appendChild(navList);
