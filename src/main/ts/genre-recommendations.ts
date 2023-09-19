@@ -1,12 +1,12 @@
 import { createNavbar } from "./navbar";
-import { getTopicCheckboxes, getSubjectCheckboxes } from "./genre-recommendations/dom";
-import { type CheckboxCollection, checkboxCollection as createCheckboxCollection } from "./genre-recommendations/checkboxCollection";
+import { getTopicCheckboxes, getTopicFieldsets } from "./genre-recommendations/dom";
+import { assignHTMLInputElementCheckChangeFunction } from "./genre-recommendations/topicCheckbox";
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
 bodyHTML.prepend(createNavbar());
 
 const topicCheckboxes: HTMLCollectionOf<HTMLInputElement> = getTopicCheckboxes();
-const subjectCheckboxes: HTMLCollectionOf<HTMLInputElement> = getSubjectCheckboxes();
+// const subjectCheckboxes: HTMLCollectionOf<HTMLInputElement> = getSubjectCheckboxes();
+const topicFieldsets: HTMLCollectionOf<HTMLFieldSetElement> = getTopicFieldsets();
 
-const topicCheckboxCollection: CheckboxCollection = createCheckboxCollection(topicCheckboxes);
-const subjectCheckboxCollection: CheckboxCollection = createCheckboxCollection(subjectCheckboxes);
+assignHTMLInputElementCheckChangeFunction(topicCheckboxes, topicFieldsets);
