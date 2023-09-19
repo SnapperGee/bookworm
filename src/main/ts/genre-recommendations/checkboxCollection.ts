@@ -1,4 +1,4 @@
-type CheckboxInfo = {htmlInputElement: HTMLInputElement, id: string};
+type CheckboxInfo = {htmlInputElement: HTMLInputElement, id: string, name: string};
 
 export class CheckboxCollection
 {
@@ -28,9 +28,9 @@ export class CheckboxCollection
         this.#checkboxCollection = htmlInputCollection;
     }
 
-    public checked(): Readonly<CheckboxInfo>[]
+    public checked(): CheckboxInfo[]
     {
-        const htmlInputElementArray: Readonly<CheckboxInfo>[] = [];
+        const htmlInputElementArray: CheckboxInfo[] = [];
 
         for (let index = 0; index < this.#checkboxCollection.length; ++index)
         {
@@ -38,7 +38,11 @@ export class CheckboxCollection
 
             if (checkBoxHTMLInputElement?.checked === true)
             {
-                const checkBoxInputInfo = {htmlInputElement: checkBoxHTMLInputElement, id: checkBoxHTMLInputElement.id};
+                const checkBoxInputInfo = {
+                    htmlInputElement: checkBoxHTMLInputElement,
+                    id: checkBoxHTMLInputElement.id,
+                    name: checkBoxHTMLInputElement.name };
+
                 htmlInputElementArray.push(checkBoxInputInfo);
             }
         }
@@ -46,7 +50,7 @@ export class CheckboxCollection
         return htmlInputElementArray;
     }
 
-    public unchecked(): Readonly<CheckboxInfo>[]
+    public unchecked(): CheckboxInfo[]
     {
         const htmlInputElementArray: Readonly<CheckboxInfo>[] = [];
 
@@ -56,7 +60,11 @@ export class CheckboxCollection
 
             if (checkBoxHTMLInputElement?.checked === false)
             {
-                const checkBoxInputInfo = {htmlInputElement: checkBoxHTMLInputElement, id: checkBoxHTMLInputElement.id};
+                const checkBoxInputInfo = {
+                    htmlInputElement: checkBoxHTMLInputElement,
+                    id: checkBoxHTMLInputElement.id,
+                    name: checkBoxHTMLInputElement.name };
+
                 htmlInputElementArray.push(checkBoxInputInfo);
             }
         }
