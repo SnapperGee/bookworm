@@ -51,9 +51,3 @@ getRecommendationsButton.addEventListener("click", () => {
         }
     }
 });
-
-// document.addEventListener("load", () => {
-//     visibilitySelectDropdown.value = "show";
-
-
-// })
