@@ -53,7 +53,7 @@ export const createNavbar = (): HTMLDivElement => {
     const bookshelf: HTMLAnchorElement = document.createElement('a');
         bookshelf.classList.add('inline-block', 'text-white', 'p-4');
         bookshelf.href = './bookshelf.html';
-        bookshelf.textContent = 'Reading List';
+        bookshelf.textContent = 'Bookshelf';
 
     headerContainer.appendChild(navBlock);
     navBlock.appendChild(brandContainer);

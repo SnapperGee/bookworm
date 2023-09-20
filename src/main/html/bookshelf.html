@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Readinglist</title>
+    <title>Bookshelf</title>
 </head>
 <body>
     <div class="flex justify-end">
         <svg
+        id="add-list"
         class="h-6 w-6 inline-block fill-current text-orange"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -17,6 +18,24 @@
         <path d = "M21,4V3h-1V2H4v1H3v1H2v16h1v1h1v1h16v-1h1v-1h1V4H21z M20,18h-1v1h-1v1H6v-1H5v-1H4V6h1V5h1V4h12v1h1v1h1V18z"/>
         </svg>
     </div>
+    <div class="md:place-content-center">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" id="modal">
+            <div role="alert" class="container mx-auto w-11/12 md:w-2/3 max-w-lg">
+                <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
+                    <div class="w-full flex justify-start text-gray-600 mb-3">
+                    </div>
+                    <h1 class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4">Create a Bookshelf</h1>
+                    <label for="name" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Name</label>
+                    <input id="name" class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Smith" />
+                    <div class="flex items-center justify-start w-full">
+                        <button class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm">Create</button>
+                        <button id="close" class="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="shelf-container">
         <div class="pb-1 w-full">
             <h3 class="inline-block mt-1 mr-1 mb-0.5 ml-0 font-mono font-bold text-xl">My Favorites</h3>
