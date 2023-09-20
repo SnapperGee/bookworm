@@ -1,4 +1,4 @@
-export const rootUrl: string = "https://openlibrary.org/search.json?";
+const rootUrl: string = "https://openlibrary.org/search.json?";
 
 export interface OpenLibDoc
 {
@@ -9,8 +9,11 @@ export interface OpenLibDoc
     cover_i: number
 }
 
-export interface OpenLibResponseJson
+export interface OpenLibResponse
 {
-    docs: unknown[],
+    docs: OpenLibDoc[],
     numFound: number
 }
+
+export const fetchOpenLibResponse = async (query: string): Promise<OpenLibResponse> =>
+    fetch(rootUrl + query).then(response => response.json());
