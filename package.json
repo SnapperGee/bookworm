@@ -1,7 +1,7 @@
 {
-  "name": "the-weather",
+  "name": "Bookworm",
   "version": "0.0.1",
-  "description": "Weather app to look up the weather conditions by city.",
+  "description": "Get recommendations for books based on genres or best sellers.",
   "type": "module",
   "private": true,
   "scripts": {
@@ -23,9 +23,9 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SnapperGee/the-weather/issues"
+    "url": "https://github.com/SnapperGee/bookworm/issues"
   },
-  "homepage": "https://github.com/SnapperGee/the-weather#readme",
+  "homepage": "https://github.com/SnapperGee/bookworm#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.15",
     "css-loader": "^6.8.1",
