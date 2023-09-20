@@ -5,7 +5,7 @@
 const NUM_OF_TOPICS: number = 12;
 const NUM_OF_SUBJECTS: number = 85;
 
-let _visibilityDropdown: HTMLSelectElement;
+let _topicVisibilityDropdown: HTMLSelectElement;
 
 /**
  * Retrieves a reference to the `HTMLSelectElement` dropdown.
@@ -14,14 +14,14 @@ let _visibilityDropdown: HTMLSelectElement;
  */
 export function geVisibilityDropdown(): HTMLSelectElement
 {
-    _visibilityDropdown = document.getElementById("topicVisibilityDropdown") as HTMLSelectElement;
+    _topicVisibilityDropdown = document.getElementById("topicVisibilityDropdown") as HTMLSelectElement;
 
-    if ( ! (_visibilityDropdown instanceof HTMLSelectElement))
+    if ( ! (_topicVisibilityDropdown instanceof HTMLSelectElement))
     {
-        throw new TypeError(`${geVisibilityDropdown.name}: ${_visibilityDropdown === null ? "null" : "non " + HTMLSelectElement.name} topic visibility dropdown.`);
+        throw new TypeError(`${geVisibilityDropdown.name}: ${_topicVisibilityDropdown === null ? "null" : "non " + HTMLSelectElement.name} topic visibility dropdown.`);
     }
 
-    return _visibilityDropdown;
+    return _topicVisibilityDropdown;
 }
 
 let _topicCheckboxes: HTMLCollectionOf<HTMLInputElement>;
