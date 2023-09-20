@@ -1,12 +1,16 @@
 import { createNavbar } from "./navbar";
-import { getVisibilitySelectDropdown, getSubjectCheckboxes, getTopicCheckboxes, getTopicFieldsets, getGetRecommendationsButton, getQueryResultLimitNumberInput } from "./genre-recommendations/genre-recommendations-dom";
+import { getVisibilitySelectDropdown, getSubjectCheckboxes, getTopicCheckboxes, getTopicFieldsets, getGetRecommendationsButton, getQueryResultLimitNumberInput, getSelectAllTopicsButton, getdeselectAllTopicsButton } from "./genre-recommendations/genre-recommendations-dom";
 import { topicCheckboxEventFunction } from "./genre-recommendations/topicCheckbox";
 import { topicVisibilityDropdownEventFunction } from "./genre-recommendations/topicVisibilityDropdown";
+import { selectAllTopicsEventFunction } from "./genre-recommendations/selectAllTopicsButton";
+import { deselectAllTopicsEventFunction } from "./genre-recommendations/deselectAllTopicsButton";
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
 bodyHTML.prepend(createNavbar());
 
 const visibilitySelectDropdown: HTMLSelectElement = getVisibilitySelectDropdown();
+const selectAllTopicsButton: HTMLButtonElement = getSelectAllTopicsButton();
+const deselectAllTopicsButton: HTMLButtonElement = getdeselectAllTopicsButton();
 const topicCheckboxes: HTMLCollectionOf<HTMLInputElement> = getTopicCheckboxes();
 const topicFieldsets: HTMLCollectionOf<HTMLFieldSetElement> = getTopicFieldsets();
 const queryResultLimit: HTMLInputElement = getQueryResultLimitNumberInput();
@@ -21,6 +25,8 @@ for (let index = 0; index < topicCheckboxes.length; ++index)
 
 
 topicVisibilityDropdownEventFunction(visibilitySelectDropdown, topicCheckboxes, topicFieldsets);
+selectAllTopicsEventFunction(selectAllTopicsButton, topicCheckboxes, visibilitySelectDropdown, topicFieldsets);
+deselectAllTopicsEventFunction(deselectAllTopicsButton, topicCheckboxes, topicFieldsets);
 topicCheckboxEventFunction(topicCheckboxes, topicFieldsets, visibilitySelectDropdown);
 
 
