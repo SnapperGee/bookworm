@@ -50,10 +50,10 @@ export const createNavbar = (): HTMLDivElement => {
         recommendations.href = './genre-recommendations.html';
         recommendations.textContent = 'Genre Recommendations';
 
-    const readingList: HTMLAnchorElement = document.createElement('a');
-        readingList.classList.add('inline-block', 'text-white', 'p-4');
-        readingList.href = './readinglist.html';
-        readingList.textContent = 'Reading List';
+    const bookshelf: HTMLAnchorElement = document.createElement('a');
+        bookshelf.classList.add('inline-block', 'text-white', 'p-4');
+        bookshelf.href = './bookshelf.html';
+        bookshelf.textContent = 'Reading List';
 
     headerContainer.appendChild(navBlock);
     navBlock.appendChild(brandContainer);
@@ -66,7 +66,7 @@ export const createNavbar = (): HTMLDivElement => {
     navLinks.appendChild(home);
     navLinks.appendChild(preferences);
     navLinks.appendChild(recommendations);
-    navLinks.appendChild(readingList);
+    navLinks.appendChild(bookshelf);
 
 return headerContainer;
 }
