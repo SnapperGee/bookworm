@@ -18,12 +18,15 @@ function modalHandler(open: boolean | null = null) {
 
 const svgTrigger = document.getElementById('add-list');
 svgTrigger?.addEventListener('click', () => {
+    console.log('Add button clicked');
     modalHandler(true);
 });
 
 const closeModalBtn = document.getElementById('close');
-closeModalBtn?.addEventListener('click', () => {
-    modalHandler(false);  // Close the modal when the "Cancel" button is clicked
+closeModalBtn?.addEventListener('click', (event) => {
+    event.stopPropagation();
+    console.log('Cancel button clicked');
+    modalHandler(false); 
 });
 
 console.log("Bookshelf");
