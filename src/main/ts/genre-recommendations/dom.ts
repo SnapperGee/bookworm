@@ -5,20 +5,39 @@
 const NUM_OF_TOPICS: number = 12;
 const NUM_OF_SUBJECTS: number = 85;
 
+let _getRecommendationsButton: HTMLButtonElement;
+
+/**
+ * Retrieves a reference to the `HTMLButtonElement` to trigger the recommendations fetch and display.
+ *
+ * @returns The `HTMLButtonElement` to trigger the recommendations fetch and display.
+ */
+export function getGetRecommendationsButton(): HTMLButtonElement
+{
+    _getRecommendationsButton = document.getElementById("getRecommendationsButton") as HTMLButtonElement;
+
+    if ( ! (_getRecommendationsButton instanceof HTMLButtonElement))
+    {
+        throw new TypeError(`${getGetRecommendationsButton.name}: ${_getRecommendationsButton === null ? "null" : "non " + HTMLButtonElement.name} get recommendations button.`);
+    }
+
+    return _getRecommendationsButton;
+}
+
 let _topicVisibilityDropdown: HTMLSelectElement;
 
 /**
- * Retrieves a reference to the `HTMLSelectElement` dropdown.
+ * Retrieves a reference to the visibility `HTMLSelectElement` dropdown to toggle visibility of selected topic fieldsets.
  *
- * @returns The `HTMLSelectElement` dropdown.
+ * @returns The visibility `HTMLSelectElement` dropdown to toggle visibility of selected topic fieldsets.
  */
-export function geVisibilityDropdown(): HTMLSelectElement
+export function getVisibilitySelectDropdown(): HTMLSelectElement
 {
     _topicVisibilityDropdown = document.getElementById("topicVisibilityDropdown") as HTMLSelectElement;
 
     if ( ! (_topicVisibilityDropdown instanceof HTMLSelectElement))
     {
-        throw new TypeError(`${geVisibilityDropdown.name}: ${_topicVisibilityDropdown === null ? "null" : "non " + HTMLSelectElement.name} topic visibility dropdown.`);
+        throw new TypeError(`${getVisibilitySelectDropdown.name}: ${_topicVisibilityDropdown === null ? "null" : "non " + HTMLSelectElement.name} topic visibility dropdown.`);
     }
 
     return _topicVisibilityDropdown;
@@ -27,9 +46,9 @@ export function geVisibilityDropdown(): HTMLSelectElement
 let _topicCheckboxes: HTMLCollectionOf<HTMLInputElement>;
 
 /**
- * Retrieves a reference to the `HTMLInputElement` topic checkboxes.
+ * Retrieves a reference to the `HTMLInputElement` topic checkboxes to toggle visibility for corresponding topic fieldset.
  *
- * @returns The `HTMLInputElement` topic checkboxes.
+ * @returns The `HTMLInputElement` topic checkboxes to toggle visibility for corresponding topic fieldset.
  */
 export function getTopicCheckboxes(): HTMLCollectionOf<HTMLInputElement>
 {
@@ -66,9 +85,9 @@ export function getTopicCheckboxes(): HTMLCollectionOf<HTMLInputElement>
 let _subjectCheckboxes: HTMLCollectionOf<HTMLInputElement>;
 
 /**
- * Retrieves a reference to the `HTMLInputElement` subject checkboxes.
+ * Retrieves a reference to the `HTMLInputElement` subject checkboxes to select which subjects to fetch and display.
  *
- * @returns The `HTMLInputElement` subject checkboxes.
+ * @returns The `HTMLInputElement` subject checkboxes to select which subjects to fetch and display.
  */
 export function getSubjectCheckboxes(): HTMLCollectionOf<HTMLInputElement>
 {
@@ -105,9 +124,9 @@ export function getSubjectCheckboxes(): HTMLCollectionOf<HTMLInputElement>
 let _topicFieldsets: HTMLCollectionOf<HTMLFieldSetElement>;
 
 /**
- * Retrieves a reference to the topic `HTMLFieldsetElement`s.
+ * Retrieves a reference to the topic `HTMLFieldsetElement`s containing the subject checkbox `HTMLInputElement`s.
  *
- * @returns The topic `HTMLFieldsetElement`s.
+ * @returns The topic `HTMLFieldsetElement`s containing the subject checkbox `HTMLInputElement`s.
  */
 export function getTopicFieldsets(): HTMLCollectionOf<HTMLFieldSetElement>
 {
