@@ -16,9 +16,16 @@
                 <fieldset class="border border-solid border-gray-300 p-3">
 
                     <legend>Choose the subject topic(s) you're interested in:</legend>
+
+                    <label for="visibilityDropdown">Visibility:</label>
+                    <select class="mb-2" name="visibilityDropdown" id="visibilityDropdown">
+                        <option value="show">show</option>
+                        <option value="hide">hide</option>
+                    </select>
+
                     <hr>
 
-                    <ul>
+                    <ul class="mt-1">
                         <li>
                             <label class="whitespace-nowrap" for="animalsTopic">Animals:</label>
                             <input class="topicCheckbox" type="checkbox" id="animalsTopic" name="animalsTopic" />
