@@ -4,6 +4,7 @@
 
 const NUM_OF_TOPICS: number = 12;
 const NUM_OF_SUBJECTS: number = 85;
+const SUBJECT_CHECKBOX_DATASET_PROPS: readonly string[] = Object.freeze(["query"]);
 
 let _getRecommendationsButton: HTMLButtonElement;
 
@@ -115,6 +116,14 @@ export function getSubjectCheckboxes(): HTMLCollectionOf<HTMLInputElement>
         if (htmlEl.type !== "checkbox")
         {
             throw new TypeError(`${getSubjectCheckboxes.name}: subject ${HTMLInputElement.name} with non-checkbox type: "${htmlEl.type}"`);
+        }
+
+        for (const datasetProp of SUBJECT_CHECKBOX_DATASET_PROPS)
+        {
+            if (htmlEl.dataset[datasetProp] === undefined)
+            {
+                throw new Error(`${getSubjectCheckboxes.name}: undefined dataset property for subject checkbox: "${datasetProp}"`);
+            }
         }
     }
 
