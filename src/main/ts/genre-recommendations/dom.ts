@@ -14,11 +14,11 @@ let _visibilityDropdown: HTMLSelectElement;
  */
 export function geVisibilityDropdown(): HTMLSelectElement
 {
-    _visibilityDropdown = document.getElementById("visibilityDropdown") as HTMLSelectElement;
+    _visibilityDropdown = document.getElementById("topicVisibilityDropdown") as HTMLSelectElement;
 
     if ( ! (_visibilityDropdown instanceof HTMLSelectElement))
     {
-        throw new TypeError(`${geVisibilityDropdown.name}: ${_visibilityDropdown === null ? "null" : "non " + HTMLSelectElement.name} of visibility dropdown.`);
+        throw new TypeError(`${geVisibilityDropdown.name}: ${_visibilityDropdown === null ? "null" : "non " + HTMLSelectElement.name} topic visibility dropdown.`);
     }
 
     return _visibilityDropdown;
