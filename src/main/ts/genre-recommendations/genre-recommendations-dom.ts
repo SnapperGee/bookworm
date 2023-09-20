@@ -6,6 +6,44 @@ const NUM_OF_TOPICS: number = 12;
 const NUM_OF_SUBJECTS: number = 85;
 const SUBJECT_CHECKBOX_DATASET_PROPS: readonly string[] = Object.freeze(["openLibQuery"]);
 
+let _selectAllTopicsButton: HTMLButtonElement;
+
+/**
+ * Retrieves a reference to the `HTMLButtonElement` used to select all topic checkboxes and make all their fieldsets visible.
+ *
+ * @returns The number `HTMLButtonElement` used to select all topic checkboxes and make all their fieldsets visible.
+ */
+export const getSelectAllTopicsButton = (): HTMLButtonElement =>
+{
+    _selectAllTopicsButton = document.getElementById("selectAllTopicsButton") as HTMLButtonElement;
+
+    if ( ! (_selectAllTopicsButton instanceof HTMLButtonElement))
+    {
+        throw new TypeError(`${getSelectAllTopicsButton.name}: ${_selectAllTopicsButton === null ? "null" : "non " + HTMLButtonElement.name} select all topics button.`);
+    }
+
+    return _selectAllTopicsButton;
+}
+
+let _deselectAllTopicsButton: HTMLButtonElement;
+
+/**
+ * Retrieves a reference to the `HTMLButtonElement` used to deselect all topic checkboxes and make all their fieldsets hidden.
+ *
+ * @returns The number `HTMLButtonElement` used to deselect all topic checkboxes and make all their fieldsets hidden.
+ */
+export const getdeselectAllTopicsButton = (): HTMLButtonElement =>
+{
+    _deselectAllTopicsButton = document.getElementById("deselectAllTopicsButton") as HTMLButtonElement;
+
+    if ( ! (_deselectAllTopicsButton instanceof HTMLButtonElement))
+    {
+        throw new TypeError(`${getdeselectAllTopicsButton.name}: ${_deselectAllTopicsButton === null ? "null" : "non " + HTMLButtonElement.name} select all topics button.`);
+    }
+
+    return _deselectAllTopicsButton;
+}
+
 let _queryResultLimitNumberInput: HTMLInputElement;
 
 /**
