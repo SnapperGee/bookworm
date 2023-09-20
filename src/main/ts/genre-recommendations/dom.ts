@@ -4,7 +4,7 @@
 
 const NUM_OF_TOPICS: number = 12;
 const NUM_OF_SUBJECTS: number = 85;
-const SUBJECT_CHECKBOX_DATASET_PROPS: readonly string[] = Object.freeze(["query"]);
+const SUBJECT_CHECKBOX_DATASET_PROPS: readonly string[] = Object.freeze(["openLibQuery"]);
 
 let _getRecommendationsButton: HTMLButtonElement;
 
