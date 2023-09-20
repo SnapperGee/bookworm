@@ -1,23 +1,15 @@
 export const topicVisibilityDropdownEventFunction = (
     htmlSelectElement: HTMLSelectElement,
-    htmlCheckboxInputCollection: HTMLCollectionOf<HTMLInputElement>,
-    htmlFieldsetCollection: HTMLCollectionOf<HTMLFieldSetElement> ): void =>
+    htmlFieldsetContainer: HTMLDivElement ): void =>
 {
     htmlSelectElement.addEventListener("change", () => {
-        for (let index = 0; index < htmlCheckboxInputCollection.length; ++index)
+        if (htmlSelectElement.value === "hide" && htmlFieldsetContainer !== null && ! htmlFieldsetContainer.classList.contains("hidden"))
         {
-            const topicCheckboxHTMLInputElement = htmlCheckboxInputCollection.item(index);
-
-            const htmlFieldsetElement = topicCheckboxHTMLInputElement !== null ? htmlFieldsetCollection.namedItem(topicCheckboxHTMLInputElement.name) : null;
-
-            if (htmlSelectElement.value === "hide" && htmlFieldsetElement !== null && ! htmlFieldsetElement.classList.contains("hidden"))
-            {
-                htmlFieldsetElement.classList.add("hidden");
-            }
-            else if (htmlSelectElement.value === "show" && topicCheckboxHTMLInputElement?.checked === true && htmlFieldsetElement !== null && htmlFieldsetElement.classList.contains("hidden"))
-            {
-                htmlFieldsetElement.classList.remove("hidden");
-            }
+            htmlFieldsetContainer.classList.add("hidden");
+        }
+        else if (htmlSelectElement.value === "show" && htmlFieldsetContainer.classList.contains("hidden"))
+        {
+            htmlFieldsetContainer.classList.remove("hidden");
         }
     });
 };
