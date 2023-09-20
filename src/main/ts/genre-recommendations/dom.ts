@@ -6,6 +6,25 @@ const NUM_OF_TOPICS: number = 12;
 const NUM_OF_SUBJECTS: number = 85;
 const SUBJECT_CHECKBOX_DATASET_PROPS: readonly string[] = Object.freeze(["openLibQuery"]);
 
+let _queryResultLimitNumberInput: HTMLInputElement;
+
+/**
+ * Retrieves a reference to the number `HTMLInputElement` to limit the number of books returned in fetch query results.
+ *
+ * @returns The number `HTMLInputElement` to limit the number of books returned in fetch query results.
+ */
+export const getQueryResultLimitNumberInput = (): HTMLInputElement =>
+{
+    _queryResultLimitNumberInput = document.getElementById("queryResultLimit") as HTMLInputElement;
+
+    if ( ! (_queryResultLimitNumberInput instanceof HTMLInputElement))
+    {
+        throw new TypeError(`${getQueryResultLimitNumberInput.name}: ${_queryResultLimitNumberInput === null ? "null" : "non " + HTMLInputElement.name} query result number input.`);
+    }
+
+    return _queryResultLimitNumberInput;
+}
+
 let _getRecommendationsButton: HTMLButtonElement;
 
 /**
@@ -13,7 +32,7 @@ let _getRecommendationsButton: HTMLButtonElement;
  *
  * @returns The `HTMLButtonElement` to trigger the recommendations fetch and display.
  */
-export function getGetRecommendationsButton(): HTMLButtonElement
+export const getGetRecommendationsButton = (): HTMLButtonElement =>
 {
     _getRecommendationsButton = document.getElementById("getRecommendationsButton") as HTMLButtonElement;
 
@@ -32,7 +51,7 @@ let _topicVisibilityDropdown: HTMLSelectElement;
  *
  * @returns The visibility `HTMLSelectElement` dropdown to toggle visibility of selected topic fieldsets.
  */
-export function getVisibilitySelectDropdown(): HTMLSelectElement
+export const getVisibilitySelectDropdown = (): HTMLSelectElement =>
 {
     _topicVisibilityDropdown = document.getElementById("topicVisibilityDropdown") as HTMLSelectElement;
 
@@ -51,7 +70,7 @@ let _topicCheckboxes: HTMLCollectionOf<HTMLInputElement>;
  *
  * @returns The `HTMLInputElement` topic checkboxes to toggle visibility for corresponding topic fieldset.
  */
-export function getTopicCheckboxes(): HTMLCollectionOf<HTMLInputElement>
+export const getTopicCheckboxes = (): HTMLCollectionOf<HTMLInputElement> =>
 {
     _topicCheckboxes = document.getElementsByClassName("topicCheckbox") as HTMLCollectionOf<HTMLInputElement>;
 
@@ -90,7 +109,7 @@ let _subjectCheckboxes: HTMLCollectionOf<HTMLInputElement>;
  *
  * @returns The `HTMLInputElement` subject checkboxes to select which subjects to fetch and display.
  */
-export function getSubjectCheckboxes(): HTMLCollectionOf<HTMLInputElement>
+export const getSubjectCheckboxes = (): HTMLCollectionOf<HTMLInputElement> =>
 {
     _subjectCheckboxes = document.getElementsByClassName("subjectCheckbox") as HTMLCollectionOf<HTMLInputElement>;
 
@@ -137,7 +156,7 @@ let _topicFieldsets: HTMLCollectionOf<HTMLFieldSetElement>;
  *
  * @returns The topic `HTMLFieldsetElement`s containing the subject checkbox `HTMLInputElement`s.
  */
-export function getTopicFieldsets(): HTMLCollectionOf<HTMLFieldSetElement>
+export const getTopicFieldsets = (): HTMLCollectionOf<HTMLFieldSetElement> =>
 {
     _topicFieldsets = document.getElementById("topicFieldsets")?.getElementsByTagName("fieldset") as HTMLCollectionOf<HTMLFieldSetElement>;
 
