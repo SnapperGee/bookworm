@@ -13,18 +13,18 @@ export const createNavbar = (): HTMLDivElement => {
         brandContainer.classList.add('pl-4', 'flex', 'items-center')
 
     const logoImage: HTMLImageElement = document.createElement('img');
-        logoImage.classList.add('h-10', 'w-10', 'inline-block');
+        logoImage.classList.add('h-10', 'w-10');
         logoImage.src = logoImgPath;
         logoImage.alt = "Bookworm Logo";
 
-    const logoBookAnchor: HTMLAnchorElement = document.createElement('a');
-    logoBookAnchor.classList.add('text-pink', 'font-bold', 'text-2x1', 'lg:text-4x1');
-    logoBookAnchor.textContent = 'Book';
-
-    const logoWormAnchor: HTMLAnchorElement = document.createElement('a');
-        logoWormAnchor.classList.add('text-white', 'font-bold', 'text-2x1', 'lg:text-4x1');
+    const logoBookAnchor: HTMLHeadingElement = document.createElement('h1');
+        logoBookAnchor.classList.add('text-pink', 'font-bold', 'text-2xl');
+        logoBookAnchor.textContent = 'Book';
+        
+    const logoWormAnchor: HTMLHeadingElement = document.createElement('h1');
+        logoWormAnchor.classList.add('text-white', 'font-bold', 'text-2xl');
         logoWormAnchor.textContent = 'Worm';
-
+        
     const invisibleBlock: HTMLDivElement = document.createElement('div');
         invisibleBlock.classList.add('w-full', 'lg:flex', 'lg:w-auto', 'mt-2', 'lg:mt-0', 'p-4', 'lg:p-0');
         invisibleBlock.id = 'nav-content';
@@ -67,6 +67,26 @@ export const createNavbar = (): HTMLDivElement => {
     navLinks.appendChild(preferences);
     navLinks.appendChild(recommendations);
     navLinks.appendChild(bookshelf);
+
+    const currentPage = window.location.pathname.split('/').pop();
+
+    switch (currentPage) {
+        case 'index.html':
+            home.classList.add('font-bold');
+            break;
+        case 'bestsellers.html':
+            preferences.classList.add('font-bold');
+            break;
+        case 'genre-recommendations.html':
+            recommendations.classList.add('font-bold');
+            break;
+        case 'bookshelf.html':
+            bookshelf.classList.add('font-bold');
+            break;
+        default:
+            home.classList.add('font-bold');
+            break;
+}
 
 return headerContainer;
 }
