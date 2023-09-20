@@ -6,25 +6,6 @@ const NUM_OF_TOPICS: number = 12;
 const NUM_OF_SUBJECTS: number = 85;
 const SUBJECT_CHECKBOX_DATASET_PROPS: readonly string[] = Object.freeze(["openLibQuery"]);
 
-let _topicFieldsetsGridContainer: HTMLDivElement;
-
-/**
- * Retrieves a reference to the `HTMLDivElement` grid that contains all the topic fieldsets.
- *
- * @returns The number `HTMLDivElement` grid that contains all the topic fieldsets.
- */
-export const getTopicFieldsetsGridContainer = (): HTMLDivElement =>
-{
-    _topicFieldsetsGridContainer = document.getElementById("topicFieldsets") as HTMLDivElement;
-
-    if ( ! (_topicFieldsetsGridContainer instanceof HTMLDivElement))
-    {
-        throw new TypeError(`${getSelectAllTopicsButton.name}: ${_topicFieldsetsGridContainer === null ? "null" : "non " + HTMLDivElement.name} topic fieldsets grid div element.`);
-    }
-
-    return _topicFieldsetsGridContainer;
-}
-
 let _selectAllTopicsButton: HTMLButtonElement;
 
 /**
