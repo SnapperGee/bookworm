@@ -1,5 +1,5 @@
 import { createNavbar } from "./navbar";
-import { getVisibilitySelectDropdown, getSubjectCheckboxes, getTopicCheckboxes, getTopicFieldsets, getGetRecommendationsButton, getQueryResultLimitNumberInput, getSelectAllTopicsButton, getdeselectAllTopicsButton } from "./genre-recommendations/genre-recommendations-dom";
+import { getVisibilitySelectDropdown, getSubjectCheckboxes, getTopicCheckboxes, getTopicFieldsets, getGetRecommendationsButton, getQueryResultLimitNumberInput, getSelectAllTopicsButton, getDeselectAllTopicsButton } from "./genre-recommendations/genre-recommendations-dom";
 import { topicCheckboxEventFunction } from "./genre-recommendations/topicCheckbox";
 import { topicVisibilityDropdownEventFunction } from "./genre-recommendations/topicVisibilityDropdown";
 import { selectAllTopicsEventFunction } from "./genre-recommendations/selectAllTopicsButton";
@@ -11,7 +11,7 @@ bodyHTML.prepend(createNavbar());
 
 const visibilitySelectDropdown: HTMLSelectElement = getVisibilitySelectDropdown();
 const selectAllTopicsButton: HTMLButtonElement = getSelectAllTopicsButton();
-const deselectAllTopicsButton: HTMLButtonElement = getdeselectAllTopicsButton();
+const deselectAllTopicsButton: HTMLButtonElement = getDeselectAllTopicsButton();
 const topicCheckboxes: HTMLCollectionOf<HTMLInputElement> = getTopicCheckboxes();
 const topicFieldsets: HTMLCollectionOf<HTMLFieldSetElement> = getTopicFieldsets();
 const queryResultLimit: HTMLInputElement = getQueryResultLimitNumberInput();
@@ -52,6 +52,4 @@ getRecommendationsButton.addEventListener("click", () => {
         }
 
     }
-
-    fetchOpenLib("subject=dogs", 1).then(response => console.log(response));
 });

@@ -32,13 +32,13 @@ let _deselectAllTopicsButton: HTMLButtonElement;
  *
  * @returns The number `HTMLButtonElement` used to deselect all topic checkboxes and make all their fieldsets hidden.
  */
-export const getdeselectAllTopicsButton = (): HTMLButtonElement =>
+export const getDeselectAllTopicsButton = (): HTMLButtonElement =>
 {
     _deselectAllTopicsButton = document.getElementById("deselectAllTopicsButton") as HTMLButtonElement;
 
     if ( ! (_deselectAllTopicsButton instanceof HTMLButtonElement))
     {
-        throw new TypeError(`${getdeselectAllTopicsButton.name}: ${_deselectAllTopicsButton === null ? "null" : "non " + HTMLButtonElement.name} select all topics button.`);
+        throw new TypeError(`${getDeselectAllTopicsButton.name}: ${_deselectAllTopicsButton === null ? "null" : "non " + HTMLButtonElement.name} select all topics button.`);
     }
 
     return _deselectAllTopicsButton;
