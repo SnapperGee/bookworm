@@ -61,35 +61,3 @@ getRecommendationsEvent( getRecommendationsButton,
                          openLibBookQueryResults,
                          bookQueryResultCards,
                          queryResultLimit );
-
-// getRecommendationsButton.addEventListener("click", async () => {
-
-//     openLibBookQueries.clear();
-
-//     for (let index = 0; index < subjectCheckboxes.length; ++index)
-//     {
-//         const subjectCheckBox = subjectCheckboxes.item(index);
-
-//         const openLibQuery = subjectCheckBox?.dataset.openLibQuery;
-
-//         if (subjectCheckBox?.checked === true && openLibQuery !== undefined)
-//         {
-//             openLibBookQueries.add(openLibQuery);
-//         }
-
-//     }
-
-//     if (openLibBookQueries.size !== 0)
-//     {
-//         openLibBookQueryResults.length = 0;
-//     }
-
-//     await Promise.all(Array.from(openLibBookQueries).map(async openLibQuery => {
-//         await fetchOpenLib(openLibQuery, parseInt(queryResultLimit.value)).then(openLibResponse => openLibBookQueryResults.push(...openLibResponse.docs));
-//     }));
-
-//     openLibBookQueryResults.forEach(openLibDoc => {
-//         const openLibResponseCard = createBookResultCard(openLibDoc);
-//         bookQueryResultCards.appendChild(openLibResponseCard);
-//     });
-// });
