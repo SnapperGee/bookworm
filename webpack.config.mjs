@@ -65,6 +65,10 @@ export default function(env, argv) {
             static: {
                 directory: resolvePath(".", "build")
             },
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET",
+            },
             client: {
                 overlay: false
             },
@@ -85,3 +89,6 @@ export default function(env, argv) {
         ]
     }
 };
+
+
+// added headers in dev server section for access control
