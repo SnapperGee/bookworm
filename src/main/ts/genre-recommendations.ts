@@ -6,6 +6,7 @@ import { selectAllTopicsEventFunction } from "./genre-recommendations/selectAllT
 import { deselectAllTopicsEventFunction } from "./genre-recommendations/deselectAllTopicsButton";
 import { OpenLibDoc, fetchOpenLib } from "./genre-recommendations/openLibAPI";
 import { createBookResultCard } from "./genre-recommendations/createBookResultCard";
+import { getRecommendationsEvent } from "./genre-recommendations/get-recommendations-event";
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
 bodyHTML.prepend(createNavbar());
@@ -54,34 +55,41 @@ const bookQueryResultCards: HTMLDivElement = getBookQueryResultCardsContainer();
 const openLibBookQueries: Set<string> = new Set();
 const openLibBookQueryResults: OpenLibDoc[] = [];
 
-getRecommendationsButton.addEventListener("click", async () => {
+getRecommendationsEvent( getRecommendationsButton,
+                         openLibBookQueries,
+                         subjectCheckboxes,
+                         openLibBookQueryResults,
+                         bookQueryResultCards,
+                         queryResultLimit );
 
-    openLibBookQueries.clear();
+// getRecommendationsButton.addEventListener("click", async () => {
 
-    for (let index = 0; index < subjectCheckboxes.length; ++index)
-    {
-        const subjectCheckBox = subjectCheckboxes.item(index);
+//     openLibBookQueries.clear();
 
-        const openLibQuery = subjectCheckBox?.dataset.openLibQuery;
+//     for (let index = 0; index < subjectCheckboxes.length; ++index)
+//     {
+//         const subjectCheckBox = subjectCheckboxes.item(index);
 
-        if (subjectCheckBox?.checked === true && openLibQuery !== undefined)
-        {
-            openLibBookQueries.add(openLibQuery);
-        }
+//         const openLibQuery = subjectCheckBox?.dataset.openLibQuery;
 
-    }
+//         if (subjectCheckBox?.checked === true && openLibQuery !== undefined)
+//         {
+//             openLibBookQueries.add(openLibQuery);
+//         }
 
-    if (openLibBookQueries.size !== 0)
-    {
-        openLibBookQueryResults.length = 0;
-    }
+//     }
 
-    await Promise.all(Array.from(openLibBookQueries).map(async openLibQuery => {
-        await fetchOpenLib(openLibQuery, parseInt(queryResultLimit.value)).then(openLibResponse => openLibBookQueryResults.push(...openLibResponse.docs));
-    }));
+//     if (openLibBookQueries.size !== 0)
+//     {
+//         openLibBookQueryResults.length = 0;
+//     }
 
-    openLibBookQueryResults.forEach(openLibDoc => {
-        const openLibResponseCard = createBookResultCard(openLibDoc);
-        bookQueryResultCards.appendChild(openLibResponseCard);
-    });
-});
+//     await Promise.all(Array.from(openLibBookQueries).map(async openLibQuery => {
+//         await fetchOpenLib(openLibQuery, parseInt(queryResultLimit.value)).then(openLibResponse => openLibBookQueryResults.push(...openLibResponse.docs));
+//     }));
+
+//     openLibBookQueryResults.forEach(openLibDoc => {
+//         const openLibResponseCard = createBookResultCard(openLibDoc);
+//         bookQueryResultCards.appendChild(openLibResponseCard);
+//     });
+// });
