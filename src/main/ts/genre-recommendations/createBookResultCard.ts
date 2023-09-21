@@ -52,7 +52,7 @@ export function createBookResultCard(titleStringOrOpenLibDoc: string | OpenLibDo
     subjectsPElement.textContent = subjects.join(", ");
 
     const cardDivElement = document.createElement("div");
-    cardDivElement.classList.add("p-2", "bg-orange", "cursor-pointer");
+    cardDivElement.classList.add("p-2", "cursor-pointer", "border", "border-solid", "border-gray-300");
 
     cardDivElement.appendChild(titlePElement);
     cardDivElement.appendChild(coverImgElement);
