@@ -10,7 +10,8 @@ export const getRecommendationsEvent = (
     htmlDiv: HTMLDivElement,
     htmlRequestLimitInput: HTMLInputElement,
     htmlTopicFieldsetsVisibilitySelect: HTMLSelectElement,
-    htmlTopicFieldsets: HTMLCollectionOf<HTMLFieldSetElement> ): void =>
+    htmlTopicFieldsets: HTMLCollectionOf<HTMLFieldSetElement>,
+    clearSubjectsButton: HTMLButtonElement ): void =>
 {
     htmlButton.addEventListener("click", async () => {
 
@@ -27,6 +28,11 @@ export const getRecommendationsEvent = (
             {
                 topicFieldset.classList.add("hidden");
             }
+        }
+
+        if ( ! clearSubjectsButton.classList.contains("hidden"))
+        {
+            clearSubjectsButton.classList.add("hidden")
         }
 
         if (htmlDiv.children.length !== 0)
