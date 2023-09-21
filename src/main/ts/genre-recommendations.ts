@@ -37,9 +37,9 @@ const subjectCheckboxes: HTMLCollectionOf<HTMLInputElement> = getSubjectCheckbox
 const bookQueryResultCards: HTMLDivElement = getBookQueryResultCardsContainer();
 // To contain the dataset OpenLibrary queries contained in the corresponding checked subject checkbox HTML input elements
 const openLibBookQueries: Set<string> = new Set();
-const openLibBookQueryResults: OpenLibDoc[] = [];
+let openLibBookQueryResults: OpenLibDoc[] = [];
 
-getRecommendationsButton.addEventListener("click", () => {
+getRecommendationsButton.addEventListener("click", async () => {
 
     openLibBookQueries.clear();
 
@@ -56,17 +56,17 @@ getRecommendationsButton.addEventListener("click", () => {
 
     }
 
-    if (openLibBookQueries.size !== 0 && openLibBookQueryResults !== undefined)
+    if (openLibBookQueries.size !== 0)
     {
         openLibBookQueryResults.length = 0;
     }
 
-    for (const openLibQuery of openLibBookQueries)
-    {
-        fetchOpenLib(openLibQuery, parseInt(queryResultLimit.value)).then(openLibResponse => {
-            openLibResponse.docs.forEach(openLibDoc => {
-                openLibBookQueryResults.push(openLibDoc);
-                document.getElementById("bookQueryResultCards")?.appendChild(createBookResultCard(openLibDoc));
-            })});
-    }
+    await Promise.all(Array.from(openLibBookQueries).map(async openLibQuery => {
+        await fetchOpenLib(openLibQuery, parseInt(queryResultLimit.value)).then(openLibResponse => openLibBookQueryResults.push(...openLibResponse.docs));
+    }));
+
+    openLibBookQueryResults.forEach(openLibDoc => {
+        const openLibResponseCard = createBookResultCard(openLibDoc);
+        bookQueryResultCards.appendChild(openLibResponseCard);
+    });
 });
