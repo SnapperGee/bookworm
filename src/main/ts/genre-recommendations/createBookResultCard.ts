@@ -42,13 +42,13 @@ export function createBookResultCard(titleStringOrOpenLibDoc: string | OpenLibDo
     authorPElement.classList.add("text-center");
     authorPElement.textContent = "by " + author;
 
-    const subjectsTextSpan = document.createElement("span");
-    subjectsTextSpan.classList.add("font-semibold");
-    subjectsTextSpan.textContent = "Subjects";
+    const subjectsTextPElement = document.createElement("p");
+    subjectsTextPElement.classList.add("font-semibold", "mt-3");
+    subjectsTextPElement.innerHTML = "Subjects<hr>";
 
     const subjectsPElement = document.createElement("p");
-    subjectsPElement.classList.add("mt-3");
-    subjectsPElement.innerHTML = `${subjectsTextSpan.outerHTML}<hr>${subjects.join(", ")}`;
+    subjectsPElement.classList.add("h-3", "overflow-y-scroll");
+    subjectsPElement.textContent = subjects.join(", ");
 
     const cardDivElement = document.createElement("div");
     cardDivElement.classList.add("p-2", "bg-orange", "cursor-pointer");
@@ -56,6 +56,7 @@ export function createBookResultCard(titleStringOrOpenLibDoc: string | OpenLibDo
     cardDivElement.appendChild(titlePElement);
     cardDivElement.appendChild(coverImgElement);
     cardDivElement.appendChild(authorPElement);
+    cardDivElement.appendChild(subjectsTextPElement);
     cardDivElement.appendChild(subjectsPElement);
 
     return cardDivElement;
