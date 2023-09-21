@@ -1,10 +1,11 @@
 import { createNavbar } from "./navbar";
-import { getVisibilitySelectDropdown, getSubjectCheckboxes, getTopicCheckboxes, getTopicFieldsets, getGetRecommendationsButton, getQueryResultLimitNumberInput, getSelectAllTopicsButton, getDeselectAllTopicsButton } from "./genre-recommendations/genre-recommendations-dom";
+import { getVisibilitySelectDropdown, getSubjectCheckboxes, getTopicCheckboxes, getTopicFieldsets, getGetRecommendationsButton, getQueryResultLimitNumberInput, getSelectAllTopicsButton, getDeselectAllTopicsButton, getBookQueryResultCardsContainer } from "./genre-recommendations/genre-recommendations-dom";
 import { topicCheckboxEventFunction } from "./genre-recommendations/topicCheckbox";
 import { topicVisibilityDropdownEventFunction } from "./genre-recommendations/topicVisibilityDropdown";
 import { selectAllTopicsEventFunction } from "./genre-recommendations/selectAllTopicsButton";
 import { deselectAllTopicsEventFunction } from "./genre-recommendations/deselectAllTopicsButton";
-import { fetchOpenLib } from "./genre-recommendations/openLibAPI";
+import { OpenLibDoc, fetchOpenLib } from "./genre-recommendations/openLibAPI";
+import { createBookResultCard } from "./genre-recommendations/createBookResultCard";
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
 bodyHTML.prepend(createNavbar());
@@ -33,8 +34,10 @@ topicCheckboxEventFunction(topicCheckboxes, topicFieldsets, visibilitySelectDrop
 
 const getRecommendationsButton: HTMLButtonElement = getGetRecommendationsButton();
 const subjectCheckboxes: HTMLCollectionOf<HTMLInputElement> = getSubjectCheckboxes();
+const bookQueryResultCards: HTMLDivElement = getBookQueryResultCardsContainer();
 // To contain the dataset OpenLibrary queries contained in the corresponding checked subject checkbox HTML input elements
 const openLibBookQueries: Set<string> = new Set();
+const openLibBookQueryResults: OpenLibDoc[] = [];
 
 getRecommendationsButton.addEventListener("click", () => {
 
@@ -51,5 +54,19 @@ getRecommendationsButton.addEventListener("click", () => {
             openLibBookQueries.add(openLibQuery);
         }
 
+    }
+
+    if (openLibBookQueries.size !== 0 && openLibBookQueryResults !== undefined)
+    {
+        openLibBookQueryResults.length = 0;
+    }
+
+    for (const openLibQuery of openLibBookQueries)
+    {
+        fetchOpenLib(openLibQuery, parseInt(queryResultLimit.value)).then(openLibResponse => {
+            openLibResponse.docs.forEach(openLibDoc => {
+                openLibBookQueryResults.push(openLibDoc);
+                document.getElementById("bookQueryResultCards")?.appendChild(createBookResultCard(openLibDoc));
+            })});
     }
 });
