@@ -14,5 +14,5 @@ export interface OpenLibResponse
     numFound: number
 }
 
-export const fetchOpenLibResponse = async (query: string, limit?: number): Promise<OpenLibResponse> =>
+export const fetchOpenLib = async (query: string, limit?: number): Promise<OpenLibResponse> =>
     fetch(`${rootUrl}${query}${limit ?? ""}`).then(openLibResponse => openLibResponse.json());
