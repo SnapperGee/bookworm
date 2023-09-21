@@ -1,4 +1,5 @@
 import { createNavbar } from "./navbar";
+import { createNewShelf } from './bookshelf/newshelf';
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
 bodyHTML.prepend(createNavbar());
@@ -17,16 +18,36 @@ function modalHandler(open: boolean | null = null) {
 }
 
 const svgTrigger = document.getElementById('add-list');
-svgTrigger?.addEventListener('click', () => {
-    console.log('Add button clicked');
-    modalHandler(true);
+    svgTrigger?.addEventListener('click', () => {
+        console.log('Modal opened');
+        modalHandler(true);
 });
 
 const closeModalBtn = document.getElementById('close');
-closeModalBtn?.addEventListener('click', (event) => {
-    event.stopPropagation();
-    console.log('Cancel button clicked');
-    modalHandler(false); 
+    closeModalBtn?.addEventListener('click', (event) => {
+        event.stopPropagation();
+        console.log('Modal closed');
+        modalHandler(false); 
 });
+
+const createShelfBtn = document.getElementById('create');
+createShelfBtn?.addEventListener('click', () => {
+    const nameInput = document.getElementById('name') as HTMLInputElement;
+    const shelfName = nameInput.value; 
+    if (shelfName === '') {
+        console.log('No name specified');
+        modalHandler(false)
+        return;
+    }
+
+    else {
+        const createList: HTMLElement = document.querySelector('body') as HTMLElement;
+        createList.append(createNewShelf(shelfName));
+        
+        modalHandler(false);
+        console.log(`New shelf named: ${shelfName}`);
+    }
+});
+
 
 console.log("Bookshelf");
