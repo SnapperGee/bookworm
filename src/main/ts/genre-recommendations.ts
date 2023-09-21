@@ -4,6 +4,7 @@ import { topicCheckboxEventFunction } from "./genre-recommendations/topicCheckbo
 import { topicVisibilityDropdownEventFunction } from "./genre-recommendations/topicVisibilityDropdown";
 import { selectAllTopicsEventFunction } from "./genre-recommendations/selectAllTopicsButton";
 import { deselectAllTopicsEventFunction } from "./genre-recommendations/deselectAllTopicsButton";
+import { fetchOpenLib } from "./genre-recommendations/openLibAPI";
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
 bodyHTML.prepend(createNavbar());
@@ -49,5 +50,8 @@ getRecommendationsButton.addEventListener("click", () => {
         {
             openLibBookQueries.add(openLibQuery);
         }
+
     }
+
+    fetchOpenLib("subject=dogs", 1).then(response => console.log(response));
 });
