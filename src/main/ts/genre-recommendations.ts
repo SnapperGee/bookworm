@@ -60,4 +60,6 @@ getRecommendationsEvent( getRecommendationsButton,
                          subjectCheckboxes,
                          openLibBookQueryResults,
                          bookQueryResultCards,
-                         queryResultLimit );
+                         queryResultLimit,
+                         visibilitySelectDropdown,
+                         topicFieldsets );

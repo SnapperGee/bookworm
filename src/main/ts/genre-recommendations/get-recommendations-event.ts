@@ -8,9 +8,26 @@ export const getRecommendationsEvent = (
     checkBoxes: HTMLCollectionOf<HTMLInputElement>,
     openLibDocs: OpenLibDoc[],
     htmlDiv: HTMLDivElement,
-    htmlRequestLimitInput: HTMLInputElement ): void =>
+    htmlRequestLimitInput: HTMLInputElement,
+    htmlTopicFieldsetsVisibilitySelect: HTMLSelectElement,
+    htmlTopicFieldsets: HTMLCollectionOf<HTMLFieldSetElement> ): void =>
 {
     htmlButton.addEventListener("click", async () => {
+
+        if (htmlTopicFieldsetsVisibilitySelect.value === "show")
+        {
+            htmlTopicFieldsetsVisibilitySelect.value = "hide";
+        }
+
+        for (let index = 0; index < htmlTopicFieldsets.length; ++index)
+        {
+            const topicFieldset = htmlTopicFieldsets.item(index);
+
+            if (topicFieldset !== null && ! topicFieldset.classList.contains("hidden"))
+            {
+                topicFieldset.classList.add("hidden");
+            }
+        }
 
         if (htmlDiv.children.length !== 0)
         {
