@@ -4,8 +4,7 @@ import { topicCheckboxEventFunction } from "./genre-recommendations/topicCheckbo
 import { topicVisibilityDropdownEventFunction } from "./genre-recommendations/topicVisibilityDropdown";
 import { selectAllTopicsEventFunction } from "./genre-recommendations/selectAllTopicsButton";
 import { deselectAllTopicsEventFunction } from "./genre-recommendations/deselectAllTopicsButton";
-import { OpenLibDoc, fetchOpenLib } from "./genre-recommendations/openLibAPI";
-import { createBookResultCard } from "./genre-recommendations/createBookResultCard";
+import { OpenLibDoc } from "./genre-recommendations/openLibAPI";
 import { getRecommendationsEvent } from "./genre-recommendations/get-recommendations-event";
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
