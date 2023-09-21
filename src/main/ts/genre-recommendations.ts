@@ -16,13 +16,29 @@ const deselectAllTopicsButton: HTMLButtonElement = getDeselectAllTopicsButton();
 const topicCheckboxes: HTMLCollectionOf<HTMLInputElement> = getTopicCheckboxes();
 const topicFieldsets: HTMLCollectionOf<HTMLFieldSetElement> = getTopicFieldsets();
 const queryResultLimit: HTMLInputElement = getQueryResultLimitNumberInput();
+const subjectCheckboxes: HTMLCollectionOf<HTMLInputElement> = getSubjectCheckboxes();
 
 queryResultLimit.value = "12";
 visibilitySelectDropdown.value = "show";
 
 for (let index = 0; index < topicCheckboxes.length; ++index)
 {
-    topicCheckboxes.item(index)!.checked = false;
+    const topicCheckbox = topicCheckboxes.item(index);
+
+    if (topicCheckbox !== null)
+    {
+        topicCheckbox.checked = false;
+    }
+}
+
+for (let index = 0; index < subjectCheckboxes.length; ++index)
+{
+    const subjectCheckbox = subjectCheckboxes.item(index);
+
+    if (subjectCheckbox !== null)
+    {
+        subjectCheckbox.checked = false;
+    }
 }
 
 
@@ -33,11 +49,10 @@ topicCheckboxEventFunction(topicCheckboxes, topicFieldsets, visibilitySelectDrop
 
 
 const getRecommendationsButton: HTMLButtonElement = getGetRecommendationsButton();
-const subjectCheckboxes: HTMLCollectionOf<HTMLInputElement> = getSubjectCheckboxes();
 const bookQueryResultCards: HTMLDivElement = getBookQueryResultCardsContainer();
 // To contain the dataset OpenLibrary queries contained in the corresponding checked subject checkbox HTML input elements
 const openLibBookQueries: Set<string> = new Set();
-let openLibBookQueryResults: OpenLibDoc[] = [];
+const openLibBookQueryResults: OpenLibDoc[] = [];
 
 getRecommendationsButton.addEventListener("click", async () => {
 
