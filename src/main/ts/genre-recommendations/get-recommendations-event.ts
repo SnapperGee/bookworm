@@ -1,6 +1,6 @@
 import { type OpenLibDoc } from "./openLibAPI";
 import { fetchOpenLib } from "./openLibAPI";
-import { createBookResultCard } from "./createBookResultCard";
+import { createBookResultCard } from "./create-book-result-card";
 
 export const getRecommendationsEvent = (
     htmlButton: HTMLButtonElement,
