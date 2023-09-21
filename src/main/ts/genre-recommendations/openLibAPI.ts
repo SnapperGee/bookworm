@@ -16,3 +16,12 @@ export interface OpenLibResponse
 
 export const fetchOpenLib = async (query: string, limit?: number): Promise<OpenLibResponse> =>
     fetch(`${rootUrl}${query}${limit !== undefined && limit !== null ? "&limit=" + String(limit) : ""}`).then(openLibResponse => openLibResponse.json());
+
+export enum CoverImgSize
+{
+    SMALL = "S",
+    MEDIUM = "M",
+    LARGE = "L"
+}
+
+export const createOpenLibBookCoverImgUrl = (coverImgID: number, imgSize: CoverImgSize): string => `https://covers.openlibrary.org/b/id/${coverImgID}-${imgSize}.jpg`;
