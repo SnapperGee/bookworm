@@ -1,5 +1,5 @@
 import noImgAvailable from "../../resource/img/no_image_available.svg";
-import { CoverImgSize, OpenLibDoc, createOpenLibBookCoverImgUrl } from "./openLibAPI";
+import { CoverImgSize, OpenLibDoc, createOpenLibBookCoverImgUrl } from "./open-lib-api";
 
 export function createBookResultCard(openLibDoc: OpenLibDoc): HTMLDivElement;
 export function createBookResultCard(title: string, coverId?: number, author?: string, subjects?: string[]): HTMLDivElement;

@@ -1,10 +1,10 @@
 import { createNavbar } from "./navbar";
 import { getVisibilitySelectDropdown, getSubjectCheckboxes, getTopicCheckboxes, getClearSubjectsButton, getTopicFieldsets, getGetRecommendationsButton, getQueryResultLimitNumberInput, getSelectAllTopicsButton, getDeselectAllTopicsButton, getBookQueryResultCardsContainer } from "./genre-recommendations/genre-recommendations-dom";
-import { topicCheckboxEventFunction } from "./genre-recommendations/topicCheckbox";
-import { topicVisibilityDropdownEventFunction } from "./genre-recommendations/topicVisibilityDropdown";
-import { selectAllTopicsEventFunction } from "./genre-recommendations/selectAllTopicsButton";
-import { deselectAllTopicsEventFunction } from "./genre-recommendations/deselectAllTopicsButton";
-import { OpenLibDoc } from "./genre-recommendations/openLibAPI";
+import { topicCheckboxEventFunction } from "./genre-recommendations/topic-checkbox-event";
+import { topicVisibilityDropdownEventFunction } from "./genre-recommendations/topic-visibility-dropdown-event";
+import { selectAllTopicsEventFunction } from "./genre-recommendations/select-all-topics-button";
+import { deselectAllTopicsEventFunction } from "./genre-recommendations/deselect-all-topics-button";
+import { OpenLibDoc } from "./genre-recommendations/open-lib-api";
 import { getRecommendationsEvent } from "./genre-recommendations/get-recommendations-event";
 import { clearSubjectsEvent } from "./genre-recommendations/clear-subjects-event";
 

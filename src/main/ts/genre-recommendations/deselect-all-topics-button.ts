@@ -1,12 +1,12 @@
 export const deselectAllTopicsEventFunction = (
     htmlButton: HTMLButtonElement,
-    htlmCheckboxInputs: HTMLCollectionOf<HTMLInputElement>,
+    htmlCheckboxInputs: HTMLCollectionOf<HTMLInputElement>,
     htmlFieldSets: HTMLCollectionOf<HTMLFieldSetElement> ): void =>
 {
     htmlButton.addEventListener("click", () => {
-        for (let index = 0; index < htlmCheckboxInputs.length; ++index)
+        for (let index = 0; index < htmlCheckboxInputs.length; ++index)
         {
-            const htmlCheckBox = htlmCheckboxInputs.item(index);
+            const htmlCheckBox = htmlCheckboxInputs.item(index);
 
             if (htmlCheckBox?.checked === true)
             {
