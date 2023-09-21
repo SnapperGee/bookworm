@@ -6,6 +6,25 @@ const NUM_OF_TOPICS: number = 12;
 const NUM_OF_SUBJECTS: number = 85;
 const SUBJECT_CHECKBOX_DATASET_PROPS: readonly string[] = Object.freeze(["openLibQuery"]);
 
+let bookQueryResultCardsContainer: HTMLDivElement;
+
+/**
+ * Retrieves a reference to the `HTMLDivElement` used that contains the query result cards.
+ *
+ * @returns The number `HTMLDivElement` used that contains the query result cards.
+ */
+export const getBookQueryResultCardsContainer = (): HTMLDivElement =>
+{
+    bookQueryResultCardsContainer = document.getElementById("bookQueryResultCards") as HTMLDivElement;
+
+    if ( ! (bookQueryResultCardsContainer instanceof HTMLDivElement))
+    {
+        throw new TypeError(`${getBookQueryResultCardsContainer.name}: ${bookQueryResultCardsContainer === null ? "null" : "non " + HTMLDivElement.name} book query results card div.`);
+    }
+
+    return bookQueryResultCardsContainer;
+}
+
 let _selectAllTopicsButton: HTMLButtonElement;
 
 /**
