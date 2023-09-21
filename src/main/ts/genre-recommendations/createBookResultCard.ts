@@ -47,7 +47,8 @@ export function createBookResultCard(titleStringOrOpenLibDoc: string | OpenLibDo
     subjectsTextPElement.innerHTML = "Subjects<hr>";
 
     const subjectsPElement = document.createElement("p");
-    subjectsPElement.classList.add("h-3", "overflow-y-scroll");
+    subjectsPElement.style.height = "7rem";
+    subjectsPElement.style.overflowY = "auto";
     subjectsPElement.textContent = subjects.join(", ");
 
     const cardDivElement = document.createElement("div");
