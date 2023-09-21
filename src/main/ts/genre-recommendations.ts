@@ -45,7 +45,7 @@ for (let index = 0; index < subjectCheckboxes.length; ++index)
 }
 
 clearSubjectsEvent(clearSubjectsButton, subjectCheckboxes);
-topicVisibilityDropdownEventFunction(visibilitySelectDropdown, topicCheckboxes, topicFieldsets);
+topicVisibilityDropdownEventFunction(visibilitySelectDropdown, topicCheckboxes, topicFieldsets, clearSubjectsButton);
 selectAllTopicsEventFunction(selectAllTopicsButton, topicCheckboxes, visibilitySelectDropdown, topicFieldsets);
 deselectAllTopicsEventFunction(deselectAllTopicsButton, topicCheckboxes, topicFieldsets);
 topicCheckboxEventFunction(topicCheckboxes, topicFieldsets, visibilitySelectDropdown);
