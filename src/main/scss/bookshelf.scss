@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-#modal {
+#createModal {
+    display: none;
+}
+
+#editModal {
     display: none;
 }
