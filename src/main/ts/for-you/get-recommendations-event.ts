@@ -7,40 +7,15 @@ export const getRecommendationsEvent = (
     queryStrings: Set<string>,
     checkBoxes: HTMLCollectionOf<HTMLInputElement>,
     openLibDocs: OpenLibDoc[],
-    htmlDiv: HTMLDivElement,
-    htmlRequestLimitInput: HTMLInputElement,
-    htmlTopicFieldsetsVisibilitySelect: HTMLSelectElement,
-    htmlTopicFieldsets: HTMLCollectionOf<HTMLFieldSetElement>,
-    clearSubjectsButton: HTMLButtonElement,
-    clearResultsButton: HTMLButtonElement,
-    saveResultsButton: HTMLButtonElement ): void =>
+    resultsCardsHTMLDiv: HTMLDivElement,
+    requestLimitHTMLInput: HTMLInputElement,
+    topicFieldsetsVisibilityHTMLSelect: HTMLSelectElement,
+    topicHTMLFieldsets: HTMLCollectionOf<HTMLFieldSetElement>,
+    clearSubjectsHTMLButton: HTMLButtonElement,
+    clearResultsHTMLButton: HTMLButtonElement,
+    saveResultsHTMLButton: HTMLButtonElement ): void =>
 {
     htmlGetRecommendationsButton.addEventListener("click", async () => {
-
-        if (htmlTopicFieldsetsVisibilitySelect.value === "show")
-        {
-            htmlTopicFieldsetsVisibilitySelect.value = "hide";
-        }
-
-        for (let index = 0; index < htmlTopicFieldsets.length; ++index)
-        {
-            const topicFieldset = htmlTopicFieldsets.item(index);
-
-            if (topicFieldset !== null && ! topicFieldset.classList.contains("hidden"))
-            {
-                topicFieldset.classList.add("hidden");
-            }
-        }
-
-        if ( ! clearSubjectsButton.classList.contains("hidden"))
-        {
-            clearSubjectsButton.classList.add("hidden")
-        }
-
-        if (htmlDiv.children.length !== 0)
-        {
-            htmlDiv.innerHTML = "";
-        }
 
         queryStrings.clear();
 
@@ -61,25 +36,50 @@ export const getRecommendationsEvent = (
             return;
         }
 
+        if (topicFieldsetsVisibilityHTMLSelect.value === "show")
+        {
+            topicFieldsetsVisibilityHTMLSelect.value = "hide";
+        }
+
+        for (let index = 0; index < topicHTMLFieldsets.length; ++index)
+        {
+            const topicFieldset = topicHTMLFieldsets.item(index);
+
+            if (topicFieldset !== null && ! topicFieldset.classList.contains("hidden"))
+            {
+                topicFieldset.classList.add("hidden");
+            }
+        }
+
+        if ( ! clearSubjectsHTMLButton.classList.contains("hidden"))
+        {
+            clearSubjectsHTMLButton.classList.add("hidden")
+        }
+
+        if (resultsCardsHTMLDiv.children.length !== 0)
+        {
+            resultsCardsHTMLDiv.innerHTML = "";
+        }
+
         openLibDocs.length = 0;
 
         await Promise.all(Array.from(queryStrings).map(async openLibQuery => {
-            await fetchOpenLib(openLibQuery, parseInt(htmlRequestLimitInput.value)).then(openLibResponse => openLibDocs.push(...openLibResponse.docs));
+            await fetchOpenLib(openLibQuery, parseInt(requestLimitHTMLInput.value)).then(openLibResponse => openLibDocs.push(...openLibResponse.docs));
         }));
 
         openLibDocs.forEach(openLibDoc => {
             const openLibResponseCard = createBookResultCard(openLibDoc);
-            htmlDiv.appendChild(openLibResponseCard);
+            resultsCardsHTMLDiv.appendChild(openLibResponseCard);
         });
 
-        if (clearResultsButton.classList.contains("hidden"))
+        if (clearResultsHTMLButton.classList.contains("hidden"))
         {
-            clearResultsButton.classList.remove("hidden");
+            clearResultsHTMLButton.classList.remove("hidden");
         }
 
-        if (saveResultsButton.classList.contains("hidden"))
+        if (saveResultsHTMLButton.classList.contains("hidden"))
         {
-            saveResultsButton.classList.remove("hidden");
+            saveResultsHTMLButton.classList.remove("hidden");
         }
     });
 };
