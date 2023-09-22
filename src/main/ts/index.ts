@@ -24,6 +24,14 @@ fetch(`https://cors-anywhere.herokuapp.com/http://api.wordnik.com:80/v4/words.js
     .then(wordnikResponse => {
         const wordOfTheDay = wordnikResponse.word;
         const wordnikWordOfDay = document.getElementById("dailyWord");
+
+function capitalizeFLetter() {
+    let string = wordOfTheDay;
+    console.log(wordOfTheDay[0].toUpperCase() + string.slice(1));
+}
+
+capitalizeFLetter();
+
         if (wordnikWordOfDay){
             wordnikWordOfDay["textContent"] = wordOfTheDay;
     }
@@ -40,7 +48,5 @@ fetch(`https://cors-anywhere.herokuapp.com/http://api.wordnik.com:80/v4/words.js
         console.log(wordnikResponse)
     })
     .catch(error => console.error("Error fetching wordnik data:", error));
-
-
 
 
