@@ -1,4 +1,5 @@
-import { CoverImgSize, OpenLibDoc, createOpenLibBookCoverImgUrl } from "./openLibAPI";
+import noImgAvailable from "../../resource/img/no_image_available.svg";
+import { CoverImgSize, OpenLibDoc, createOpenLibBookCoverImgUrl } from "./open-lib-api";
 
 export function createBookResultCard(openLibDoc: OpenLibDoc): HTMLDivElement;
 export function createBookResultCard(title: string, coverId?: number, author?: string, subjects?: string[]): HTMLDivElement;
@@ -12,11 +13,6 @@ export function createBookResultCard(titleStringOrOpenLibDoc: string | OpenLibDo
                                      titleStringOrOpenLibDoc.subject );
     }
 
-    if (coverId === undefined || coverId === null)
-    {
-        throw new TypeError(`${createBookResultCard.name}: ${coverId} cover ID number.`);
-    }
-
     if (author === undefined || author === null)
     {
         throw new TypeError(`${createBookResultCard.name}: ${author} author string.`);
@@ -28,15 +24,15 @@ export function createBookResultCard(titleStringOrOpenLibDoc: string | OpenLibDo
     }
 
     const titlePElement = document.createElement("p");
-    titlePElement.classList.add("underline", "text-xl", "text-center");
+    titlePElement.classList.add("underline", "text-lg", "text-center");
     titlePElement.textContent = titleStringOrOpenLibDoc;
 
-    const coverImgUrl = createOpenLibBookCoverImgUrl(coverId, CoverImgSize.MEDIUM);
+    const coverImgUrl = coverId ? createOpenLibBookCoverImgUrl(coverId, CoverImgSize.MEDIUM) : noImgAvailable;
 
     const coverImgElement = document.createElement("img");
     coverImgElement.classList.add("mx-auto", "my-2");
     coverImgElement.src = coverImgUrl;
-    coverImgElement.alt = `${titleStringOrOpenLibDoc} by ${author} cover`;
+    coverImgElement.alt = coverId ? `${titleStringOrOpenLibDoc} by ${author} cover` : "No cover image available";
 
     const authorPElement = document.createElement("p");
     authorPElement.classList.add("text-center");
@@ -52,7 +48,7 @@ export function createBookResultCard(titleStringOrOpenLibDoc: string | OpenLibDo
     subjectsPElement.textContent = subjects.join(", ");
 
     const cardDivElement = document.createElement("div");
-    cardDivElement.classList.add("p-2", "bg-orange", "cursor-pointer");
+    cardDivElement.classList.add("p-2", "cursor-pointer", "border", "border-solid", "border-gray-300");
 
     cardDivElement.appendChild(titlePElement);
     cardDivElement.appendChild(coverImgElement);

@@ -1,12 +1,13 @@
 export const deselectAllTopicsEventFunction = (
     htmlButton: HTMLButtonElement,
-    htlmCheckboxInputs: HTMLCollectionOf<HTMLInputElement>,
-    htmlFieldSets: HTMLCollectionOf<HTMLFieldSetElement> ): void =>
+    htmlCheckboxInputs: HTMLCollectionOf<HTMLInputElement>,
+    htmlFieldSets: HTMLCollectionOf<HTMLFieldSetElement>,
+    htmlClearSubjectsButton: HTMLButtonElement ): void =>
 {
     htmlButton.addEventListener("click", () => {
-        for (let index = 0; index < htlmCheckboxInputs.length; ++index)
+        for (let index = 0; index < htmlCheckboxInputs.length; ++index)
         {
-            const htmlCheckBox = htlmCheckboxInputs.item(index);
+            const htmlCheckBox = htmlCheckboxInputs.item(index);
 
             if (htmlCheckBox?.checked === true)
             {
@@ -22,6 +23,11 @@ export const deselectAllTopicsEventFunction = (
             {
                 htmlFieldset.classList.add("hidden")
             }
+        }
+
+        if ( ! htmlClearSubjectsButton.classList.contains("hidden"))
+        {
+            htmlClearSubjectsButton.classList.add("hidden")
         }
     });
 };

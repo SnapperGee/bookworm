@@ -1,13 +1,14 @@
 export const selectAllTopicsEventFunction = (
     htmlButton: HTMLButtonElement,
-    htlmCheckboxInputs: HTMLCollectionOf<HTMLInputElement>,
+    htmlCheckboxInputs: HTMLCollectionOf<HTMLInputElement>,
     htmlFieldsetVisibilitySelect: HTMLSelectElement,
-    htmlFieldSets: HTMLCollectionOf<HTMLFieldSetElement> ): void =>
+    htmlFieldSets: HTMLCollectionOf<HTMLFieldSetElement>,
+    htmlClearSubjectsButton: HTMLButtonElement ): void =>
 {
     htmlButton.addEventListener("click", () => {
-        for (let index = 0; index < htlmCheckboxInputs.length; ++index)
+        for (let index = 0; index < htmlCheckboxInputs.length; ++index)
         {
-            const htmlCheckBox = htlmCheckboxInputs.item(index);
+            const htmlCheckBox = htmlCheckboxInputs.item(index);
 
             if (htmlCheckBox?.checked === false)
             {
@@ -26,6 +27,11 @@ export const selectAllTopicsEventFunction = (
                     htmlFieldset.classList.remove("hidden")
                 }
             }
+        }
+
+        if (htmlFieldsetVisibilitySelect.value === "show" && htmlClearSubjectsButton.classList.contains("hidden"))
+        {
+            htmlClearSubjectsButton.classList.remove("hidden")
         }
     });
 };

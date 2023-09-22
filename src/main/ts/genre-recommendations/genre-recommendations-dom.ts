@@ -6,6 +6,44 @@ const NUM_OF_TOPICS: number = 12;
 const NUM_OF_SUBJECTS: number = 85;
 const SUBJECT_CHECKBOX_DATASET_PROPS: readonly string[] = Object.freeze(["openLibQuery"]);
 
+let _clearSubjectsButton: HTMLButtonElement;
+
+/**
+ * Retrieves a reference to the `HTMLButtonElement` that unchecks all subject checkboxes.
+ *
+ * @returns The number `HTMLButtonElement` that unchecks all subject checkboxes.
+ */
+export const getClearSubjectsButton = (): HTMLButtonElement =>
+{
+    _clearSubjectsButton = document.getElementById("clearSubjectsButton") as HTMLButtonElement;
+
+    if ( ! (_clearSubjectsButton instanceof HTMLButtonElement))
+    {
+        throw new TypeError(`${getClearSubjectsButton.name}: ${_clearSubjectsButton === null ? "null" : "non " + HTMLButtonElement.name} clear subjects button.`);
+    }
+
+    return _clearSubjectsButton;
+}
+
+let _bookQueryResultCardsContainer: HTMLDivElement;
+
+/**
+ * Retrieves a reference to the `HTMLDivElement` used that contains the query result cards.
+ *
+ * @returns The number `HTMLDivElement` used that contains the query result cards.
+ */
+export const getBookQueryResultCardsContainer = (): HTMLDivElement =>
+{
+    _bookQueryResultCardsContainer = document.getElementById("bookQueryResultCards") as HTMLDivElement;
+
+    if ( ! (_bookQueryResultCardsContainer instanceof HTMLDivElement))
+    {
+        throw new TypeError(`${getBookQueryResultCardsContainer.name}: ${_bookQueryResultCardsContainer === null ? "null" : "non " + HTMLDivElement.name} book query results card div.`);
+    }
+
+    return _bookQueryResultCardsContainer;
+}
+
 let _selectAllTopicsButton: HTMLButtonElement;
 
 /**
