@@ -8,6 +8,7 @@ import { OpenLibDoc } from "./genre-recommendations/open-lib-api";
 import { getRecommendationsEvent } from "./genre-recommendations/get-recommendations-event";
 import { clearSubjectsEvent } from "./genre-recommendations/clear-subjects-event";
 import { clearResultsButtonEvent } from "./genre-recommendations/clear-results-button-event";
+import { saveResultsButtonEvent } from "./genre-recommendations/save-results-button-event";
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
 bodyHTML.prepend(createNavbar());
@@ -55,11 +56,11 @@ const getRecommendationsButton: HTMLButtonElement = getGetRecommendationsButton(
 const bookQueryResultCards: HTMLDivElement = getBookQueryResultCardsContainer();
 const saveQueryResultsButton: HTMLButtonElement = getSaveResultsButton();
 const clearResultsButton: HTMLButtonElement = getClearResultsButton();
+const saveResultsButton: HTMLButtonElement = getSaveResultsButton();
 // To contain the dataset OpenLibrary queries contained in the corresponding checked subject checkbox HTML input elements
 const openLibBookQueries: Set<string> = new Set();
 const openLibBookQueryResults: OpenLibDoc[] = [];
 
-clearResultsButtonEvent(clearResultsButton, bookQueryResultCards, openLibBookQueryResults, saveQueryResultsButton);
 getRecommendationsEvent( getRecommendationsButton,
                          openLibBookQueries,
                          subjectCheckboxes,
@@ -68,4 +69,9 @@ getRecommendationsEvent( getRecommendationsButton,
                          queryResultLimit,
                          visibilitySelectDropdown,
                          topicFieldsets,
-                         clearSubjectsButton );
+                         clearSubjectsButton,
+                         clearResultsButton,
+                         saveResultsButton );
+
+clearResultsButtonEvent(clearResultsButton, bookQueryResultCards, openLibBookQueryResults, saveQueryResultsButton);
+saveResultsButtonEvent(saveResultsButton, "openLibDocs", openLibBookQueryResults);
