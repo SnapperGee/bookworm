@@ -3,7 +3,7 @@ import { fetchOpenLib } from "./open-lib-api";
 import { createBookResultCard } from "./create-book-result-card";
 
 export const getRecommendationsEvent = (
-    htmlButton: HTMLButtonElement,
+    htmlGetRecommendationsButton: HTMLButtonElement,
     queryStrings: Set<string>,
     checkBoxes: HTMLCollectionOf<HTMLInputElement>,
     openLibDocs: OpenLibDoc[],
@@ -11,9 +11,11 @@ export const getRecommendationsEvent = (
     htmlRequestLimitInput: HTMLInputElement,
     htmlTopicFieldsetsVisibilitySelect: HTMLSelectElement,
     htmlTopicFieldsets: HTMLCollectionOf<HTMLFieldSetElement>,
-    clearSubjectsButton: HTMLButtonElement ): void =>
+    clearSubjectsButton: HTMLButtonElement,
+    clearResultsButton: HTMLButtonElement,
+    saveResultsButton: HTMLButtonElement ): void =>
 {
-    htmlButton.addEventListener("click", async () => {
+    htmlGetRecommendationsButton.addEventListener("click", async () => {
 
         if (htmlTopicFieldsetsVisibilitySelect.value === "show")
         {
@@ -52,7 +54,11 @@ export const getRecommendationsEvent = (
             {
                 queryStrings.add(openLibQuery);
             }
+        }
 
+        if (queryStrings.size === 0)
+        {
+            return;
         }
 
         openLibDocs.length = 0;
@@ -65,5 +71,15 @@ export const getRecommendationsEvent = (
             const openLibResponseCard = createBookResultCard(openLibDoc);
             htmlDiv.appendChild(openLibResponseCard);
         });
+
+        if (clearResultsButton.classList.contains("hidden"))
+        {
+            clearResultsButton.classList.remove("hidden");
+        }
+
+        if (saveResultsButton.classList.contains("hidden"))
+        {
+            saveResultsButton.classList.remove("hidden");
+        }
     });
 };
