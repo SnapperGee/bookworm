@@ -1,9 +1,9 @@
 import { createNavbar } from "./navbar";
 import { getVisibilitySelectDropdown, getSubjectCheckboxes, getTopicCheckboxes, getClearSubjectsButton, getTopicFieldsets, getGetRecommendationsButton, getQueryResultLimitNumberInput, getSelectAllTopicsButton, getDeselectAllTopicsButton, getBookQueryResultCardsContainer } from "./genre-recommendations/genre-recommendations-dom";
-import { topicCheckboxEventFunction } from "./genre-recommendations/topic-checkbox-event";
-import { topicVisibilityDropdownEventFunction } from "./genre-recommendations/topic-visibility-dropdown-event";
-import { selectAllTopicsEventFunction } from "./genre-recommendations/select-all-topics-button-event";
-import { deselectAllTopicsEventFunction } from "./genre-recommendations/deselect-all-topics-button-event";
+import { topicCheckboxEvent } from "./genre-recommendations/topic-checkbox-event";
+import { topicVisibilityDropdownEvent } from "./genre-recommendations/topic-visibility-dropdown-event";
+import { selectAllTopicsEvent } from "./genre-recommendations/select-all-topics-button-event";
+import { deselectAllTopicsEvent } from "./genre-recommendations/deselect-all-topics-button-event";
 import { OpenLibDoc } from "./genre-recommendations/open-lib-api";
 import { getRecommendationsEvent } from "./genre-recommendations/get-recommendations-event";
 import { clearSubjectsEvent } from "./genre-recommendations/clear-subjects-event";
@@ -44,10 +44,10 @@ for (let index = 0; index < subjectCheckboxes.length; ++index)
 }
 
 clearSubjectsEvent(clearSubjectsButton, subjectCheckboxes);
-topicVisibilityDropdownEventFunction(visibilitySelectDropdown, topicCheckboxes, topicFieldsets, clearSubjectsButton);
-selectAllTopicsEventFunction(selectAllTopicsButton, topicCheckboxes, visibilitySelectDropdown, topicFieldsets, clearSubjectsButton);
-deselectAllTopicsEventFunction(deselectAllTopicsButton, topicCheckboxes, topicFieldsets, clearSubjectsButton);
-topicCheckboxEventFunction(topicCheckboxes, topicFieldsets, visibilitySelectDropdown, clearSubjectsButton);
+topicVisibilityDropdownEvent(visibilitySelectDropdown, topicCheckboxes, topicFieldsets, clearSubjectsButton);
+selectAllTopicsEvent(selectAllTopicsButton, topicCheckboxes, visibilitySelectDropdown, topicFieldsets, clearSubjectsButton);
+deselectAllTopicsEvent(deselectAllTopicsButton, topicCheckboxes, topicFieldsets, clearSubjectsButton);
+topicCheckboxEvent(topicCheckboxes, topicFieldsets, visibilitySelectDropdown, clearSubjectsButton);
 
 
 const getRecommendationsButton: HTMLButtonElement = getGetRecommendationsButton();

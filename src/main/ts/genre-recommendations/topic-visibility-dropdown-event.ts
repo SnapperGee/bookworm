@@ -1,4 +1,4 @@
-export const topicVisibilityDropdownEventFunction = (
+export const topicVisibilityDropdownEvent = (
     htmlSelectElement: HTMLSelectElement,
     htmlCheckboxInputCollection: HTMLCollectionOf<HTMLInputElement>,
     htmlFieldsetCollection: HTMLCollectionOf<HTMLFieldSetElement>,

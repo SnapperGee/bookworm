@@ -1,4 +1,4 @@
-export const selectAllTopicsEventFunction = (
+export const selectAllTopicsEvent = (
     htmlButton: HTMLButtonElement,
     htmlCheckboxInputs: HTMLCollectionOf<HTMLInputElement>,
     htmlFieldsetVisibilitySelect: HTMLSelectElement,
@@ -36,4 +36,4 @@ export const selectAllTopicsEventFunction = (
     });
 };
 
-export default selectAllTopicsEventFunction;
+export default selectAllTopicsEvent;
