@@ -7,10 +7,11 @@
  *
  * @param htmlSelectElement The `HTMLSelectElement` to override whether to make a fieldset visible or not.
  */
-export const topicCheckboxEventFunction = (
+export const topicCheckboxEvent = (
     checkboxHTMLInputElements: HTMLCollectionOf<HTMLInputElement>,
     htmlFieldsetElements: HTMLCollectionOf<HTMLFieldSetElement>,
-    htmlSelectElement: HTMLSelectElement ): void =>
+    htmlSelectElement: HTMLSelectElement,
+    clearSubjectsButton: HTMLButtonElement ): void =>
 {
     for (let index = 0; index < checkboxHTMLInputElements.length; ++index)
     {
@@ -34,7 +35,25 @@ export const topicCheckboxEventFunction = (
                 {
                     topicFieldset.classList.add("hidden")
                 }
+
             }
+
+            checkAllCheckedStatus:
+                for (let i = 0; i < checkboxHTMLInputElements.length; ++i)
+                {
+                    const otherTopicCheckboxHTMLInputElement = checkboxHTMLInputElements.item(i);
+
+                    if (otherTopicCheckboxHTMLInputElement?.checked === true && htmlSelectElement.value === "show" && clearSubjectsButton.classList.contains("hidden"))
+                    {
+                        clearSubjectsButton.classList.remove("hidden");
+                        break checkAllCheckedStatus;
+                    }
+
+                    if ( ! clearSubjectsButton.classList.contains("hidden"))
+                    {
+                        clearSubjectsButton.classList.add("hidden");
+                    }
+                }
         });
     }
 };

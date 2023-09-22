@@ -7,7 +7,7 @@
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true,
       "lib": ["es2021", "DOM"],
-      "module": "es2020",
+      "module": "es2022",
       "moduleResolution": "node",
       "noEmitOnError": true,
       "noImplicitOverride": true,

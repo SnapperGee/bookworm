@@ -1,9 +1,28 @@
-export const topicVisibilityDropdownEventFunction = (
+export const topicVisibilityDropdownEvent = (
     htmlSelectElement: HTMLSelectElement,
     htmlCheckboxInputCollection: HTMLCollectionOf<HTMLInputElement>,
-    htmlFieldsetCollection: HTMLCollectionOf<HTMLFieldSetElement> ): void =>
+    htmlFieldsetCollection: HTMLCollectionOf<HTMLFieldSetElement>,
+    htmlClearSubjectsButton: HTMLButtonElement ): void =>
 {
     htmlSelectElement.addEventListener("change", () => {
+
+        if (htmlSelectElement.value === "hide" && ! htmlClearSubjectsButton.classList.contains("hidden"))
+        {
+            htmlClearSubjectsButton.classList.add("hidden")
+        }
+        else if (htmlSelectElement.value === "show" && htmlClearSubjectsButton.classList.contains("hidden"))
+        {
+            for (let index = 0; index < htmlCheckboxInputCollection.length; ++index)
+            {
+                const checkboxInput = htmlCheckboxInputCollection.item(index);
+
+                if (checkboxInput?.checked === true)
+                {
+                    htmlClearSubjectsButton.classList.remove("hidden")
+                }
+            }
+        }
+
         for (let index = 0; index < htmlCheckboxInputCollection.length; ++index)
         {
             const topicCheckboxHTMLInputElement = htmlCheckboxInputCollection.item(index);
