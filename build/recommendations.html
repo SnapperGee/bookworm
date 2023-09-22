@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+<link rel="icon" href="bookworm-transparent.png"><script type="module" src="recommendations.bundle.mjs"></script></head>
+<body>
+ <div class="container mt-3 mx-auto">
+
+        <div class="grid grid-cols-12 gap-x-4">
+
+            <aside class="col-span-2">
+
+                <fieldset class="border border-solid border-gray-300 p-3">
+
+                    <legend>Choose the subject topic(s) you're interested in:</legend>
+                    <hr>
+
+                    <ul>
+                        <li>
+                            <label class="whitespace-nowrap" for="animals">Animals:</label>
+                            <input type="checkbox" id="animals" name="animals" />
+                        </li>
+
+                        <li>
+                            <label class="whitespace-nowrap" for="arts">Arts:</label>
+                            <input type="checkbox" id="arts" name="arts" />
+                        </li>
+
+                        <li>
+                            <label class="whitespace-nowrap" for="biography">Biography:</label>
+                            <input type="checkbox" id="biography" name="biography" />
+                        </li>
+
+                        <li>
+                            <label class="whitespace-nowrap" for="businessAndFinances">Business & Finances:</label>
+                            <input type="checkbox" id="businessAndFinances" name="businessAndFinances" />
+                        </li>
+
+                        <li>
+                            <label class="whitespace-nowrap" for="childrens">Childrens:</label>
+                            <input type="checkbox" id="childrens" name="childrens" />
+                        </li>
+
+                        <li>
+                            <label class="whitespace-nowrap" for="fiction">Fiction:</label>
+                            <input type="checkbox" id="fiction" name="fiction" />
+                        </li>
+
+                        <li>
+                            <label class="whitespace-nowrap" for="healthAndWellness">Health & Wellness:</label>
+                            <input type="checkbox" id="healthAndWellness" name="healthAndWellness" />
+                        </li>
+
+                        <li>
+                            <label class="whitespace-nowrap" for="historyTopic">History:</label>
+                            <input type="checkbox" id="historyTopic" name="historyTopic" />
+                        </li>
+
+                        <li>
+                            <label class="whitespace-nowrap" for="places">Places:</label>
+                            <input type="checkbox" id="places" name="places" />
+                        </li>
+
+                        <li>
+                            <label class="whitespace-nowrap" for="scienceAndMathematics">Science & Mathematics:</label>
+                            <input type="checkbox" id="scienceAndMathematics" name="scienceAndMathematics" />
+                        </li>
+
+                        <li>
+                        <label class="whitespace-nowrap" for="socialSciences">Social Sciences:</label>
+                        <input type="checkbox" id="socialSciences" name="socialSciences" />
+                    </li>
+
+                    <li>
+                        <label class="whitespace-nowrap" for="textbook">Textbook:</label>
+                        <input type="checkbox" id="textbook" name="textbook" />
+                    </li>
+                </ul>
+
+                </fieldset>
+
+                <button class="block mx-auto px-6 py-3.5 text-base mt-3 font-bold text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" id="searchButton">Search</button>
+            </aside>
+
+            <main class="col-span-10 grid grid-rows-3 grid-cols-4 gap-x-2" id="subjects">
+
+                <fieldset class="border border-solid border-gray-300 p-3">
+
+                    <legend>Choose the <span class="italic underline">animal</span> subject(s) you're interested in:</legend>
+                    <hr>
+
+                    <label for="bears">Bears:</label>
+                    <input type="checkbox" id="bears" name="bears" data-query="bears" />
+
+                    <label for="cats">Cats:</label>
+                    <input type="checkbox" id="cats" name="cats" data-query="cats" />
+
+                    <label for="kittens">Kittens:</label>
+                    <input type="checkbox" id="kittens" name="kittens" data-query="kittens" />
+
+                    <label for="dogs">Dogs:</label>
+                    <input type="checkbox" id="dogs" name="dogs" data-query="dogs" />
+
+                    <label for="puppies">Puppies:</label>
+                    <input type="checkbox" id="puppies" name="puppies" data-query="puppies" />
+
+                </fieldset>
+
+                <fieldset class="border border-solid border-gray-300 p-3">
+
+                    <legend>Choose the <span class="italic underline">art</span> subject(s) you're interested in:</legend>
+                    <hr>
+
+                    <label for="architecture">Architecture:</label>
+                    <input type="checkbox" id="architecture" name="architecture" data-query="search.json?subject=architecture" />
+
+                    <label for="artInstruction">Art instruction:</label>
+                    <input type="checkbox" id="artInstruction" name="artInstruction" data-query="search.json?subject=art+instruction" />
+
+                    <label for="artHistory">Art history:</label>
+                    <input type="checkbox" id="artHistory" name="artHistory" data-query="search.json?subject=history_of_art__art__design_styles" />
+
+                    <label for="dance">Dance:</label>
+                    <input type="checkbox" id="dance" name="dance" data-query="subject=dance" />
+
+                    <label for="design">Design:</label>
+                    <input type="checkbox" id="design" name="design" data-query="subject=design" />
+
+                    <label for="fashion">Fashion:</label>
+                    <input type="checkbox" id="fashion" name="fashion" data-query="subject=fashion" />
+
+                    <label for="film">Film:</label>
+                    <input type="checkbox" id="film" name="film" data-query="subject=film" />
+
+                    <label for="graphicDesign">Graphic design:</label>
+                    <input type="checkbox" id="graphicDesign" name="graphicDesign" data-query="subject=graphic_design" />
+
+                    <label for="music">Music:</label>
+                    <input type="checkbox" id="music" name="music" data-query="subject=music" />
+
+                    <label for="musicTheory">Music theory:</label>
+                    <input type="checkbox" id="musicTheory" name="musicTheory" data-query="subject=music_theory" />
+
+                    <label for="painting">Painting:</label>
+                    <input type="checkbox" id="painting" name="painting" data-query="subject=painting__paintings" />
+
+                    <label for="photography">Photography:</label>
+                    <input type="checkbox" id="photography" name="photography" data-query="subject=photography" />
+
+                </fieldset>
+
+                <fieldset class="border border-solid border-gray-300 p-3">
+
+                    <legend>Choose the <span class="italic underline">biography</span> subject(s) you're interested in:</legend>
+                    <hr>
+
+                    <label for="autobiographies">Autobiographies:</label>
+                    <input type="checkbox" id="autobiographies" name="autobiographies" data-query="subject=autobiography" />
+
+                    <label for="biographyHistory">History:</label>
+                    <input type="checkbox" id="biographyHistory" name="biographyHistory" data-query="q=subject%3ABiography&subject_facet=Biography&subject_facet=History" />
+
+                    <label for="politicsAndGovernment">Politics & government:</label>
+                    <input type="checkbox" id="politicsAndGovernment" name="politicsAndGovernment" data-query="q=subject%3ABiography&subject_facet=Biography&subject_facet=Politics+and+government" />
+
+                    <label for="worlWarIIBiogrphy">World War II:</label>
+                    <input type="checkbox" id="worlWarIIBiogrphy" name="biographyWorldWar2" data-query="q=subject%3ABiography&subject_facet=Biography&subject_facet=World+War%2C+1939-1945" />
+
+                    <label for="women">Women:</label>
+                    <input type="checkbox" id="women" name="women" data-query="q=subject%3ABiography&subject_facet=Biography&subject_facet=Women" />
+
+                    <label for="kingsAndRulers">Kings & rulers:</label>
+                    <input type="checkbox" id="kingsAndRulers" name="kingsAndRulers" data-query="q=subject%3ABiography&subject_facet=Biography&subject_facet=Kings+and+rulers" />
+
+                    <label for="composers">Composers:</label>
+                    <input type="checkbox" id="composers" name="composers" data-query="q=subject%3ABiography&subject_facet=Biography&subject_facet=Composers" />
+
+                    <label for="artists">Artists:</label>
+                    <input type="checkbox" id="artists" name="artists" data-query="q=subject%3ABiography&subject_facet=Biography&subject_facet=Artists" />
+
+                </fieldset>
+
+                <!-- <fieldset>
+                    <legend>Choose the <span class="italic underline">book language</span> subject(s) you're interested in:</legend>
+                    <hr>
+                </fieldset> -->
+
+                <fieldset class="border border-solid border-gray-300 p-3">
+
+                    <legend>Choose the <span class="italic underline">children</span> subject(s) you're interested in:</legend>
+                    <hr>
+
+                    <label for="kidsBooks">Kids books:</label>
+                    <input type="checkbox" id="kidsBooks" name="kidsBooks" data-query="subject=juvenile_literature" />
+
+                    <label for="storiesInRhyme">Stories in rhyme:</label>
+                    <input type="checkbox" id="storiesInRhyme" name="storiesInRhyme" data-query="subject=stories_in_rhyme" />
+
+                    <label for="babyBooks">Baby books:</label>
+                    <input type="checkbox" id="babyBooks" name="babyBooks" data-query="subject=infancy" />
+
+                    <label for="bedTimeBooks">Bedtime books:</label>
+                    <input type="checkbox" id="bedTimeBooks" name="bedTimeBooks" data-query="subject=bedtime" />
+
+                    <label for="pictureBooks">Picture books:</label>
+                    <input type="checkbox" id="pictureBooks" name="pictureBooks" data-query="subject=picture_books" />
+
+                </fieldset>
+
+                <fieldset class="border border-solid border-gray-300 p-3">
+
+                    <legend>Choose the <span class="italic underline">fiction</span> subject(s) you're interested in:</legend>
+                    <hr>
+
+                    <ul>
+                        <li>
+                            <label for="fantasy">Fantasy:</label>
+                            <input type="checkbox" id="fantasy" name="fantasy" data-query="subject=fantasy" />
+                        </li>
+
+                        <li>
+                            <label for="historicalFiction">Historical fiction:</label>
+                            <input type="checkbox" id="historicalFiction" name="historicalFiction" data-query="subject=historical_fiction" />
+                        </li>
+
+                        <li>
+                            <label for="horror">Horror:</label>
+                            <input type="checkbox" id="horror" name="horror" data-query="subject=horror" />
+                        </li>
+
+                        <li>
+                            <label for="humor">Humor:</label>
+                            <input type="checkbox" id="humor" name="humor" data-query="subject=humor" />
+                        </li>
+
+                        <li>
+                            <label for="literature">Literature:</label>
+                            <input type="checkbox" id="literature" name="literature" data-query="subject=literature" />
+                        </li>
+
+                        <li>
+                            <label for="magic">Magic:</label>
+                            <input type="checkbox" id="magic" name="magic" data-query="subject=magic" />
+                        </li>
+
+                        <li>
+                            <label for="mysteryAndDetectiveStories">Mystery & detective stories:</label>
+                            <input type="checkbox" id="mysteryAndDetectiveStories" name="mysteryAndDetectiveStories" data-query="subject=mystery_and_detective_stories" />
+                        </li>
+
+                        <li>
+                            <label for="plays">Plays:</label>
+                            <input type="checkbox" id="plays" name="plays" data-query="subject=plays" />
+                        </li>
+
+                        <li>
+                            <label for="poetry">Poetry:</label>
+                            <input type="checkbox" id="poetry" name="poetry" data-query="subject=poetry" />
+                        </li>
+
+                        <li>
+                            <label for="romance">Romance:</label>
+                            <input type="checkbox" id="romance" name="romance" data-query="subject=romance" />
+                        </li>
+
+                        <li>
+                            <label for="scienceFiction">Science fiction:</label>
+                            <input type="checkbox" id="scienceFiction" name="scienceFiction" data-query="subject=science_fiction" />
+                        </li>
+
+                        <li>
+                            <label for="shortStories">Short stories:</label>
+                            <input type="checkbox" id="shortStories" name="shortStories" data-query="subject=short_stories" />
+                        </li>
+
+                        <li>
+                            <label for="thriller">Thriller:</label>
+                            <input type="checkbox" id="thriller" name="thriller" data-query="subject=thriller" />
+                        </li>
+
+                        <li>
+                            <label for="youngAdult">Young adult:</label>
+                            <input type="checkbox" id="youngAdult" name="youngAdult" data-query="subject=young_adult_fiction" />
+                    </ul>  </li>
+
+
+                </fieldset>
+
+                <fieldset class="border border-solid border-gray-300 p-3">
+
+                    <legend>Choose the <span class="italic underline">health & wellness</span> subject(s) you're interested in:</legend>
+                    <hr>
+
+                    <label for="cooking">Cooking:</label>
+                    <input type="checkbox" id="cooking" name="cooking" data-query="subject=cooking" />
+
+                    <label for="cookbooks">Cookbooks:</label>
+                    <input type="checkbox" id="cookbooks" name="cookbooks" data-query="subject=cookbooks" />
+
+                    <label for="mentalHealth">Mental health:</label>
+                    <input type="checkbox" id="mentalHealth" name="mentalHealth" data-query="subject=mental_health" />
+
+                    <label for="exercise">Exercise:</label>
+                    <input type="checkbox" id="exercise" name="exercise" data-query="subject=exercise" />
+
+                    <label for="nutrition">Nutrition:</label>
+                    <input type="checkbox" id="nutrition" name="nutrition" data-query="subject=nutrition" />
+
+                    <label for="selfHelp">Self-help:</label>
+                    <input type="checkbox" id="selfHelp" name="selfHelp" data-query="subject=self-help" />
+
+                </fieldset>
+
+                <fieldset class="border border-solid border-gray-300 p-3">
+
+                    <legend>Choose the <span class="italic underline">history</span> subject(s) you're interested in:</legend>
+                    <hr>
+
+                    <label for="ancientCivilization">Ancient civilization:</label>
+                    <input type="checkbox" id="ancientCivilization" name="ancientCivilization" data-query="subject=ancient_civilization" />
+
+                    <label for="archaeology">Archaeology:</label>
+                    <input type="checkbox" id="archaeology" name="archaeology" data-query="subject=archaeology" />
+
+                    <label for="anthropologyHistory">Anthropology:</label>
+                    <input type="checkbox" id="anthropologyHistory" name="anthropologyHistory" data-query="subject=anthropology" />
+
+                    <label for="worldWarIIHistory">World War II:</label>
+                    <input type="checkbox" id="worldWarIIHistory" name="worldWarIIHistory" data-query="q=subject%3AHistory&subject_facet=History&subject_facet=World+War%2C+1939-1945" />
+
+                    <label for="socialLifeAndCustoms">Social life & customs:</label>
+                    <input type="checkbox" id="socialLifeAndCustoms" name="socialLifeAndCustoms" data-query="q=subject%3AHistory&subject_facet=History&subject_facet=Social+life+and+customs" />
+
+                </fieldset>
+
+                <fieldset class="border border-solid border-gray-300 p-3">
+
+                    <legend>Choose the <span class="italic underline">place</span> subject(s) you're interested in:</legend>
+                    <hr>
+
+                    <label for="brazil">Brazil:</label>
+                    <input type="checkbox" id="brazil" name="brazil" data-query="place=brazil" />
+
+                    <label for="india">India:</label>
+                    <input type="checkbox" id="india" name="india" data-query="place=india" />
+
+                    <label for="indonesia">Indonesia:</label>
+                    <input type="checkbox" id="indonesia" name="indonesia" data-query="place=indonesia" />
+
+                    <label for="unitedStates">United States:</label>
+                    <input type="checkbox" id="unitedStates" name="unitedStates" data-query="place=united+states" />
+
+                </fieldset>
+
+                <fieldset class="border border-solid border-gray-300 p-3">
+
+                    <legend>Choose the <span class="italic underline">science & mathematics</span> subject(s) you're interested in:</legend>
+                    <hr>
+
+                    <label for="biology">Biology:</label>
+                    <input type="checkbox" id="biology" name="biology" data-query="subject=biology" />
+
+                    <label for="chemistry">Chemistry:</label>
+                    <input type="checkbox" id="chemistry" name="chemistry" data-query="subject=chemistry" />
+
+                    <label for="mathematics">Mathematics:</label>
+                    <input type="checkbox" id="mathematics" name="mathematics" data-query="subject=mathematics" />
+
+                    <label for="physicsScience">Physics:</label>
+                    <input type="checkbox" id="physicsScience" name="physicsScience" data-query="subject=physics" />
+
+                    <label for="programming">Programming:</label>
+                    <input type="checkbox" id="programming" name="programming" data-query="subject=programming" />
+
+                </fieldset>
+
+                <fieldset class="border border-solid border-gray-300 p-3">
+
+                    <legend>Choose the <span class="italic underline">social science</span> subject(s) you're interested in:</legend>
+                    <hr>
+
+                    <label for="anthropologySocialScience">Anthropology:</label>
+                    <input type="checkbox" id="anthropologySocialScience" name="anthropologySocialScience" data-query="subject=anthropology" />
+
+                    <label for="religion">Religion:</label>
+                    <input type="checkbox" id="religion" name="religion" data-query="subject=religion" />
+
+                    <label for="politicalScience">Political science:</label>
+                    <input type="checkbox" id="politicalScience" name="politicalScience" data-query="subject=political_science" />
+
+                    <label for="psychology">Psychology:</label>
+                    <input type="checkbox" id="psychology" name="psychology" data-query="subject=psychology" />
+
+                </fieldset>
+
+                <fieldset class="border border-solid border-gray-300 p-3">
+
+                    <legend>Choose the <span class="italic underline">textbook</span> subject(s) you're interested in:</legend>
+                    <hr>
+
+                    <label for="historyTextbook">History:</label>
+                    <input type="checkbox" id="historyTextbook" name="historyTextbook" data-query="q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=History" />
+
+                    <label for="mathematicsTextbook">Mathematics:</label>
+                    <input type="checkbox" id="mathematicsTextbook" name="mathematicsTextbook" data-query="q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Mathematics" />
+
+                    <label for="geography">Geography:</label>
+                    <input type="checkbox" id="geography" name="geography" data-query="q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Geography" />
+
+                    <label for="psychologyTextbook">Psychology:</label>
+                    <input type="checkbox" id="psychologyTextbook" name="psychologyTextbook" data-query="q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Psychology" />
+
+                    <label for="algebra">Algebra:</label>
+                    <input type="checkbox" id="algebra" name="algebra" data-query="q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Algebra" />
+
+                    <label for="education">Education:</label>
+                    <input type="checkbox" id="education" name="education" data-query="q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Education" />
+
+                    <label for="businessAndEconomics">Business & economics:</label>
+                    <input type="checkbox" id="businessAndEconomics" name="businessAndEconomics" data-query="q=subject%3ATextbook+subject%3ABusiness&subject_facet=Textbooks" />
+
+                    <label for="science">Science:</label>
+                    <input type="checkbox" id="science" name="science" data-query="q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Science" />
+
+                    <label for="chemistryTextbook">Chemistry:</label>
+                    <input type="checkbox" id="chemistryTextbook" name="chemistryTextbook" data-query="q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Chemistry" />
+
+                    <label for="englishLanguageTextbook">English language:</label>
+                    <input type="checkbox" id="englishLanguageTextbook" name="englishLanguageTextbook" data-query="q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=English+language" />
+
+                    <label for="physicsTextbook">Physics:</label>
+                    <input type="checkbox" id="physicsTextbook" name="physicsTextbook" data-query="q=subject%3ATextbooks&subject_facet=Textbooks&subject_facet=Physics" />
+
+                    <label for="computerScience">Computer science:</label>
+                    <input type="checkbox" id="computerScience" name="computerScience" data-query='q=subject%3A"Computer+science"&sort=editions&subject_facet=Computer+science' />
+
+                </fieldset>
+
+            </main>
+
+        </div>
+
+    </div>
+</body>
+</html>
