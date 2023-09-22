@@ -4,7 +4,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 
-const chunkNames = Object.freeze(["index", "bestsellers", "bookshelf", "genre-recommendations"]);
+const chunkNames = Object.freeze(["index", "bestsellers", "bookshelf", "for-you"]);
 
 const htmlWebpackPluginConfigs = Object.freeze(chunkNames.map(chunkName => new HtmlWebpackPlugin({
     filename: `${chunkName}.html`,

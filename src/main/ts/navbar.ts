@@ -20,11 +20,11 @@ export const createNavbar = (): HTMLDivElement => {
     const logoBookAnchor: HTMLHeadingElement = document.createElement('h1');
         logoBookAnchor.classList.add('text-pink', 'font-bold', 'text-2xl');
         logoBookAnchor.textContent = 'Book';
-        
+
     const logoWormAnchor: HTMLHeadingElement = document.createElement('h1');
         logoWormAnchor.classList.add('text-white', 'font-bold', 'text-2xl');
         logoWormAnchor.textContent = 'Worm';
-        
+
     const invisibleBlock: HTMLDivElement = document.createElement('div');
         invisibleBlock.classList.add('w-full', 'lg:flex', 'lg:w-auto', 'mt-2', 'lg:mt-0', 'p-4', 'lg:p-0');
         invisibleBlock.id = 'nav-content';
@@ -47,8 +47,8 @@ export const createNavbar = (): HTMLDivElement => {
 
     const recommendations: HTMLAnchorElement = document.createElement('a');
         recommendations.classList.add('inline-block', 'text-white', 'p-4');
-        recommendations.href = './genre-recommendations.html';
-        recommendations.textContent = 'Genre Recommendations';
+        recommendations.href = './for-you.html';
+        recommendations.textContent = 'For You';
 
     const bookshelf: HTMLAnchorElement = document.createElement('a');
         bookshelf.classList.add('inline-block', 'text-white', 'p-4');
