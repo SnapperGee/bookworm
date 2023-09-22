@@ -66,7 +66,7 @@ export default function(env, argv) {
                 directory: resolvePath(".", "build")
             },
             headers: {
-                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": "http://api.wordnik.com",
                 "Access-Control-Allow-Methods": "GET",
             },
             client: {
