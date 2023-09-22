@@ -7,7 +7,7 @@
  *
  * @param htmlSelectElement The `HTMLSelectElement` to override whether to make a fieldset visible or not.
  */
-export const topicCheckboxEventFunction = (
+export const topicCheckboxEvent = (
     checkboxHTMLInputElements: HTMLCollectionOf<HTMLInputElement>,
     htmlFieldsetElements: HTMLCollectionOf<HTMLFieldSetElement>,
     htmlSelectElement: HTMLSelectElement,

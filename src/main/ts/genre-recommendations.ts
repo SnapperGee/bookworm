@@ -1,12 +1,14 @@
 import { createNavbar } from "./navbar";
-import { getVisibilitySelectDropdown, getSubjectCheckboxes, getTopicCheckboxes, getClearSubjectsButton, getTopicFieldsets, getGetRecommendationsButton, getQueryResultLimitNumberInput, getSelectAllTopicsButton, getDeselectAllTopicsButton, getBookQueryResultCardsContainer } from "./genre-recommendations/genre-recommendations-dom";
-import { topicCheckboxEventFunction } from "./genre-recommendations/topic-checkbox-event";
-import { topicVisibilityDropdownEventFunction } from "./genre-recommendations/topic-visibility-dropdown-event";
-import { selectAllTopicsEventFunction } from "./genre-recommendations/select-all-topics-button-event";
-import { deselectAllTopicsEventFunction } from "./genre-recommendations/deselect-all-topics-button-event";
+import { getVisibilitySelectDropdown, getSubjectCheckboxes, getTopicCheckboxes, getClearSubjectsButton, getTopicFieldsets, getGetRecommendationsButton, getQueryResultLimitNumberInput, getSelectAllTopicsButton, getDeselectAllTopicsButton, getBookQueryResultCardsContainer, getClearResultsButton, getSaveResultsButton } from "./genre-recommendations/genre-recommendations-dom";
+import { topicCheckboxEvent } from "./genre-recommendations/topic-checkbox-event";
+import { topicVisibilityDropdownEvent } from "./genre-recommendations/topic-visibility-dropdown-event";
+import { selectAllTopicsEvent } from "./genre-recommendations/select-all-topics-button-event";
+import { deselectAllTopicsEvent } from "./genre-recommendations/deselect-all-topics-button-event";
 import { OpenLibDoc } from "./genre-recommendations/open-lib-api";
 import { getRecommendationsEvent } from "./genre-recommendations/get-recommendations-event";
 import { clearSubjectsEvent } from "./genre-recommendations/clear-subjects-event";
+import { clearResultsButtonEvent } from "./genre-recommendations/clear-results-button-event";
+import { saveResultsButtonEvent } from "./genre-recommendations/save-results-button-event";
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
 bodyHTML.prepend(createNavbar());
@@ -44,14 +46,17 @@ for (let index = 0; index < subjectCheckboxes.length; ++index)
 }
 
 clearSubjectsEvent(clearSubjectsButton, subjectCheckboxes);
-topicVisibilityDropdownEventFunction(visibilitySelectDropdown, topicCheckboxes, topicFieldsets, clearSubjectsButton);
-selectAllTopicsEventFunction(selectAllTopicsButton, topicCheckboxes, visibilitySelectDropdown, topicFieldsets, clearSubjectsButton);
-deselectAllTopicsEventFunction(deselectAllTopicsButton, topicCheckboxes, topicFieldsets, clearSubjectsButton);
-topicCheckboxEventFunction(topicCheckboxes, topicFieldsets, visibilitySelectDropdown, clearSubjectsButton);
+topicVisibilityDropdownEvent(visibilitySelectDropdown, topicCheckboxes, topicFieldsets, clearSubjectsButton);
+selectAllTopicsEvent(selectAllTopicsButton, topicCheckboxes, visibilitySelectDropdown, topicFieldsets, clearSubjectsButton);
+deselectAllTopicsEvent(deselectAllTopicsButton, topicCheckboxes, topicFieldsets, clearSubjectsButton);
+topicCheckboxEvent(topicCheckboxes, topicFieldsets, visibilitySelectDropdown, clearSubjectsButton);
 
 
 const getRecommendationsButton: HTMLButtonElement = getGetRecommendationsButton();
 const bookQueryResultCards: HTMLDivElement = getBookQueryResultCardsContainer();
+const saveQueryResultsButton: HTMLButtonElement = getSaveResultsButton();
+const clearResultsButton: HTMLButtonElement = getClearResultsButton();
+const saveResultsButton: HTMLButtonElement = getSaveResultsButton();
 // To contain the dataset OpenLibrary queries contained in the corresponding checked subject checkbox HTML input elements
 const openLibBookQueries: Set<string> = new Set();
 const openLibBookQueryResults: OpenLibDoc[] = [];
@@ -64,4 +69,9 @@ getRecommendationsEvent( getRecommendationsButton,
                          queryResultLimit,
                          visibilitySelectDropdown,
                          topicFieldsets,
-                         clearSubjectsButton );
+                         clearSubjectsButton,
+                         clearResultsButton,
+                         saveResultsButton );
+
+clearResultsButtonEvent(clearResultsButton, bookQueryResultCards, openLibBookQueryResults, saveQueryResultsButton);
+saveResultsButtonEvent(saveResultsButton, "openLibDocs", openLibBookQueryResults);

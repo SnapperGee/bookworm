@@ -123,20 +123,20 @@
                         dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     type="button"
                     id="getRecommendationsButton"
-                > Get Recommendations</button>
+                >Get Recommendations</button>
             </aside>
 
             <div class="col-span-10">
 
                 <button
                     class="hidden px-6 py-3 text-base mb-3 font-semibold text-white bg-blue-700 hover:bg-blue-800
-                        focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600
-                        dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg text-center dark:bg-blue-600
+                        dark:hover:bg-blue-700 dark:focus:ring-red-800"
                     type="button"
                     id="clearSubjectsButton"
-                > Clear Subjects</button>
+                >Clear Subjects</button>
 
-                <div class="grid grid-cols-3 gap-x-2" id="topicFieldsets">
+                <div class="grid grid-cols-3 gap-x-2 mb-3" id="topicFieldsets">
                     <fieldset class="hidden border border-solid border-gray-300 p-3" name="animalsTopic">
 
                         <legend><span class="italic underline font-bold text-lg">Animal</span> subjects:</legend>
@@ -657,7 +657,27 @@
                     </fieldset>
                 </div>
 
-                <div class="grid grid-cols-6 gap-x-2 mt-3" id="bookQueryResultCards">
+                <div class="grid grid-cols-2 gap-x-12">
+
+                    <button
+                    class="hidden w-fit px-6 py-3 text-base mb-3 font-semibold text-white bg-blue-700 hover:bg-blue-800
+                        focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg text-center dark:bg-blue-600
+                        dark:hover:bg-blue-700 dark:focus:ring-red-800"
+                    type="button"
+                    id="clearResultsButton"
+                >Clear Results</button>
+
+                <button
+                    class="hidden w-fit px-6 py-3 text-base mb-3 font-semibold text-white bg-blue-700 hover:bg-blue-800
+                        focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600
+                        dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    type="button"
+                    id="saveResultsButton"
+                >Save Results</button>
+
+                </div>
+
+                <div class="grid grid-cols-6 gap-x-2" id="bookQueryResultCards">
                     <!-- The following comment is needed so tailwind classes get correctly applied, at least in the dev
                          sever
                         <div> class="p-2 bg-orange cursor-pointer">

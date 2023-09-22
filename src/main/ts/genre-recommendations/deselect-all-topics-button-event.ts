@@ -1,4 +1,4 @@
-export const deselectAllTopicsEventFunction = (
+export const deselectAllTopicsEvent = (
     htmlButton: HTMLButtonElement,
     htmlCheckboxInputs: HTMLCollectionOf<HTMLInputElement>,
     htmlFieldSets: HTMLCollectionOf<HTMLFieldSetElement>,
@@ -32,4 +32,4 @@ export const deselectAllTopicsEventFunction = (
     });
 };
 
-export default deselectAllTopicsEventFunction;
+export default deselectAllTopicsEvent;

@@ -6,6 +6,44 @@ const NUM_OF_TOPICS: number = 12;
 const NUM_OF_SUBJECTS: number = 85;
 const SUBJECT_CHECKBOX_DATASET_PROPS: readonly string[] = Object.freeze(["openLibQuery"]);
 
+let _clearResultsButton: HTMLButtonElement;
+
+/**
+ * Retrieves a reference to the `HTMLButtonElement` that clears the open lib query result cards and open lib docs array.
+ *
+ * @returns The number `HTMLButtonElement` that clears the open lib query result cards and open lib docs array.
+ */
+export const getClearResultsButton = (): HTMLButtonElement =>
+{
+    _clearResultsButton = document.getElementById("clearResultsButton") as HTMLButtonElement;
+
+    if ( ! (_clearResultsButton instanceof HTMLButtonElement))
+    {
+        throw new TypeError(`${getClearResultsButton.name}: ${_clearResultsButton === null ? "null" : "non " + HTMLButtonElement.name} clear results button.`);
+    }
+
+    return _clearResultsButton;
+}
+
+let _saveResultsButton: HTMLButtonElement;
+
+/**
+ * Retrieves a reference to the `HTMLButtonElement` that saves the open lib query result docs to local storage.
+ *
+ * @returns The number `HTMLButtonElement` that saves the open lib query result docs to local storage.
+ */
+export const getSaveResultsButton = (): HTMLButtonElement =>
+{
+    _saveResultsButton = document.getElementById("saveResultsButton") as HTMLButtonElement;
+
+    if ( ! (_saveResultsButton instanceof HTMLButtonElement))
+    {
+        throw new TypeError(`${getSaveResultsButton.name}: ${_saveResultsButton === null ? "null" : "non " + HTMLButtonElement.name} save results button.`);
+    }
+
+    return _saveResultsButton;
+}
+
 let _clearSubjectsButton: HTMLButtonElement;
 
 /**
