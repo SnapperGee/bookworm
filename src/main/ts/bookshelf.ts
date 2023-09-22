@@ -33,7 +33,10 @@ const closeModalBtn = document.getElementById('close');
 const createShelfBtn = document.getElementById('create');
 createShelfBtn?.addEventListener('click', () => {
     const nameInput = document.getElementById('name') as HTMLInputElement;
+    const colorInput = document.getElementById('colorPicker') as HTMLSelectElement;
     const shelfName = nameInput.value; 
+    const colorClass = colorInput.value;
+
     if (shelfName === '') {
         console.log('No name specified');
         modalHandler(false)
@@ -42,7 +45,7 @@ createShelfBtn?.addEventListener('click', () => {
 
     else {
         const createList: HTMLElement = document.querySelector('body') as HTMLElement;
-        createList.append(createNewShelf(shelfName));
+        createList.append(createNewShelf(shelfName, colorClass));
         
         modalHandler(false);
         console.log(`New shelf named: ${shelfName}`);
