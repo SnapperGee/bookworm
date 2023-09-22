@@ -1,5 +1,5 @@
 import { createNavbar } from "./navbar";
-import { getVisibilitySelectDropdown, getSubjectCheckboxes, getTopicCheckboxes, getClearSubjectsButton, getTopicFieldsets, getGetRecommendationsButton, getQueryResultLimitNumberInput, getSelectAllTopicsButton, getDeselectAllTopicsButton, getBookQueryResultCardsContainer } from "./genre-recommendations/genre-recommendations-dom";
+import { getVisibilitySelectDropdown, getSubjectCheckboxes, getTopicCheckboxes, getClearSubjectsButton, getTopicFieldsets, getGetRecommendationsButton, getQueryResultLimitNumberInput, getSelectAllTopicsButton, getDeselectAllTopicsButton, getBookQueryResultCardsContainer, getClearResultsButton, getSaveResultsButton } from "./genre-recommendations/genre-recommendations-dom";
 import { topicCheckboxEvent } from "./genre-recommendations/topic-checkbox-event";
 import { topicVisibilityDropdownEvent } from "./genre-recommendations/topic-visibility-dropdown-event";
 import { selectAllTopicsEvent } from "./genre-recommendations/select-all-topics-button-event";
@@ -7,6 +7,7 @@ import { deselectAllTopicsEvent } from "./genre-recommendations/deselect-all-top
 import { OpenLibDoc } from "./genre-recommendations/open-lib-api";
 import { getRecommendationsEvent } from "./genre-recommendations/get-recommendations-event";
 import { clearSubjectsEvent } from "./genre-recommendations/clear-subjects-event";
+import { clearResultsButtonEvent } from "./genre-recommendations/clear-results-button-event";
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
 bodyHTML.prepend(createNavbar());
@@ -52,10 +53,13 @@ topicCheckboxEvent(topicCheckboxes, topicFieldsets, visibilitySelectDropdown, cl
 
 const getRecommendationsButton: HTMLButtonElement = getGetRecommendationsButton();
 const bookQueryResultCards: HTMLDivElement = getBookQueryResultCardsContainer();
+const saveQueryResultsButton: HTMLButtonElement = getSaveResultsButton();
+const clearResultsButton: HTMLButtonElement = getClearResultsButton();
 // To contain the dataset OpenLibrary queries contained in the corresponding checked subject checkbox HTML input elements
 const openLibBookQueries: Set<string> = new Set();
 const openLibBookQueryResults: OpenLibDoc[] = [];
 
+clearResultsButtonEvent(clearResultsButton, bookQueryResultCards, openLibBookQueryResults, saveQueryResultsButton);
 getRecommendationsEvent( getRecommendationsButton,
                          openLibBookQueries,
                          subjectCheckboxes,
