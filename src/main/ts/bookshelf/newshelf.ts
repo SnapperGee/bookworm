@@ -1,11 +1,11 @@
-export const createNewShelf = (shelfName: string): HTMLDivElement => {
+export const createNewShelf = (shelfName: string, colorClass: string): HTMLDivElement => {
 
     const playlistContainer: HTMLDivElement = document.createElement('div') as HTMLDivElement;
         playlistContainer.classList.add('flex', 'flex-col', 'justify-center', 'm-5');
         playlistContainer.id = 'shelf-container';
 
     const playlistHeader: HTMLDivElement = document.createElement('div');
-        playlistHeader.classList.add('bg-orange', 'rounded-lg', 'pb-1', 'w-full', 'flex', 'items-center', 'justify-between');
+        playlistHeader.classList.add(colorClass, 'rounded-lg', 'pb-1', 'w-full', 'flex', 'items-center', 'justify-between');
     
     const playlistName: HTMLHeadingElement = document.createElement('h3');
         playlistName.classList.add('inline-block', 'm-5', 'text-white', 'font-bold', 'text-xl');
