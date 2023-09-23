@@ -13,16 +13,16 @@ export const createNavbar = (): HTMLDivElement => {
         brandContainer.classList.add('pl-4', 'flex', 'items-center')
 
     const logoImage: HTMLImageElement = document.createElement('img');
-        logoImage.classList.add('h-10', 'w-10', 'inline-block');
+        logoImage.classList.add('h-10', 'w-10');
         logoImage.src = logoImgPath;
         logoImage.alt = "Bookworm Logo";
 
-    const logoBookAnchor: HTMLAnchorElement = document.createElement('a');
-    logoBookAnchor.classList.add('text-pink', 'font-bold', 'text-2x1', 'lg:text-4x1');
-    logoBookAnchor.textContent = 'Book';
+    const logoBookAnchor: HTMLHeadingElement = document.createElement('h1');
+        logoBookAnchor.classList.add('text-pink', 'font-bold', 'text-2xl');
+        logoBookAnchor.textContent = 'Book';
 
-    const logoWormAnchor: HTMLAnchorElement = document.createElement('a');
-        logoWormAnchor.classList.add('text-white', 'font-bold', 'text-2x1', 'lg:text-4x1');
+    const logoWormAnchor: HTMLHeadingElement = document.createElement('h1');
+        logoWormAnchor.classList.add('text-white', 'font-bold', 'text-2xl');
         logoWormAnchor.textContent = 'Worm';
 
     const invisibleBlock: HTMLDivElement = document.createElement('div');
@@ -47,13 +47,13 @@ export const createNavbar = (): HTMLDivElement => {
 
     const recommendations: HTMLAnchorElement = document.createElement('a');
         recommendations.classList.add('inline-block', 'text-white', 'p-4');
-        recommendations.href = './genre-recommendations.html';
-        recommendations.textContent = 'Genre Recommendations';
+        recommendations.href = './for-you.html';
+        recommendations.textContent = 'For You';
 
     const bookshelf: HTMLAnchorElement = document.createElement('a');
         bookshelf.classList.add('inline-block', 'text-white', 'p-4');
         bookshelf.href = './bookshelf.html';
-        bookshelf.textContent = 'Reading List';
+        bookshelf.textContent = 'Bookshelf';
 
     headerContainer.appendChild(navBlock);
     navBlock.appendChild(brandContainer);
@@ -67,6 +67,26 @@ export const createNavbar = (): HTMLDivElement => {
     navLinks.appendChild(preferences);
     navLinks.appendChild(recommendations);
     navLinks.appendChild(bookshelf);
+
+    const currentPage = window.location.pathname.split('/').pop();
+
+    switch (currentPage) {
+        case 'index.html':
+            home.classList.add('font-bold');
+            break;
+        case 'bestsellers.html':
+            preferences.classList.add('font-bold');
+            break;
+        case 'genre-recommendations.html':
+            recommendations.classList.add('font-bold');
+            break;
+        case 'bookshelf.html':
+            bookshelf.classList.add('font-bold');
+            break;
+        default:
+            home.classList.add('font-bold');
+            break;
+}
 
 return headerContainer;
 }

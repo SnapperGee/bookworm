@@ -6,6 +6,139 @@ const NUM_OF_TOPICS: number = 12;
 const NUM_OF_SUBJECTS: number = 85;
 const SUBJECT_CHECKBOX_DATASET_PROPS: readonly string[] = Object.freeze(["openLibQuery"]);
 
+let _clearResultsButton: HTMLButtonElement;
+
+/**
+ * Retrieves a reference to the `HTMLButtonElement` that clears the open lib query result cards and open lib docs array.
+ *
+ * @returns The number `HTMLButtonElement` that clears the open lib query result cards and open lib docs array.
+ */
+export const getClearResultsButton = (): HTMLButtonElement =>
+{
+    _clearResultsButton = document.getElementById("clearResultsButton") as HTMLButtonElement;
+
+    if ( ! (_clearResultsButton instanceof HTMLButtonElement))
+    {
+        throw new TypeError(`${getClearResultsButton.name}: ${_clearResultsButton === null ? "null" : "non " + HTMLButtonElement.name} clear results button.`);
+    }
+
+    return _clearResultsButton;
+}
+
+let _saveResultsButton: HTMLButtonElement;
+
+/**
+ * Retrieves a reference to the `HTMLButtonElement` that saves the open lib query result docs to local storage.
+ *
+ * @returns The number `HTMLButtonElement` that saves the open lib query result docs to local storage.
+ */
+export const getSaveResultsButton = (): HTMLButtonElement =>
+{
+    _saveResultsButton = document.getElementById("saveResultsButton") as HTMLButtonElement;
+
+    if ( ! (_saveResultsButton instanceof HTMLButtonElement))
+    {
+        throw new TypeError(`${getSaveResultsButton.name}: ${_saveResultsButton === null ? "null" : "non " + HTMLButtonElement.name} save results button.`);
+    }
+
+    return _saveResultsButton;
+}
+
+let _clearSubjectsButton: HTMLButtonElement;
+
+/**
+ * Retrieves a reference to the `HTMLButtonElement` that unchecks all subject checkboxes.
+ *
+ * @returns The number `HTMLButtonElement` that unchecks all subject checkboxes.
+ */
+export const getClearSubjectsButton = (): HTMLButtonElement =>
+{
+    _clearSubjectsButton = document.getElementById("clearSubjectsButton") as HTMLButtonElement;
+
+    if ( ! (_clearSubjectsButton instanceof HTMLButtonElement))
+    {
+        throw new TypeError(`${getClearSubjectsButton.name}: ${_clearSubjectsButton === null ? "null" : "non " + HTMLButtonElement.name} clear subjects button.`);
+    }
+
+    return _clearSubjectsButton;
+}
+
+let _bookQueryResultCardsContainer: HTMLDivElement;
+
+/**
+ * Retrieves a reference to the `HTMLDivElement` used that contains the query result cards.
+ *
+ * @returns The number `HTMLDivElement` used that contains the query result cards.
+ */
+export const getBookQueryResultCardsContainer = (): HTMLDivElement =>
+{
+    _bookQueryResultCardsContainer = document.getElementById("bookQueryResultCards") as HTMLDivElement;
+
+    if ( ! (_bookQueryResultCardsContainer instanceof HTMLDivElement))
+    {
+        throw new TypeError(`${getBookQueryResultCardsContainer.name}: ${_bookQueryResultCardsContainer === null ? "null" : "non " + HTMLDivElement.name} book query results card div.`);
+    }
+
+    return _bookQueryResultCardsContainer;
+}
+
+let _selectAllTopicsButton: HTMLButtonElement;
+
+/**
+ * Retrieves a reference to the `HTMLButtonElement` used to select all topic checkboxes and make all their fieldsets visible.
+ *
+ * @returns The number `HTMLButtonElement` used to select all topic checkboxes and make all their fieldsets visible.
+ */
+export const getSelectAllTopicsButton = (): HTMLButtonElement =>
+{
+    _selectAllTopicsButton = document.getElementById("selectAllTopicsButton") as HTMLButtonElement;
+
+    if ( ! (_selectAllTopicsButton instanceof HTMLButtonElement))
+    {
+        throw new TypeError(`${getSelectAllTopicsButton.name}: ${_selectAllTopicsButton === null ? "null" : "non " + HTMLButtonElement.name} select all topics button.`);
+    }
+
+    return _selectAllTopicsButton;
+}
+
+let _deselectAllTopicsButton: HTMLButtonElement;
+
+/**
+ * Retrieves a reference to the `HTMLButtonElement` used to deselect all topic checkboxes and make all their fieldsets hidden.
+ *
+ * @returns The number `HTMLButtonElement` used to deselect all topic checkboxes and make all their fieldsets hidden.
+ */
+export const getDeselectAllTopicsButton = (): HTMLButtonElement =>
+{
+    _deselectAllTopicsButton = document.getElementById("deselectAllTopicsButton") as HTMLButtonElement;
+
+    if ( ! (_deselectAllTopicsButton instanceof HTMLButtonElement))
+    {
+        throw new TypeError(`${getDeselectAllTopicsButton.name}: ${_deselectAllTopicsButton === null ? "null" : "non " + HTMLButtonElement.name} select all topics button.`);
+    }
+
+    return _deselectAllTopicsButton;
+}
+
+let _queryResultLimitNumberInput: HTMLInputElement;
+
+/**
+ * Retrieves a reference to the number `HTMLInputElement` to limit the number of books returned in fetch query results.
+ *
+ * @returns The number `HTMLInputElement` to limit the number of books returned in fetch query results.
+ */
+export const getQueryResultLimitNumberInput = (): HTMLInputElement =>
+{
+    _queryResultLimitNumberInput = document.getElementById("queryResultLimit") as HTMLInputElement;
+
+    if ( ! (_queryResultLimitNumberInput instanceof HTMLInputElement))
+    {
+        throw new TypeError(`${getQueryResultLimitNumberInput.name}: ${_queryResultLimitNumberInput === null ? "null" : "non " + HTMLInputElement.name} query result number input.`);
+    }
+
+    return _queryResultLimitNumberInput;
+}
+
 let _getRecommendationsButton: HTMLButtonElement;
 
 /**
@@ -13,7 +146,7 @@ let _getRecommendationsButton: HTMLButtonElement;
  *
  * @returns The `HTMLButtonElement` to trigger the recommendations fetch and display.
  */
-export function getGetRecommendationsButton(): HTMLButtonElement
+export const getGetRecommendationsButton = (): HTMLButtonElement =>
 {
     _getRecommendationsButton = document.getElementById("getRecommendationsButton") as HTMLButtonElement;
 
@@ -32,7 +165,7 @@ let _topicVisibilityDropdown: HTMLSelectElement;
  *
  * @returns The visibility `HTMLSelectElement` dropdown to toggle visibility of selected topic fieldsets.
  */
-export function getVisibilitySelectDropdown(): HTMLSelectElement
+export const getVisibilitySelectDropdown = (): HTMLSelectElement =>
 {
     _topicVisibilityDropdown = document.getElementById("topicVisibilityDropdown") as HTMLSelectElement;
 
@@ -51,7 +184,7 @@ let _topicCheckboxes: HTMLCollectionOf<HTMLInputElement>;
  *
  * @returns The `HTMLInputElement` topic checkboxes to toggle visibility for corresponding topic fieldset.
  */
-export function getTopicCheckboxes(): HTMLCollectionOf<HTMLInputElement>
+export const getTopicCheckboxes = (): HTMLCollectionOf<HTMLInputElement> =>
 {
     _topicCheckboxes = document.getElementsByClassName("topicCheckbox") as HTMLCollectionOf<HTMLInputElement>;
 
@@ -90,7 +223,7 @@ let _subjectCheckboxes: HTMLCollectionOf<HTMLInputElement>;
  *
  * @returns The `HTMLInputElement` subject checkboxes to select which subjects to fetch and display.
  */
-export function getSubjectCheckboxes(): HTMLCollectionOf<HTMLInputElement>
+export const getSubjectCheckboxes = (): HTMLCollectionOf<HTMLInputElement> =>
 {
     _subjectCheckboxes = document.getElementsByClassName("subjectCheckbox") as HTMLCollectionOf<HTMLInputElement>;
 
@@ -137,7 +270,7 @@ let _topicFieldsets: HTMLCollectionOf<HTMLFieldSetElement>;
  *
  * @returns The topic `HTMLFieldsetElement`s containing the subject checkbox `HTMLInputElement`s.
  */
-export function getTopicFieldsets(): HTMLCollectionOf<HTMLFieldSetElement>
+export const getTopicFieldsets = (): HTMLCollectionOf<HTMLFieldSetElement> =>
 {
     _topicFieldsets = document.getElementById("topicFieldsets")?.getElementsByTagName("fieldset") as HTMLCollectionOf<HTMLFieldSetElement>;
 

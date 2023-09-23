@@ -4,7 +4,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 
-const chunkNames = Object.freeze(["index", "bestsellers", "bookshelf", "genre-recommendations"]);
+const chunkNames = Object.freeze(["index", "bestsellers", "bookshelf", "for-you"]);
 
 const htmlWebpackPluginConfigs = Object.freeze(chunkNames.map(chunkName => new HtmlWebpackPlugin({
     filename: `${chunkName}.html`,
@@ -65,6 +65,10 @@ export default function(env, argv) {
             static: {
                 directory: resolvePath(".", "build")
             },
+            headers: {
+                "Access-Control-Allow-Origin": "http://api.wordnik.com",
+                "Access-Control-Allow-Methods": "GET",
+            },
             client: {
                 overlay: false
             },
@@ -85,3 +89,6 @@ export default function(env, argv) {
         ]
     }
 };
+
+
+// added headers in dev server section for access control
