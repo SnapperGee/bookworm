@@ -24,15 +24,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Create the HTML content of the book card,styling in the card
         card.innerHTML = `
-            <div class="text-center">
-                <img src="${book.book_image}" alt="Cover of ${book.title}" class="w-48 h-auto mx-auto mb-4"> 
-                <div class="font-bold text-lg">${book.title}</div>   
-                <div class="mt-2">${book.description}</div>
-            </div>
+        <div class="flex">
+        <div class="flex-none">
+            <img src="${book.book_image}" alt="Cover of ${book.title}" class="w-15 h-auto mb-4">
+        </div>
+        <div class="flex-grow ml-4">
+            <div class="font-bold text-lg">${book.title}</div>
+            <div class="mt-2">${book.description}</div>
             <div class="mt-4">
                 <div class="font-semibold">Author: ${book.author}</div>
                 <a class="mt-2 text-blue-500 underline cursor-pointer" href="${book.amazon_product_url}" target="_blank">Buy Book</a>
             </div>
+        </div>
+    </div>
+    
         `;
     
         return card;
