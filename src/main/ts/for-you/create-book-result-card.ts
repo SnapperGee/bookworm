@@ -40,7 +40,7 @@ export function createBookResultCard(titleStringOrOpenLibDoc: string | OpenLibDo
 
     const subjectsTextPElement = document.createElement("p");
     subjectsTextPElement.classList.add("font-semibold", "mt-3");
-    subjectsTextPElement.innerHTML = "Subjects<hr>";
+    subjectsTextPElement.innerHTML = 'Subjects<hr class="h-px border-0 bg-gray-400">';
 
     const subjectsPElement = document.createElement("p");
     subjectsPElement.style.height = "7rem";
@@ -48,7 +48,7 @@ export function createBookResultCard(titleStringOrOpenLibDoc: string | OpenLibDo
     subjectsPElement.textContent = subjects.join(", ");
 
     const cardDivElement = document.createElement("div");
-    cardDivElement.classList.add("p-2", "cursor-pointer", "border", "border-solid", "border-gray-300");
+    cardDivElement.classList.add("p-2", "cursor-pointer", "border", "border-solid", "border-gray-400");
 
     cardDivElement.appendChild(titlePElement);
     cardDivElement.appendChild(coverImgElement);
