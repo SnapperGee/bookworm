@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const card = document.createElement('div');
         card.className = 'bg-white p-4 rounded-lg shadow-md flex flex-col justify-center items-center';
 
-        // Create the HTML content of the book card
+        // Create the HTML content of the book card,styling in the card
         card.innerHTML = `
             <div class="text-center">
-                <img src="${book.book_image}" alt="Cover of ${book.title}" class="w-48 h-auto mx-auto mb-4">
-                <div class="font-bold text-lg">${book.title}</div>
+                <img src="${book.book_image}" alt="Cover of ${book.title}" class="w-48 h-auto mx-auto mb-4"> 
+                <div class="font-bold text-lg">${book.title}</div>   
                 <div class="mt-2">${book.description}</div>
             </div>
             <div class="mt-4">
