@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import {resolve as resolvePath } from "node:path";
 
 const config: Config = {
-    content: [resolvePath(".", "src", "main", "html", "*.html")],
+    content: [resolvePath(".", "src", "main", "html", "*.html",)],
     theme: {
         extend: {
             colors: {

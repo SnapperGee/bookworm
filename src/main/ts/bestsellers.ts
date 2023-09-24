@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         book_image: string;
     }): HTMLElement {
         const card = document.createElement('div');
-        card.className = 'bg-white p-4 rounded-lg shadow-md';
+        card.className = 'bg-white p-4 rounded-lg shadow-md flex flex-col justify-center items-center';
 
         // Create the HTML content of the book card
         card.innerHTML = `
@@ -34,9 +34,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 <a class="mt-2 text-blue-500 underline cursor-pointer" href="${book.amazon_product_url}" target="_blank">Buy Book</a>
             </div>
         `;
-
+    
         return card;
     }
+    
 
     // Get the New York Times bestseller data and display it
     fetch(apiUrl)
