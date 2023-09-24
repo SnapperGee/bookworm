@@ -33,6 +33,9 @@ createShelfBtn?.addEventListener('click', () => {
     const shelfName = nameInput.value; 
     const colorClass = colorInput.value;
 
+    // Generate a unique shelfId based on the current time
+    const shelfId = 'shelf-' + new Date().getTime();
+
     if (shelfName === '') {
         console.log('No name specified');
         createModalHandler(false)
@@ -41,10 +44,10 @@ createShelfBtn?.addEventListener('click', () => {
 
     else {
         const createList: HTMLElement = document.querySelector('body') as HTMLElement;
-        createList.append(createNewShelf(shelfName, colorClass));
+        createList.append(createNewShelf(shelfId, shelfName, colorClass));
 
         const existingShelves = JSON.parse(localStorage.getItem('shelves') || '[]');
-        existingShelves.push({ name: shelfName, color: colorClass });
+        existingShelves.push({ id: shelfId, name: shelfName, color: colorClass });
         localStorage.setItem('shelves', JSON.stringify(existingShelves));
         
         createModalHandler(false);

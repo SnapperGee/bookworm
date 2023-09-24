@@ -59,7 +59,7 @@
         </div>
 
 
-        <div id="editModal" aria-labelledby="modal-title" role="form" aria-modal="true">
+        <div id="editModal" aria-labelledby="modal-title" role="form">
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
                 <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
                     <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
@@ -76,17 +76,15 @@
                                         </svg>
                                         <h3 class="inline-block text-gray-800 text-xl font-bold tracking-normal leading-tight mb-4">Edit Bookshelf</h3>
                                         <div>
-                                            <label for="name" class="inline-block text-gray-800 text-sm font-bold leading-tight tracking-normal">Name</label>
-                                            <input id="name" class="inline-block mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Hello World" />
+                                            <label for="editName" class="inline-block text-gray-800 text-sm font-bold leading-tight tracking-normal">Name</label>
+                                            <input id="editName" class="inline-block mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Hello World" />
                                         </div>
                                         <div>
-                                            <label for="colorPicker" class="block text-sm font-medium text-gray-700">Select Color</label>
-                                            <select id="colorPicker" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                            <label for="editColor" class="block text-sm font-medium text-gray-700">Select Color</label>
+                                            <select id="editColor" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                 <option value="bg-orange">Orange</option>
                                                 <option value="bg-pink">Pink</option>
                                                 <option value="bg-cyan">Blue</option>
-                                                <option value="bg-bw-red">Red</option>
-                                                <option value="bg-green">Green</option>
                                                 <option value="bg-tan">Tan</option>
                                             </select>
                                         </div>
