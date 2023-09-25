@@ -11,16 +11,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const apiUrl = `https://api.nytimes.com/svc/books/v3/lists/overview.json?published_date=${publishedDate}&api-key=${NY_TIMES_API_KEY}`;
     const bookListElement = document.getElementById('bookList');
 
-    // Function to create a book card
-    function createBookCard(book: {
+    interface Book {
         title: string;
         author: string;
         description: string;
         amazon_product_url: string;
         book_image: string;
-    }): HTMLElement {
+    }
+    
+    // Function to create a book card
+    function createBookCard(book: Book): HTMLElement {
         const card = document.createElement('div');
-        card.className = 'bg-white p-4 rounded-lg shadow-md flex flex-col justify-center items-center';
+        card.className = 'bg-tan p-4 rounded-lg shadow-md flex flex-col justify-center items-center';
 
         // Create the HTML content of the book card,styling in the card
         card.innerHTML = `
@@ -42,16 +44,22 @@ document.addEventListener('DOMContentLoaded', function () {
     
         return card;
     }
-    
-
-    // Get the New York Times bestseller data and display it
-    fetch(apiUrl)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
+      // Check if the data is already cached
+      const cachedBooksData = localStorage.getItem('cachedBooksData');
+      if (cachedBooksData) {
+         const booksData: Book[] = JSON.parse(cachedBooksData);
+        booksData.forEach((book) => {
+            const bookCard = createBookCard(book);
+            bookListElement?.appendChild(bookCard);
+        });
+    } else {
+        fetch(apiUrl)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
         .then((data: {
             results: {
                 lists: {
@@ -75,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     book_image: bookInfo.book_image,
                 };
             });
-
+localStorage.setItem('cachedBooksData', JSON.stringify(booksData));
             // Iterate through the book data and append book cards to the book list
             booksData.forEach((book) => {
                 const bookCard = createBookCard(book);
@@ -85,4 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch((error) => {
             console.error('Error fetching NY Times bestseller data:', error);
         });
+    }
 });
+
+

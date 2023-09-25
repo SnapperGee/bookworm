@@ -13,6 +13,11 @@ const config: Config = {
                 green: "#1E3431",
                 tan: "#E8CDB5",
                 gray: "#BAB9B9"
+            },
+            screens: {
+                "fy-sm": "768px",
+                "fy-md": "1024px",
+                "fy-lg": "1536px"
             }
         },
         plugins: [],
