@@ -8,8 +8,12 @@ const config: Config = {
             colors: {
                 orange: "#F2AC45",
                 pink: "#F69998",
+                "dk-cyan": "#7AAD90",
                 cyan: "#82B99A",
+                "lt-cyan": "#8CC7A6",
+                "dk-red": "#CF342E",
                 "bw-red": "#DC3731",
+                "lt-red": "#E83A34",
                 green: "#1E3431",
                 tan: "#E8CDB5",
                 gray: "#BAB9B9"
