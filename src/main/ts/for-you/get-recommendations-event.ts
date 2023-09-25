@@ -1,6 +1,7 @@
 import { type OpenLibDoc } from "./open-lib-api";
 import { fetchOpenLib } from "./open-lib-api";
 import { createBookResultCard } from "./create-book-result-card";
+import { addIconsToBookCard } from "../bookshelf/book-actions";
 
 export const getRecommendationsEvent = (
     htmlGetRecommendationsButton: HTMLButtonElement,
@@ -81,5 +82,11 @@ export const getRecommendationsEvent = (
         {
             saveResultsHTMLButton.classList.remove("hidden");
         }
+
+        // book icons code added here
+        const allBookCards = resultsCardsHTMLDiv.querySelectorAll('div');
+        allBookCards.forEach(card => {
+        addIconsToBookCard(card);
     });
-};
+});
+}

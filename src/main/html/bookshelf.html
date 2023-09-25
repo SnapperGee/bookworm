@@ -59,67 +59,13 @@
         </div>
 
 
-        <div id="editModal" aria-labelledby="modal-title" role="form">
-            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-                <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-                    <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                        <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                                <div class="sm:flex sm:items-center">
-                                    <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                        <svg 
-                                            class= "h-6 w-6 inline-block fill-black"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 32 32">
-                                                <path d='M5.72 14.456l1.761-.508 10.603-10.73a.456.456 0 0 0-.003-.64l-.635-.642a.443.443 0 0 0-.632-.003L6.239 12.635l-.52 1.82zM18.703.664l.635.643c.876.887.884 2.318.016 3.196L8.428 15.561l-3.764 1.084a.901.901 0 0 1-1.11-.623.915.915 0 0 1-.002-.506l1.095-3.84L15.544.647a2.215 2.215 0 0 1 3.159.016zM7.184 1.817c.496 0 .898.407.898.909a.903.903 0 0 1-.898.909H3.592c-.992 0-1.796.814-1.796 1.817v10.906c0 1.004.804 1.818 1.796 1.818h10.776c.992 0 1.797-.814 1.797-1.818v-3.635c0-.502.402-.909.898-.909s.898.407.898.91v3.634c0 2.008-1.609 3.636-3.593 3.636H3.592C1.608 19.994 0 18.366 0 16.358V5.452c0-2.007 1.608-3.635 3.592-3.635h3.592z'/>
-                                            </svg>
-                                        </svg>
-                                        <h3 class="inline-block text-gray-800 text-xl font-bold tracking-normal leading-tight mb-4">Edit Bookshelf</h3>
-                                        <div>
-                                            <label for="editName" class="inline-block text-gray-800 text-sm font-bold leading-tight tracking-normal">Name</label>
-                                            <input id="editName" class="inline-block mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Hello World" />
-                                        </div>
-                                        <div>
-                                            <label for="editColor" class="block text-sm font-medium text-gray-700">Select Color</label>
-                                            <select id="editColor" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                                <option value="bg-orange">Orange</option>
-                                                <option value="bg-pink">Pink</option>
-                                                <option value="bg-cyan">Blue</option>
-                                                <option value="bg-tan">Tan</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                                <button type="button" id="closeEdit" class="mt-3 inline-flex w-full justify-center rounded-md bg-bw-red px-3 py-2 text-sm font-semibold text-white shadow-sm sm:mt-0 sm:ml-3 sm:w-auto">Cancel</button>
-                                <button type="button" id="confirm" class="mt-3 inline-flex w-full justify-center rounded-md bg-cyan px-3 py-2 text-sm font-semibold text-white shadow-sm sm:mt-0 sm:w-auto">Confirm</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
 
     <div id="shelf-container" class="flex flex-col justify-center m-5">
         <div class="bg-orange rounded-lg pb-1 w-full flex items-center justify-between">
             <h3 class="inline-block m-5 text-white font-bold text-xl">My Favorites</h3>
             <span class="inline-block mr-8">
-                <svg 
-                    class="h-6 w-6 inline-block p-2 fill-white cursor-pointer"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="-78.5 0 512 512" >
-                        <path d="M257 64L291 98 128 262 291 426 257 460 61 262 257 64Z" />
-                </svg>
-                <svg 
-                    class="h-6 w-6 inline-block p-2 fill-white cursor-pointer" 
-                    viewBox="-77 0 512 512" 
-                    xmlns="http://www.w3.org/2000/svg">
-                        <path d="M98 460L64 426 227 262 64 98 98 64 294 262 98 460Z" />
-                </svg>
-            </span>
         </div>
-        <div class="bg-slate-100 rounded-lg pb-1 w-full">
-            <a>Hello World</a>   
+        <div id="row-container" class="flex flex-row p-5 bg-slate-100 rounded-lg pb-1 w-full">
         </div>
     </div>
     <div id="new-shelf-container">

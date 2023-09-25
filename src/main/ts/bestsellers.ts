@@ -1,4 +1,5 @@
 import { createNavbar } from "./navbar";
+import { addIconsToBookCard } from "./bookshelf/book-actions";
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
 bodyHTML.prepend(createNavbar());
@@ -42,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
         `;
     
+        addIconsToBookCard(card);
+
         return card;
     }
       // Check if the data is already cached
