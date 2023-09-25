@@ -25,9 +25,14 @@ export function addIconsToBookCard(card: HTMLDivElement) {
 }
 
 function saveBookToFavorites(card: HTMLDivElement) {
-    const bookTitle = card.querySelector("p").textContent;
-    const bookAuthor = card.querySelector(".author").textContent; // This fetches the author's name. Assuming you have an element with class "author" in your card.
-    const bookCover = card.querySelector("img").src; // This fetches the cover image URL from the card.
+    const bookTitleElement = card.querySelector("p");
+    const bookAuthorElement = card.querySelector(".author"); // Assuming you have an element with class "author" in your card.
+    const bookCoverElement = card.querySelector("img");
+
+    // Add null checks for each element
+    const bookTitle = bookTitleElement ? bookTitleElement.textContent : "";
+    const bookAuthor = bookAuthorElement ? bookAuthorElement.textContent : "";
+    const bookCover = bookCoverElement ? bookCoverElement.src : "";
 
     // Here, we're creating an object to store the book details.
     const favoriteBook = {

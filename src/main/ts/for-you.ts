@@ -54,6 +54,17 @@ topicCheckboxEvent(topicCheckboxes, topicFieldsets, visibilitySelectDropdown, cl
 
 
 const getRecommendationsButton: HTMLButtonElement = getGetRecommendationsButton();
+// bookactions implementation:
+getRecommendationsButton.addEventListener('click', () => {
+    // Wait for a brief moment to ensure the cards are rendered
+    setTimeout(() => {
+        const allBookCards = bookQueryResultCards.querySelectorAll('div'); // Assuming each book card is a div
+        allBookCards.forEach(card => {
+            addIconsToBookCard(card);
+        });
+    }, 100); // 100ms delay, adjust if needed
+});
+
 const bookQueryResultCards: HTMLDivElement = getBookQueryResultCardsContainer();
 const saveQueryResultsButton: HTMLButtonElement = getSaveResultsButton();
 const clearResultsButton: HTMLButtonElement = getClearResultsButton();
