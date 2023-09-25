@@ -57,7 +57,7 @@ function displayNewShelfBooks() {
             for (const book of shelfBooks) {
                 const bookCard = document.createElement('div');
                 bookCard.innerHTML = `
-                    <img src="${book.cover}" alt="${book.title}" class="p-2.5 w-45 h-67.5 object-cover">
+                    <img src="${book.cover}" alt="${book.title}">
                     <p>${book.title}</p>
                     <span class="author">${book.author}</span>
                 `;
