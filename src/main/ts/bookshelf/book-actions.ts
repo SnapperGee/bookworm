@@ -30,6 +30,9 @@ function saveBookToFavorites(card: HTMLDivElement) {
     const bookTitleElement = card.querySelector("p");
     const bookAuthorElement = card.querySelector(".author");
     const bookCoverElement = card.querySelector("img");
+    if (bookCoverElement) {
+        bookCoverElement.classList.add("w-64", "h-64");
+    }
 
     // Add null checks for each element
     const bookTitle = bookTitleElement ? bookTitleElement.textContent : "";
