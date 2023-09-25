@@ -11,7 +11,8 @@ const config: Config = {
                 cyan: "#82B99A",
                 "bw-red": "#DC3731",
                 green: "#1E3431",
-                tan: "#E8CDB5"
+                tan: "#E8CDB5",
+                gray: "#BAB9B9"
             }
         },
         plugins: [],
