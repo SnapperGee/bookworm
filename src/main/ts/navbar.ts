@@ -55,6 +55,16 @@ export const createNavbar = (): HTMLDivElement => {
         bookshelf.href = './bookshelf.html';
         bookshelf.textContent = 'Bookshelf';
 
+    const currentPage = window.location.pathname;
+
+    for (const headerAnchor of [home, preferences, recommendations, bookshelf])
+    {
+        if (headerAnchor.href.endsWith(currentPage))
+        {
+            headerAnchor.classList.add('font-bold');
+        }
+    }
+
     headerContainer.appendChild(navBlock);
     navBlock.appendChild(brandContainer);
     brandContainer.appendChild(logoImage);
@@ -68,25 +78,5 @@ export const createNavbar = (): HTMLDivElement => {
     navLinks.appendChild(recommendations);
     navLinks.appendChild(bookshelf);
 
-    const currentPage = window.location.pathname.split('/').pop();
-
-    switch (currentPage) {
-        case 'index.html':
-            home.classList.add('font-bold');
-            break;
-        case 'bestsellers.html':
-            preferences.classList.add('font-bold');
-            break;
-        case 'genre-recommendations.html':
-            recommendations.classList.add('font-bold');
-            break;
-        case 'bookshelf.html':
-            bookshelf.classList.add('font-bold');
-            break;
-        default:
-            home.classList.add('font-bold');
-            break;
-}
-
-return headerContainer;
+    return headerContainer;
 }
