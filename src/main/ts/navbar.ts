@@ -15,7 +15,7 @@ export const createNavbar = (): HTMLDivElement => {
     const logoImage: HTMLImageElement = document.createElement('img');
         logoImage.classList.add('h-10', 'w-10');
         logoImage.src = logoImgPath;
-        logoImage.alt = "Bookworm Logo";
+        logoImage.alt = "Bookworm logo";
 
     const logoBookAnchor: HTMLHeadingElement = document.createElement('h1');
         logoBookAnchor.classList.add('text-pink', 'font-bold', 'text-2xl');
@@ -40,15 +40,15 @@ export const createNavbar = (): HTMLDivElement => {
         home.href = './index.html';
         home.textContent = 'Home';
 
-    const preferences: HTMLAnchorElement = document.createElement('a');
-        preferences.classList.add('inline-block', 'text-white', 'p-4');
-        preferences.href = './bestsellers.html';
-        preferences.textContent = 'Bestsellers';
+    const bestSellers: HTMLAnchorElement = document.createElement('a');
+        bestSellers.classList.add('inline-block', 'text-white', 'p-4');
+        bestSellers.href = './bestsellers.html';
+        bestSellers.textContent = 'Bestsellers';
 
-    const recommendations: HTMLAnchorElement = document.createElement('a');
-        recommendations.classList.add('inline-block', 'text-white', 'p-4');
-        recommendations.href = './for-you.html';
-        recommendations.textContent = 'For You';
+    const forYou: HTMLAnchorElement = document.createElement('a');
+        forYou.classList.add('inline-block', 'text-white', 'p-4');
+        forYou.href = './for-you.html';
+        forYou.textContent = 'For You';
 
     const bookshelf: HTMLAnchorElement = document.createElement('a');
         bookshelf.classList.add('inline-block', 'text-white', 'p-4');
@@ -57,7 +57,7 @@ export const createNavbar = (): HTMLDivElement => {
 
     const currentPage = window.location.pathname;
 
-    for (const headerAnchor of [home, preferences, recommendations, bookshelf])
+    for (const headerAnchor of [home, bestSellers, forYou, bookshelf])
     {
         if (headerAnchor.href.endsWith(currentPage))
         {
@@ -74,8 +74,8 @@ export const createNavbar = (): HTMLDivElement => {
     navBlock.appendChild(navList);
     navList.appendChild(navLinks);
     navLinks.appendChild(home);
-    navLinks.appendChild(preferences);
-    navLinks.appendChild(recommendations);
+    navLinks.appendChild(bestSellers);
+    navLinks.appendChild(forYou);
     navLinks.appendChild(bookshelf);
 
     return headerContainer;
