@@ -1,16 +1,23 @@
 import { createNavbar } from "./navbar";
 import { createNewShelf } from './bookshelf/newshelf';
 import { createModalHandler } from './bookshelf/newshelfModal';
-// import { editModalHandler } from './bookshelf/editshelfModal';
+import { addIconsToBookCard } from "./bookshelf/book-actions";
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
 bodyHTML.prepend(createNavbar());
 
-const savedShelves = JSON.parse(localStorage.getItem('shelves') || '[]');
+type Shelf = {
+    id: string;
+    name: string;
+    color: string;
+    books?: { title: string, author: string, cover: string }[];
+};
+
+const savedShelves: Shelf[] = JSON.parse(localStorage.getItem('shelves') || '[]');
 for (const shelf of savedShelves) {
     if (shelf) { // Add a null check
         bodyHTML.append(createNewShelf(shelf.id, shelf.name, shelf.color));
-        displayShelfBooks(shelf.id);
+        displayBooksFromShelf(shelf.name);
     }
 }
 
@@ -37,23 +44,27 @@ function displayFavoriteBooks() {
     }
 }
 
-// Call the function when the page loads to display the favorite books.
 displayFavoriteBooks();
 
-function displayShelfBooks(shelfId: string) {
-    const shelfBooks: { title: string, author: string, cover: string }[] = JSON.parse(localStorage.getItem(`div[data-shelf-id="${shelfId}"]`) || "[]");
+function displayBooksFromShelf(shelfName: string) {
+    // Find the shelf in savedShelves
+    const targetShelf = savedShelves.find(shelf => shelf.name === shelfName);
+    const shelfBooks = targetShelf?.books || [];
 
-    const rowList = document.querySelector('div[id^="row-list"]');
-
-    if (rowList) {
+    // Identify the container in your HTML where the books for this shelf should be displayed.
+    // Assuming each shelf container has an ID like "shelf-{shelfName}-container"
+    const shelfContainer = document.querySelector(`#${shelfName} .row-list`);
+        
+    // Loop through each book and create elements to display its details.
+    if (shelfContainer) {
         shelfBooks.forEach(book => {
-            const newBookCard = document.createElement('div');
-            newBookCard.innerHTML = `
+            const bookCard = document.createElement('div');
+            bookCard.innerHTML = `
                 <img src="${book.cover}" alt="${book.title}">
                 <p>${book.title}</p>
                 <span class="author">${book.author}</span>
             `;
-            rowList.appendChild(newBookCard);
+            shelfContainer.appendChild(bookCard);
         });
     }
 }

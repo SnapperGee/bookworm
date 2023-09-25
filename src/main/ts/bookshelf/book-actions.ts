@@ -2,14 +2,10 @@
 import heartPNGPath from "../../resource/img/heart.png";
 import downPNGPath from "../../resource/img/down.png";
 
-export function addIconsToBookCard(card: HTMLDivElement) {
+export function addIconsToBookCard(card: HTMLDivElement, savedShelves: any[]) {
     if (card.querySelector('.icon-container')) {
         return;
     }
-
-    const bookTitleElement = card.querySelector("p") || card.querySelector(".font-bold.text-orange");
-    const bookAuthorElement = card.querySelector(".author");
-    const bookCoverElement = card.querySelector("img");
 
     const iconContainer = document.createElement("div");
     iconContainer.classList.add("flex", "justify-end", "top-2", "right-2");
@@ -26,7 +22,7 @@ export function addIconsToBookCard(card: HTMLDivElement) {
     downIcon.src = downPNGPath;
     downIcon.classList.add("inline-block", "cursor-pointer");
     
-    const shelfDropdown = createShelfDropdown(card);
+    const shelfDropdown = createShelfDropdown(card, savedShelves);
     card.appendChild(shelfDropdown);
 
     downIcon.addEventListener("click", (e) => {
@@ -65,19 +61,18 @@ function saveBookToFavorites(card: HTMLDivElement) {
     localStorage.setItem("favoriteBooks", JSON.stringify(favoriteBooks));
 }
 
-function createShelfDropdown(card: HTMLDivElement): HTMLElement {
+function createShelfDropdown(card: HTMLDivElement, savedShelves: any[]): HTMLElement {
     const dropdown = document.createElement('div');
     dropdown.classList.add('shelf-dropdown', 'hidden', 'absolute', 'bg-white', 'rounded', 'shadow', 'mt-2', 'z-10');
 
-    const shelves = JSON.parse(localStorage.getItem('shelves') || '[]');
-    shelves.forEach((shelf: { name: string }) => {
+    savedShelves.forEach((shelf: { name: string }) => {
         const shelfItem = document.createElement('div');
         shelfItem.classList.add('absolute', 'cursor-pointer', 'p-2', 'hover:bg-gray-200');
         shelfItem.textContent = shelf.name;
         shelfItem.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdown.classList.add('hidden');
-            saveBookToShelf(card, shelf.name);
+            saveBookToShelf(card, shelf.name, savedShelves);
         });
         dropdown.appendChild(shelfItem);
     });
@@ -86,7 +81,7 @@ function createShelfDropdown(card: HTMLDivElement): HTMLElement {
 }
 
 
-function saveBookToShelf(card: HTMLDivElement, shelfName: string) {
+function saveBookToShelf(card: HTMLDivElement, shelfName: string, savedShelves: any[]) {
     const bookTitleElement = card.querySelector(".font-bold.text-orange") || card.querySelector("p");
     const bookAuthorElement = card.querySelector(".author");
     const bookCoverElement = card.querySelector("img");
@@ -101,7 +96,15 @@ function saveBookToShelf(card: HTMLDivElement, shelfName: string) {
         cover: bookCover
     };
 
-    const shelf = JSON.parse(localStorage.getItem(shelfName) || "[]");
-    shelf.push(bookData);
-    localStorage.setItem(shelfName, JSON.stringify(shelf));
+    // Find the shelf in savedShelves
+    const targetShelf = savedShelves.find(shelf => shelf.name === shelfName);
+    if (targetShelf) {
+        if (!targetShelf.books) {
+            targetShelf.books = [];
+        }
+        targetShelf.books.push(bookData);
+    }
+
+    // Update local storage
+    localStorage.setItem('shelves', JSON.stringify(savedShelves));
 }
