@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return card;
     }
       // Check if the data is already cached
-      const cachedBooksData = localStorage.getItem('cachedBooksData');
+      const cachedBooksData =JSON.parse(localStorage.getItem('cachedBooksData')||'[]');
       if (cachedBooksData) {
          const booksData: Book[] = JSON.parse(cachedBooksData);
         booksData.forEach((book) => {
