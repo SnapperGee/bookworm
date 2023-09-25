@@ -12,6 +12,11 @@ const config: Config = {
                 "bw-red": "#DC3731",
                 green: "#1E3431",
                 tan: "#E8CDB5"
+            },
+            screens: {
+                "fy-sm": "768px",
+                "fy-md": "1024px",
+                "fy-lg": "1536px"
             }
         },
         plugins: [],
