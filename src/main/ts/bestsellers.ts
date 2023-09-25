@@ -45,6 +45,11 @@ document.addEventListener('DOMContentLoaded', function () {
       // Check if the data is already cached
       const cachedBooksData = localStorage.getItem('cachedBooksData');
       if (cachedBooksData) {
+         const booksData: Book[] = JSON.parse(cachedBooksData);
+        booksData.forEach((book) => {
+            const bookCard = createBookCard(book);
+            bookListElement?.appendChild(bookCard);
+        });
 
     // Get the New York Times bestseller data and display it
     fetch(apiUrl)
