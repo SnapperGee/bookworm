@@ -56,7 +56,7 @@ export default function(env, argv) {
                     loader: "html-loader"
                 },
                 {
-                    test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                    test: /\.(png|svg|jpe?g|gif)$/i,
                     type: "asset/resource"
                 }
             ],
