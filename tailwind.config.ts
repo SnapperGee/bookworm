@@ -6,7 +6,9 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
+                "dk-orange": "#E6A342",
                 orange: "#F2AC45",
+                "lt-orange": "#FFB549",
                 pink: "#F69998",
                 cyan: "#82B99A",
                 "bw-red": "#DC3731",
