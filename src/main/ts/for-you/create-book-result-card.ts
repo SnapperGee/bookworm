@@ -57,9 +57,6 @@ export function createBookResultCard(titleStringOrOpenLibDoc: string | OpenLibDo
     cardDivElement.appendChild(subjectsTextPElement);
     cardDivElement.appendChild(subjectsPElement);
 
-    // Add the icons to the card
-    addIconsToBookCard(cardDivElement);
-
     return cardDivElement;
 }
 

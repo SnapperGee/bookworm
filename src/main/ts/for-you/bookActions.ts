@@ -2,6 +2,10 @@ import heartPNGPath from "../../resource/img/heart.png";
 import downPNGPath from "../../resource/img/down.png";
 
 export function addIconsToBookCard(card: HTMLDivElement) {
+    if (card.querySelector('.icon-container')) {
+        return;
+    }
+    
     const iconContainer = document.createElement("div");
     iconContainer.classList.add("relative", "top-2", "right-2");
     
