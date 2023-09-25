@@ -10,12 +10,11 @@ const wordnikKey = "wxpr227kut0uhkhnlzpq0lb8n4paa4n5qxe1ginohwonfm5gl";
 
 
 
-fetch("https://openlibrary.org/search.json?title=the+lord+of+the+rings")
-    .then(openLibResponse => openLibResponse.json())
-    .then(openLibResponse => console.log(openLibResponse));
 
 
 // word of the day api 
+// displays word of the day and the definition
+//working but may hit rate limit and fail to load
 fetch(`https://cors-anywhere.herokuapp.com/http://api.wordnik.com:80/v4/words.json/wordOfTheDay?api_key=${wordnikKey}`)
     .then(wordnikResponse => wordnikResponse.json())
     .then(wordnikResponse => {
