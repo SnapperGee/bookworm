@@ -22,20 +22,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to create a book card
     function createBookCard(book: Book): HTMLElement {
         const card = document.createElement('div');
-        card.className = 'bg-tan p-4 rounded-lg shadow-md flex flex-col justify-center items-center';
+        card.className = 'bg-tan p-4  flex flex-col justify-center items-center';
 
         // Create the HTML content of the book card,styling in the card
         card.innerHTML = `
         <div class="flex">
         <div class="flex-none">
-            <img src="${book.book_image}" alt="Cover of ${book.title}" class="w-15 h-auto mb-4">
+            <img src="${book.book_image}" alt="Cover of ${book.title}" class="w-4 h-4 mb-4">
         </div>
         <div class="flex-grow ml-4">
-            <div class="font-bold text-lg">${book.title}</div>
+            <div class="font-bold text-orange">${book.title}</div>
             <div class="mt-2">${book.description}</div>
             <div class="mt-4">
-                <div class="font-semibold">Author: ${book.author}</div>
-                <a class="mt-2 text-blue-500 underline cursor-pointer" href="${book.amazon_product_url}" target="_blank">Buy Book</a>
+                <div class="font-semibold text-green">Author: ${book.author}</div>
+                <a class="mt-2 text-orange cursor-pointer hover:text-pink" href="${book.amazon_product_url}" target="_blank">Buy Book</a>
             </div>
         </div>
     </div>
@@ -97,3 +97,4 @@ localStorage.setItem('cachedBooksData', JSON.stringify(booksData));
 });
 
 
+//agregar algo para cache expiration and Invalidation???
