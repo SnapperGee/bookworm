@@ -11,14 +11,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const apiUrl = `https://api.nytimes.com/svc/books/v3/lists/overview.json?published_date=${publishedDate}&api-key=${NY_TIMES_API_KEY}`;
     const bookListElement = document.getElementById('bookList');
 
-    // Function to create a book card
-    function createBookCard(book: {
+    interface Book {
         title: string;
         author: string;
         description: string;
         amazon_product_url: string;
         book_image: string;
-    }): HTMLElement {
+    }
+    
+    // Function to create a book card
+    function createBookCard(book: Book): HTMLElement {
         const card = document.createElement('div');
         card.className = 'bg-tan p-4 rounded-lg shadow-md flex flex-col justify-center items-center';
 
@@ -91,4 +93,7 @@ localStorage.setItem('cachedBooksData', JSON.stringify(booksData));
         .catch((error) => {
             console.error('Error fetching NY Times bestseller data:', error);
         });
+    }
 });
+
+
