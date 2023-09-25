@@ -50,7 +50,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const bookCard = createBookCard(book);
             bookListElement?.appendChild(bookCard);
         });
-
+    } else {
+        fetch(apiUrl)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
     // Get the New York Times bestseller data and display it
     fetch(apiUrl)
         .then((response) => {
