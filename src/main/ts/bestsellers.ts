@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         book_image: string;
     }): HTMLElement {
         const card = document.createElement('div');
-        card.className = 'bg-white p-4 rounded-lg shadow-md flex flex-col justify-center items-center';
+        card.className = 'bg-tan p-4 rounded-lg shadow-md flex flex-col justify-center items-center';
 
         // Create the HTML content of the book card,styling in the card
         card.innerHTML = `
