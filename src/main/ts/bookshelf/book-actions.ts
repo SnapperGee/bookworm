@@ -7,11 +7,11 @@ export function addIconsToBookCard(card: HTMLDivElement) {
     }
 
     const iconContainer = document.createElement("div");
-    iconContainer.classList.add("justify-end", "top-2", "right-2");
+    iconContainer.classList.add("flex", "justify-end", "top-2", "right-2");
     
     const heartIcon = document.createElement("img");
     heartIcon.src = heartPNGPath;
-    heartIcon.classList.add("inline-block", "mr-3");
+    heartIcon.classList.add("inline-block", "mr-3", "cursor-pointer");
     heartIcon.addEventListener("click", (e) => {
         e.stopPropagation(); // Prevent triggering other click events on the card
         saveBookToFavorites(card);
@@ -19,7 +19,7 @@ export function addIconsToBookCard(card: HTMLDivElement) {
 
     const downIcon = document.createElement("img");
     downIcon.src = downPNGPath;
-    downIcon.classList.add("inline-block");
+    downIcon.classList.add("inline-block", "cursor-pointer");
 
     iconContainer.appendChild(heartIcon);
     iconContainer.appendChild(downIcon);
