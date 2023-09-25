@@ -82,11 +82,5 @@ export const getRecommendationsEvent = (
         {
             saveResultsHTMLButton.classList.remove("hidden");
         }
-
-        // book icons code added here
-        const allBookCards = resultsCardsHTMLDiv.querySelectorAll('div');
-        allBookCards.forEach(card => {
-        addIconsToBookCard(card);
     });
-});
 }
