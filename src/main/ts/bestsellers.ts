@@ -49,14 +49,13 @@ document.addEventListener('DOMContentLoaded', function () {
         return card;
     }
       // Check if the data is already cached
-      const cachedBooksData = localStorage.getItem('cachedBooksData');
-      if (cachedBooksData) {
-         const booksData: Book[] = JSON.parse(cachedBooksData);
-        booksData.forEach((book) => {
+      const cachedBooksData =JSON.parse(localStorage.getItem('cachedBooksData')||'[]');
+      if (cachedBooksData.length>0) {
+         cachedBooksData.forEach((book:Book) => {
             const bookCard = createBookCard(book);
             bookListElement?.appendChild(bookCard);
         });
-        console.log("Using cached book data:", booksData);
+        console.log("Using cached book data:", cachedBooksData);
     } else {
         fetch(apiUrl)
             .then((response) => {
@@ -91,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
 localStorage.setItem('cachedBooksData', JSON.stringify(booksData));
 console.log("Fetched book data from API:", booksData);
             // Iterate through the book data and append book cards to the book list
-            booksData.forEach((book) => {
+            booksData.forEach((book:Book) => {
                 const bookCard = createBookCard(book);
                 bookListElement?.appendChild(bookCard); //4 possible null value
             });
