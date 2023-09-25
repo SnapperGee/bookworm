@@ -1,6 +1,6 @@
 // Assuming you have the heart.png and down.png images in your resources folder
-import heartPNGPath from "../../resources/heart.png";
-import downPNGPath from "../../resources/down.png";
+import heartPNGPath from "../../resource/img/heart.png";
+import downPNGPath from "../../resource/img/down.png";
 
 export function addIconsToBookCard(card: HTMLDivElement) {
     const iconContainer = document.createElement("div");
