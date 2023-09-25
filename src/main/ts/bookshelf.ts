@@ -10,6 +10,7 @@ const savedShelves = JSON.parse(localStorage.getItem('shelves') || '[]');
 for (const shelf of savedShelves) {
     if (shelf) { // Add a null check
         bodyHTML.append(createNewShelf(shelf.id, shelf.name, shelf.color));
+        displayShelfBooks(shelf.id);
     }
 }
 
@@ -38,5 +39,23 @@ function displayFavoriteBooks() {
 
 // Call the function when the page loads to display the favorite books.
 displayFavoriteBooks();
+
+function displayShelfBooks(shelfId: string) {
+    const shelfBooks: { title: string, author: string, cover: string }[] = JSON.parse(localStorage.getItem(`div[data-shelf-id="${shelfId}"]`) || "[]");
+
+    const rowList = document.querySelector('div[id^="row-list"]');
+
+    if (rowList) {
+        shelfBooks.forEach(book => {
+            const newBookCard = document.createElement('div');
+            newBookCard.innerHTML = `
+                <img src="${book.cover}" alt="${book.title}">
+                <p>${book.title}</p>
+                <span class="author">${book.author}</span>
+            `;
+            rowList.appendChild(newBookCard);
+        });
+    }
+}
 
 console.log("Bookshelf");
