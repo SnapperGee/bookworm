@@ -27,7 +27,7 @@ export function addIconsToBookCard(card: HTMLDivElement) {
 }
 
 function saveBookToFavorites(card: HTMLDivElement) {
-    const bookTitleElement = card.querySelector("p");
+    const bookTitleElement = card.querySelector("p") || card.querySelector(".font-bold.text-orange");
     const bookAuthorElement = card.querySelector(".author");
     const bookCoverElement = card.querySelector("img");
     if (bookCoverElement) {
