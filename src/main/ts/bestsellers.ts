@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function () {
         card.innerHTML = `
         <div class="flex">
         <div class="flex-none">
-            <img src="${book.book_image}" alt="Cover of ${book.title}" class="w-4 h-64 mb-4 shadow-xl shadow-cyan">
+            <img src="${book.book_image}" alt="Cover of ${book.title}" class="w-4 h-32 mb-4 shadow-xl shadow-cyan">
         </div>
         <div class="flex-grow ml-4">
             <div class="font-bold text-orange">${book.title}</div>
             <div class="font-semibold text-green">Author: ${book.author}</div>
             <div class="mt-2">${book.description}</div>
             <div class="mt-4">
-            <button class="rounded mt-2 text-orange hover:text-pink cursor-pointer" onclick="window.open('${book.amazon_product_url}', '_blank')">Buy Book</button>
+            <button class="rounded mt-2 text-white px-3 py-1 sm:px-6 sm:py-3 bg-orange cursor-pointer transition-opacity ease-out hover:ease-in" onclick="window.open('${book.amazon_product_url}', '_blank')">Buy Book</button>
             </div>
         </div>
     
@@ -100,6 +100,3 @@ console.log("Fetched book data from API:", booksData);
         });
     }
 });
-
-
-//agregar algo para cache expiration and Invalidation???
