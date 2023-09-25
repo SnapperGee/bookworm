@@ -42,7 +42,9 @@ document.addEventListener('DOMContentLoaded', function () {
     
         return card;
     }
-    
+      // Check if the data is already cached
+      const cachedBooksData = localStorage.getItem('cachedBooksData');
+      if (cachedBooksData) {
 
     // Get the New York Times bestseller data and display it
     fetch(apiUrl)
