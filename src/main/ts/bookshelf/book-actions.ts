@@ -44,12 +44,12 @@ function saveBookToFavorites(card: HTMLDivElement) {
     const bookAuthorElement = card.querySelector("p") || card.querySelector(".font-semibold .text-green") || card.querySelector(".text-center");
     const bookCoverElement = card.querySelector("img");
 
-    // Add null checks for each element
+
     const bookTitle = bookTitleElement ? bookTitleElement.textContent : "";
     const bookAuthor = bookAuthorElement ? bookAuthorElement.textContent : "";
     const bookCover = bookCoverElement ? bookCoverElement.src : "";
 
-    // Here, we're creating an object to store the book details.
+
     const favoriteBook = {
         title: bookTitle,
         author: bookAuthor,
@@ -96,7 +96,6 @@ function saveBookToShelf(card: HTMLDivElement, shelfName: string, savedShelves: 
         cover: bookCover
     };
 
-    // Find the shelf in savedShelves
     const targetShelf = savedShelves.find(shelf => shelf.name === shelfName);
     if (targetShelf) {
         if (!targetShelf.books) {
@@ -105,6 +104,5 @@ function saveBookToShelf(card: HTMLDivElement, shelfName: string, savedShelves: 
         targetShelf.books.push(bookData);
     }
 
-    // Update local storage
     localStorage.setItem('shelves', JSON.stringify(savedShelves));
 }

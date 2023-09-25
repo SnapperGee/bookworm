@@ -17,7 +17,6 @@ const savedShelves: Shelf[] = JSON.parse(localStorage.getItem('shelves') || '[]'
 for (const shelf of savedShelves) {
     if (shelf) { // Add a null check
         bodyHTML.append(createNewShelf(shelf.id, shelf.name, shelf.color));
-        displayBooksFromShelf(shelf.name);
     }
 }
 
@@ -46,27 +45,28 @@ function displayFavoriteBooks() {
 
 displayFavoriteBooks();
 
-function displayBooksFromShelf(shelfName: string) {
-    // Find the shelf in savedShelves
-    const targetShelf = savedShelves.find(shelf => shelf.name === shelfName);
-    const shelfBooks = targetShelf?.books || [];
+function displayNewShelfBooks() {
 
-    // Identify the container in your HTML where the books for this shelf should be displayed.
-    // Assuming each shelf container has an ID like "shelf-{shelfName}-container"
-    const shelfContainer = document.querySelector(`#${shelfName} .row-list`);
-        
-    // Loop through each book and create elements to display its details.
-    if (shelfContainer) {
-        shelfBooks.forEach(book => {
-            const bookCard = document.createElement('div');
-            bookCard.innerHTML = `
-                <img src="${book.cover}" alt="${book.title}">
-                <p>${book.title}</p>
-                <span class="author">${book.author}</span>
-            `;
-            shelfContainer.appendChild(bookCard);
-        });
+    for (const shelf of savedShelves) {
+
+        const shelfBooks = shelf.books || [];
+
+        const shelfContainer = document.querySelector(`.row-list`);
+
+        if (shelfContainer) {
+            for (const book of shelfBooks) {
+                const bookCard = document.createElement('div');
+                bookCard.innerHTML = `
+                    <img src="${book.cover}" alt="${book.title}" class="p-2.5 w-45 h-67.5 object-cover">
+                    <p>${book.title}</p>
+                    <span class="author">${book.author}</span>
+                `;
+                shelfContainer.appendChild(bookCard);
+            }
+        }
     }
 }
+
+displayNewShelfBooks();
 
 console.log("Bookshelf");

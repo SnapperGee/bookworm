@@ -27,5 +27,25 @@
     text-align: center;
     width: 100%;
     overflow: hidden;
-    max-width: 170px; // or any specific width you want to set
+    max-width: 170px; 
+}
+
+[id^="row-list"] .book-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+[id^="row-list"] img {
+    padding: 10px;
+    width: 180px; 
+    height: 270px;
+    object-fit: cover;
+}
+
+[id^="row-list"] p {
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    max-width: 170px; 
 }
