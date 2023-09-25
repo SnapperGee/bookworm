@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     book_image: bookInfo.book_image,
                 };
             });
-
+localStorage.setItem('cachedBooksData', JSON.stringify(booksData));
             // Iterate through the book data and append book cards to the book list
             booksData.forEach((book) => {
                 const bookCard = createBookCard(book);
