@@ -1,5 +1,6 @@
 import noImgAvailable from "../../resource/img/no_image_available.svg";
 import { CoverImgSize, OpenLibDoc, createOpenLibBookCoverImgUrl } from "./open-lib-api";
+import { addIconsToBookCard } from './bookActions';
 
 export function createBookResultCard(openLibDoc: OpenLibDoc): HTMLDivElement;
 export function createBookResultCard(title: string, coverId?: number, author?: string, subjects?: string[]): HTMLDivElement;
@@ -55,6 +56,9 @@ export function createBookResultCard(titleStringOrOpenLibDoc: string | OpenLibDo
     cardDivElement.appendChild(authorPElement);
     cardDivElement.appendChild(subjectsTextPElement);
     cardDivElement.appendChild(subjectsPElement);
+
+    // Add the icons to the card
+    addIconsToBookCard(cardDivElement);
 
     return cardDivElement;
 }

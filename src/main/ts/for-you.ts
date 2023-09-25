@@ -9,6 +9,7 @@ import { getRecommendationsEvent } from "./for-you/get-recommendations-event";
 import { clearSubjectsEvent } from "./for-you/clear-subjects-event";
 import { clearResultsButtonEvent } from "./for-you/clear-results-button-event";
 import { saveResultsButtonEvent } from "./for-you/save-results-button-event";
+import { addIconsToBookCard } from "./for-you/bookActions";
 
 const bodyHTML: HTMLElement = document.querySelector('body') as HTMLElement;
 bodyHTML.prepend(createNavbar());
