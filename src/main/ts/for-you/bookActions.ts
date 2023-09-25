@@ -1,15 +1,15 @@
 // Assuming you have the heart.png and down.png images in your resources folder
-const HEART_ICON_URL = "../../resource/img/heart.png";
-const DOWN_ICON_URL = "../../resource/img/down.png";
+import heartPNGPath from "../../resources/heart.png";
+import downPNGPath from "../../resources/down.png";
 
 export function addIconsToBookCard(card: HTMLDivElement) {
     const iconContainer = document.createElement("div");
-    iconContainer.style.position = "absolute";
+    iconContainer.style.position = "relative";
     iconContainer.style.top = "10px";
     iconContainer.style.right = "10px";
     
     const heartIcon = document.createElement("img");
-    heartIcon.src = HEART_ICON_URL;
+    heartIcon.src = heartPNGPath;
     heartIcon.style.marginRight = "5px";
     heartIcon.addEventListener("click", (e) => {
         e.stopPropagation(); // Prevent triggering other click events on the card
@@ -17,7 +17,7 @@ export function addIconsToBookCard(card: HTMLDivElement) {
     });
 
     const downIcon = document.createElement("img");
-    downIcon.src = DOWN_ICON_URL;
+    downIcon.src = downPNGPath;
 
     iconContainer.appendChild(heartIcon);
     iconContainer.appendChild(downIcon);
