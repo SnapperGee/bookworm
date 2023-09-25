@@ -28,17 +28,17 @@ document.addEventListener('DOMContentLoaded', function () {
         card.innerHTML = `
         <div class="flex">
         <div class="flex-none">
-            <img src="${book.book_image}" alt="Cover of ${book.title}" class="w-4 h-4 mb-4">
+            <img src="${book.book_image}" alt="Cover of ${book.title}" class="w-4 h-64 mb-4 shadow-xl shadow-cyan">
         </div>
         <div class="flex-grow ml-4">
             <div class="font-bold text-orange">${book.title}</div>
+            <div class="font-semibold text-green">Author: ${book.author}</div>
             <div class="mt-2">${book.description}</div>
             <div class="mt-4">
-                <div class="font-semibold text-green">Author: ${book.author}</div>
-                <a class="mt-2 text-orange cursor-pointer hover:text-pink" href="${book.amazon_product_url}" target="_blank">Buy Book</a>
+            <button class="rounded mt-2 text-orange hover:text-pink cursor-pointer" onclick="window.open('${book.amazon_product_url}', '_blank')">Buy Book</button>
             </div>
         </div>
-    </div>
+    
     
         `;
     
@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const bookCard = createBookCard(book);
             bookListElement?.appendChild(bookCard);
         });
+        console.log("Using cached book data:", booksData);
     } else {
         fetch(apiUrl)
             .then((response) => {
@@ -84,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 };
             });
 localStorage.setItem('cachedBooksData', JSON.stringify(booksData));
+console.log("Fetched book data from API:", booksData);
             // Iterate through the book data and append book cards to the book list
             booksData.forEach((book) => {
                 const bookCard = createBookCard(book);
