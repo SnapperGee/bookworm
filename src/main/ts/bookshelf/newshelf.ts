@@ -22,7 +22,6 @@ export const createNewShelf = (shelfId: string, shelfName: string, colorClass: s
 
     playlistContainer.appendChild(playlistHeader);
     playlistHeader.appendChild(playlistName);
-    playlistName.appendChild(playlistEdit);
     playlistContainer.appendChild(playlistBooks);
 
     return playlistContainer;

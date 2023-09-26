@@ -21,15 +21,13 @@ for (const shelf of savedShelves) {
 }
 
 createModalHandler(false);
-// editModalHandler(false);
+
 
 function displayFavoriteBooks() {
-    // Fetch the saved favorite books from local storage.
+
     const favoriteBooks: { title: string, author: string, cover: string }[] = JSON.parse(localStorage.getItem("favoriteBooks") || "[]");
 
-    // Identify the container in your HTML where the favorite books should be displayed.
     const rowContainer = document.getElementById("row-container");
-    // Loop through each favorite book and create elements to display its details.
     if (rowContainer) {
         favoriteBooks.forEach(book => {
             const bookCard = document.createElement('div');
