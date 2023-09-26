@@ -43,7 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
         `;
     
-        addIconsToBookCard(card);
+        const savedShelves: any[] = JSON.parse(localStorage.getItem('shelves') || '[]');
+        addIconsToBookCard(card, savedShelves);
 
         return card;
     }

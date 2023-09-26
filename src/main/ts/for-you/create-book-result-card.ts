@@ -57,7 +57,8 @@ export function createBookResultCard(titleStringOrOpenLibDoc: string | OpenLibDo
     cardDivElement.appendChild(subjectsTextPElement);
     cardDivElement.appendChild(subjectsPElement);
 
-    addIconsToBookCard(cardDivElement);
+    const savedShelves: any[] = JSON.parse(localStorage.getItem('shelves') || '[]');
+    addIconsToBookCard(cardDivElement, savedShelves);
 
     return cardDivElement;
 }
