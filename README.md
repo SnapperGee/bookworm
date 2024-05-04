@@ -22,10 +22,10 @@ interests. Our application is built on a polished UI, utilizing tailwindcss for 
 
 ### Technologies Used
 
-* Frontend: HTML, JavaScript (TypeScript for type checking)
-* CSS Framework: Tailwind CSS
-* Frontend Build Tool: Webpack
-* Backend: Node.js
+* TypeScript
+* Tailwind CSS
+* Webpack
+* Node.js
 * Server-Side APIs: [NY Times](https://developer.nytimes.com/apis), [OpenLibrary](https://openlibrary.org/developers)
 * Deployment: [Bookworm](https://snappergee.github.io/bookworm/)
 * Client-Side Storage: Local storage for reading history and preferences
